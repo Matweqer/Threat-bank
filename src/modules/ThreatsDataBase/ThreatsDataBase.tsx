@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import './ThreatsDataBase.scss'
 
 const ThreatsDataBase: FC = () => {
   return (

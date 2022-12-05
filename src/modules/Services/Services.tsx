@@ -1,9 +1,10 @@
 import React, { FC } from 'react'
+import './Services.scss'
 
 const Services: FC = () => {
   return (
     <div>
-      Servives page
+      Services page
     </div>
   )
 }

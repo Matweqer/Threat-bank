@@ -1,0 +1,5 @@
+@import 'src/assets/scss/index.scss';
+
+.home {
+  @include main-font(50px, 400)
+}
