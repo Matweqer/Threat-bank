@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import './Services.scss'
+import './Services.module.scss'
 
 const Services: FC = () => {
   return (

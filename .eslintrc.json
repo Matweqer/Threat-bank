@@ -63,6 +63,7 @@
         "semi": ["error", "never"],
         "@typescript-eslint/semi": "off",
         "no-unexpected-multiline": "error",
-        "no-multiple-empty-lines": "off"
+        "no-multiple-empty-lines": "off",
+        "@typescript-eslint/consistent-type-definitions": "off"
     }
 }

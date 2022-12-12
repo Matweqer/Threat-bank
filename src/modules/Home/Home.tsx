@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
-import './Home.scss'
+// import styles from './home.module.scss'
 
 const Home: FC = () => {
   return (
-    <div className='home' >
-      Home page here!
+    <div>
+      Home page
     </div>
   )
 }
