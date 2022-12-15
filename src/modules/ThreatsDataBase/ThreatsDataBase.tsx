@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react'
 
-import { TdbItem } from '../../shared/components'
+import { TdbItem } from 'shared/components'
 import { ROUTES } from 'shared/constants'
 
 import Object from 'assets/images/Tdb/Object.png'
