@@ -12,10 +12,10 @@ import {
   AttackItem,
   ObjectsList,
   ObjectItem, VulnerabilitiesList, VulnerabilityItem, RisksList, RiskItem, NotFound
-} from './modules'
-import { ROUTES } from './shared/constants'
-import { ThreatsList } from './modules/ThreatsList'
-import { ThreatItem } from './modules/ThreatItem'
+} from 'modules'
+import { ROUTES } from 'shared/constants'
+import { ThreatsList } from 'modules/ThreatsList'
+import { ThreatItem } from 'modules/ThreatItem'
 
 const App: FC = () => {
   return (
