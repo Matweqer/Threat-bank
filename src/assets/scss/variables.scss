@@ -6,14 +6,23 @@ $font-main: 'Raleway', sans-serif;
 
 @font-face {
   font-family: 'Raleway';
-  src: url('../fonts/Raleway-SemiBold.ttf') format('truetype');
+  src: url('../fonts/Raleway-SemiBold.eot');
+  src: url('../fonts/Raleway-SemiBold.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Raleway-SemiBold.woff2') format('woff2'),
+  url('../fonts/Raleway-SemiBold.woff') format('woff'),
+  url('../fonts/Raleway-SemiBold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Raleway';
-  src: url('../fonts/Raleway-Medium.ttf') format('truetype');
+  src: url('../fonts/Raleway-Medium.eot');
+  src: url('../fonts/Raleway-Medium.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Raleway-Medium.woff2') format('woff2'),
+  url('../fonts/Raleway-Medium.woff') format('woff'),
+  url('../fonts/Raleway-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -21,23 +30,35 @@ $font-main: 'Raleway', sans-serif;
 
 @font-face {
   font-family: 'Raleway';
-  src: url('../fonts/Raleway-ExtraBold.ttf') format('truetype');
-  font-weight: 900;
+  src: url('../fonts/Raleway-ExtraBold.eot');
+  src: url('../fonts/Raleway-ExtraBold.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Raleway-ExtraBold.woff2') format('woff2'),
+  url('../fonts/Raleway-ExtraBold.woff') format('woff'),
+  url('../fonts/Raleway-ExtraBold.ttf') format('truetype');
+  font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Raleway';
-  src: url('../fonts/Raleway-Bold.ttf') format('truetype');
-  font-weight: 800;
+  src: url('../fonts/Raleway-Bold.eot');
+  src: url('../fonts/Raleway-Bold.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Raleway-Bold.woff2') format('woff2'),
+  url('../fonts/Raleway-Bold.woff') format('woff'),
+  url('../fonts/Raleway-Bold.ttf') format('truetype');
+  font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Raleway';
-  src: url('../fonts/Raleway-Regular.ttf') format('truetype');
+  src: url('../fonts/Raleway-Regular.eot');
+  src: url('../fonts/Raleway-Regular.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Raleway-Regular.woff2') format('woff2'),
+  url('../fonts/Raleway-Regular.woff') format('woff'),
+  url('../fonts/Raleway-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -45,7 +66,11 @@ $font-main: 'Raleway', sans-serif;
 
 @font-face {
   font-family: 'Raleway';
-  src: url('../fonts/Raleway-Light.ttf') format('truetype');
+  src: url('../fonts/Raleway-Light.eot');
+  src: url('../fonts/Raleway-Light.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Raleway-Light.woff2') format('woff2'),
+  url('../fonts/Raleway-Light.woff') format('woff'),
+  url('../fonts/Raleway-Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;

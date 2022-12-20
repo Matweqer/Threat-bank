@@ -11,8 +11,8 @@ interface TdbItemProps {
 const TdbItem: FC<TdbItemProps> = ({ title, image, url }) => {
   return (
     <Link to={url} className={s.box}>
-      <img src={image} alt={'image'} />
-      <h2> {title}</h2>
+      <img className={s.image} src={image} alt={'image'} />
+      <h2 className={s.title}> {title}</h2>
     </Link>
   )
 }
