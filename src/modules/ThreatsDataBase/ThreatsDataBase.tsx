@@ -10,7 +10,7 @@ import Threat from 'assets/images/Tdb/Threat.png'
 import Risk from 'assets/images/Tdb/Risk.png'
 import Vulnerability from 'assets/images/Tdb/Vulnerability.png'
 
-import './ThreatsDataBase.scss'
+import s from './ThreatsDataBase.module.scss'
 
 interface ITdbItem {
   id: number
@@ -18,7 +18,6 @@ interface ITdbItem {
   title: string
   url: string
 }
-
 
 const ThreatsDataBase: FC = () => {
   const [tdbItems] = useState<ITdbItem[]>([
@@ -35,9 +34,12 @@ const ThreatsDataBase: FC = () => {
   )
 
   return (
-    <>
-      {ItemsTile}
-    </>
+    <div className={s.content}>
+      <div className={s.tileContainer}>
+        {ItemsTile}
+      </div>
+    </div>
+
   )
 }
 
