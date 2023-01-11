@@ -1,6 +1,8 @@
 export default {
   home: '/',
 
+  login: '/login',
+
   services: '/services',
 
   tdo: '/threats-data-base',
