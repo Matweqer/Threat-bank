@@ -21,7 +21,6 @@ import { RequiredAuth } from './shared/layout/RequiredAuth'
 import { ROUTES } from 'shared/constants'
 import { store } from './store'
 
-
 const App: FC = () => {
   return (
     <Provider store={store}>

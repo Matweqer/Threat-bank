@@ -11,7 +11,6 @@ interface ILoginResponse {
   access_token: string
   refresh_toke: string
   user: IUser
-
 }
 
 interface IAuthService {
