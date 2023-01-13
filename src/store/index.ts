@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { object } from './Object'
+import { sfc } from './SFC'
 
 export const store = configureStore({
   reducer: {
-    object
+    sfc
   }
 })
 
