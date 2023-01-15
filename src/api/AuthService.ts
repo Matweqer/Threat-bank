@@ -14,16 +14,15 @@ interface ILoginResponse {
 }
 
 interface IAuthService {
-  login: (email: string, password: string) => Promise<ILoginResponse | undefined>
+  login: (email: string, password: string) => Promise<void>
 }
 
 class AuthService implements IAuthService {
-  async login (email: string, password: string): Promise<ILoginResponse | undefined> {
+  async login (email: string, password: string): Promise<void> {
     try {
-      const response: ILoginResponse = await api.post('auth/login/', { email, password })
+      const response = await api.post<ILoginResponse>('/auth/login/', { email, password })
       localStorage.setItem('isAuth', 'true')
-      localStorage.setItem('access', response.access_token)
-      return response
+      localStorage.setItem('access', response.data.access_token)
     } catch (e) {
       if (e instanceof Error) {
         console.log(e.message)
