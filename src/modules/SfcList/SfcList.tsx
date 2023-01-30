@@ -11,7 +11,8 @@ const SfcList: FC = () => {
     })().catch(e => console.log(e))
   }, [dispatch])
 
-  const sfc = useAppSelector(state => state.sfc.sfc)
+  const sfc = useAppSelector(state => state.sfc.results)
+  console.log(sfc)
 
   return (
     <div>

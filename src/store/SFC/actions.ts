@@ -3,12 +3,19 @@ import { api } from 'api'
 
 import { ISfc } from 'shared/types'
 
+interface IResponse {
+  count: number
+  next: string | null
+  previous: string | null
+  results: ISfc[]
+}
+
 interface MyKnownError {
   errorMessage: string
 }
 
 export const axiosGetSfc = createAsyncThunk<
-ISfc[],
+IResponse,
 string | null,
 { rejectValue: MyKnownError }
 >(
@@ -19,6 +26,6 @@ string | null,
       return thunkApi.rejectWithValue((response.data) as MyKnownError)
     }
 
-    return response.data as ISfc[]
+    return response.data as IResponse
   }
 )

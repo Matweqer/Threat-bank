@@ -5,13 +5,19 @@ import { axiosGetSfc } from './actions'
 
 
 interface SfcState {
-  sfc: ISfc[]
+  count: number
+  next: string | null
+  previous: string | null
+  results: ISfc[]
   status: string | null
   error: string | null
 }
 
 const initialState: SfcState = {
-  sfc: [],
+  count: 0,
+  next: null,
+  previous: null,
+  results: [],
   status: null,
   error: null
 }
@@ -32,7 +38,11 @@ export const sfcSlice = createSlice({
         state.status = 'loading'
       })
       .addCase(axiosGetSfc.fulfilled, (state, action) => {
-        state.sfc = action.payload
+        const { count, next, previous, results } = action.payload
+        state.results = results
+        state.count = count
+        state.next = next
+        state.previous = previous
         state.status = 'resolved'
       })
       .addCase(axiosGetSfc.rejected, (state, action) => {
