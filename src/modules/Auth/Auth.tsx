@@ -18,7 +18,6 @@ const Auth: FC = () => {
 
   const handleSubmit = (event: React.FormEvent): void => {
     event.preventDefault()
-    console.log('submit')
     authService.login(login, password)
       .then(() => navigate(ROUTES.home))
       .catch(e => console.log(e))
