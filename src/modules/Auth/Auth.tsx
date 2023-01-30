@@ -1,15 +1,17 @@
 import React, { FC, useState } from 'react'
-import { authService } from 'api'
 import { useNavigate } from 'react-router-dom'
 import { ROUTES } from '../../shared/constants'
+import { useAppDispatch } from '../../store'
+import { axiosAuthLogin } from '../../store/Auth/actions'
 
 const Auth: FC = () => {
-  const [login, setLogin] = useState<string>('')
-  const [password, setPassword] = useState<string>('')
   const navigate = useNavigate()
+  const dispatch = useAppDispatch()
+  const [email, setEmail] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
 
   const handleLoginInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setLogin(event.target.value)
+    setEmail(event.target.value)
   }
 
   const handlePasswordInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -18,7 +20,7 @@ const Auth: FC = () => {
 
   const handleSubmit = (event: React.FormEvent): void => {
     event.preventDefault()
-    authService.login(login, password)
+    dispatch(axiosAuthLogin({ email, password }))
       .then(() => navigate(ROUTES.home))
       .catch(e => console.log(e))
   }
@@ -30,7 +32,7 @@ const Auth: FC = () => {
       <form onSubmit={handleSubmit}>
         <label>
           Логин
-          <input type='email' value={login} onChange={handleLoginInput} />
+          <input type='email' value={email} onChange={handleLoginInput} />
         </label>
 
         <label>

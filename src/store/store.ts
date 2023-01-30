@@ -2,11 +2,13 @@ import { configureStore } from '@reduxjs/toolkit'
 import { useDispatch, useSelector, TypedUseSelectorHook } from 'react-redux'
 
 import { sfc } from './SFC'
+import { auth } from './Auth'
 
 type AppDispatch = typeof store.dispatch
 
 export const store = configureStore({
   reducer: {
+    auth,
     sfc
   }
 })

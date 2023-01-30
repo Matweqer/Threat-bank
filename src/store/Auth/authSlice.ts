@@ -1,23 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit'
+import Cookies from 'js-cookie'
 
-import { ISfc } from 'shared/types'
-import { axiosGetSfc } from './actions'
+import { axiosAuthLogin } from './actions'
 
 
-interface SfcState {
-  sfc: ISfc[]
+interface AuthState {
+  isAuth: boolean
+  access: string | null
   status: string | null
   error: string | null
 }
 
-const initialState: SfcState = {
-  sfc: [],
+const initialState: AuthState = {
+  isAuth: false,
+  access: null,
   status: null,
   error: null
 }
 
 export const sfcSlice = createSlice({
-  name: 'sfc',
+  name: 'auth',
   initialState,
   reducers: {
     deleteStatusAndError: (state) => {
@@ -27,15 +29,19 @@ export const sfcSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      .addCase(axiosGetSfc.pending, state => {
+      .addCase(axiosAuthLogin.pending, state => {
         state.error = null
         state.status = 'loading'
       })
-      .addCase(axiosGetSfc.fulfilled, (state, action) => {
-        state.sfc = action.payload
+      .addCase(axiosAuthLogin.fulfilled, (state, action) => {
+        state.access = action.payload.access_token
+        Cookies.set('refresh', action.payload.refresh_token)
+        state.isAuth = true
         state.status = 'resolved'
       })
-      .addCase(axiosGetSfc.rejected, (state, action) => {
+      .addCase(axiosAuthLogin.rejected, (state, action) => {
+        state.isAuth = false
+        state.access = null
         if ((action.payload?.errorMessage) != null) {
           state.error = action.payload?.errorMessage
         }
@@ -47,4 +53,4 @@ export const sfcSlice = createSlice({
 
 export const { deleteStatusAndError } = sfcSlice.actions
 
-export const sfc = sfcSlice.reducer
+export const auth = sfcSlice.reducer
