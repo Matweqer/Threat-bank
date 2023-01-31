@@ -1,7 +1,10 @@
 import { AxiosError, AxiosHeaders, AxiosRequestConfig, AxiosResponse } from 'axios'
+import { store } from '../store'
 
 const onRequest = (config: AxiosRequestConfig): AxiosRequestConfig => {
-  const token: string | null = localStorage.getItem('access')
+  // const token: string | null = localStorage.getItem('access')
+  // const token = useAppSelector(state => state.auth.access)
+  const token = store.getState().auth.access
   if ((config.url?.includes('auth')) === false && token !== null) {
     (config.headers as AxiosHeaders).set('Authorization', `Bearer ${token}`)
   }

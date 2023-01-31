@@ -1,6 +1,8 @@
 import React, { FC, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from 'store'
-import { axiosGetSfc } from '../../store/SFC/actions'
+import { axiosGetSfc } from 'store/SFC/actions'
+import { List } from 'shared/components'
+
 
 const SfcList: FC = () => {
   const dispatch = useAppDispatch()
@@ -16,7 +18,7 @@ const SfcList: FC = () => {
 
   return (
     <div>
-      список сфх
+      <List items={sfc}/>
     </div>
   )
 }

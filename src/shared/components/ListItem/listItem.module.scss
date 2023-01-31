@@ -1,0 +1,27 @@
+.link {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 1174px;
+  min-height: 64px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  margin: 12px 0;
+}
+
+.color {
+  height: 64px;
+  width: 16px;
+  border-radius: 20px 0 0 20px;
+}
+
+.id {
+  height: 100%;
+  margin-left: 20px;
+}
+
+.name {
+  height: 100%;
+  margin-left: 20px;
+}
