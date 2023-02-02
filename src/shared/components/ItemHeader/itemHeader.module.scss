@@ -1,0 +1,15 @@
+@import "src/assets/scss/index";
+
+.header {
+  min-width: 1144px;
+  height: 40px;
+}
+
+.title {
+  color: $color-main;
+  @include main-font(36px, 700)
+}
+
+.id {
+  @include main-font(24px, 300)
+}

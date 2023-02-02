@@ -1,0 +1,19 @@
+.table {
+  display: flex;
+  flex-direction: column;
+  min-width: 1144px;
+  padding: 32px 14px;
+}
+
+.row {
+  display: flex;
+}
+
+.name {
+  border-bottom: 1px solid black;
+}
+
+.value {
+  border-left: 1px solid black;
+}
+

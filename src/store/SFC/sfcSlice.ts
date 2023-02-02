@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 import { ISfc } from 'shared/types'
-import { axiosGetSfc } from './actions'
+import { axiosGetSfc, axiosGetSfcItem } from './actions'
 
 
 interface SfcState {
@@ -9,6 +9,7 @@ interface SfcState {
   next: string | null
   previous: string | null
   results: ISfc[]
+  currentSfc: ISfc | null
   status: string | null
   error: string | null
 }
@@ -18,6 +19,7 @@ const initialState: SfcState = {
   next: null,
   previous: null,
   results: [],
+  currentSfc: null,
   status: null,
   error: null
 }
@@ -46,6 +48,22 @@ export const sfcSlice = createSlice({
         state.status = 'resolved'
       })
       .addCase(axiosGetSfc.rejected, (state, action) => {
+        if ((action.payload?.errorMessage) != null) {
+          state.error = action.payload?.errorMessage
+        }
+        state.status = 'rejected'
+      })
+
+    builder
+      .addCase(axiosGetSfcItem.pending, state => {
+        state.error = null
+        state.status = 'loading'
+      })
+      .addCase(axiosGetSfcItem.fulfilled, (state, action) => {
+        state.currentSfc = action.payload
+        state.status = 'resolved'
+      })
+      .addCase(axiosGetSfcItem.rejected, (state, action) => {
         if ((action.payload?.errorMessage) != null) {
           state.error = action.payload?.errorMessage
         }

@@ -13,11 +13,11 @@ export interface ISfc {
   evaluation_object: IEvaluation_object
   name: string
   description: string
-  name_in_system?: string
-  version?: string
+  name_in_system: string
+  version: string
   criticality_level: number
   destabilization_level: number
   archetypes: string
-  certificate_validity_date?: string
+  certificate_validity_date: string
 }
 

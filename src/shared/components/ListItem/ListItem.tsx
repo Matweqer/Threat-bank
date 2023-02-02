@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Link, useResolvedPath } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import s from './listItem.module.scss'
 

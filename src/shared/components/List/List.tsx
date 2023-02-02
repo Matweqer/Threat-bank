@@ -1,14 +1,13 @@
 import React, { FC } from 'react'
 
 import { ListItem } from '../ListItem'
-import { ISfc } from 'shared/types'
 
 import s from './list.module.scss'
+import { ListItemsTypes } from 'shared/types'
 
-type ListTypes = ISfc;
 
 interface ListProps {
-  items: ListTypes[]
+  items: ListItemsTypes[]
 }
 
 const List: FC<ListProps> = ({ items }) => {
