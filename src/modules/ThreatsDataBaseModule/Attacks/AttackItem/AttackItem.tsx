@@ -1,15 +1,15 @@
 import React, { FC } from 'react'
 import { useParams } from 'react-router-dom'
-import { ItemParams } from '../../shared/types'
+import { ItemParams } from '../../../../shared/types'
 
-const ThreatItem: FC = () => {
+const AttackItem: FC = () => {
   const { id } = useParams<ItemParams>()
 
   return (
     <div>
-      {id}
+      Атака номер {id}
     </div>
   )
 }
 
-export { ThreatItem }
+export { AttackItem }

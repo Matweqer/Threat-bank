@@ -1,10 +1,10 @@
 import React, { FC, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ROUTES } from '../../shared/constants'
-import { useAppDispatch } from '../../store'
-import { axiosAuthLogin } from '../../store/Auth/actions'
+import { ROUTES } from '../../../shared/constants'
+import { useAppDispatch } from '../../../store'
+import { axiosAuthLogin } from '../../../store/Auth/actions'
 
-const Auth: FC = () => {
+const Login: FC = () => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const [email, setEmail] = useState<string>('')
@@ -47,4 +47,4 @@ const Auth: FC = () => {
   )
 }
 
-export { Auth }
+export { Login }

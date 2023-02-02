@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import { useParams } from 'react-router-dom'
-import { ItemParams } from '../../shared/types'
+import { ItemParams } from '../../../../shared/types'
 
-const RiskItem: FC = () => {
+const ObjectItem: FC = () => {
   const { id } = useParams<ItemParams>()
 
   return (
@@ -12,4 +12,4 @@ const RiskItem: FC = () => {
   )
 }
 
-export { RiskItem }
+export { ObjectItem }

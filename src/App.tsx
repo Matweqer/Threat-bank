@@ -12,7 +12,7 @@ import {
   VulnerabilitiesList, VulnerabilityItem,
   RisksList, RiskItem,
   ThreatsList, ThreatItem,
-  NotFound, Auth
+  NotFound, Login
 } from 'modules'
 
 import { DefaultLayout } from './shared/layout'
@@ -26,13 +26,14 @@ const App: FC = () => {
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path={ROUTES.login} element={<Auth/>}> </Route>
+          <Route path={ROUTES.login} element={<Login/>}> </Route>
 
           <Route path={'/'} element={<DefaultLayout/>} >
             <Route path={ROUTES.home} element={<Home />} />
 
             <Route element={<RequiredAuth/>}>
               <Route path={ROUTES.services} element={<Services/>} />
+
               <Route path={ROUTES.tdo} element={<ThreatsDataBase/>} />
               <Route path={ROUTES.objectsList} element={<ObjectsList/>} />
               <Route path={ROUTES.objectItem} element={<ObjectItem/>} />
