@@ -21,3 +21,9 @@
   align-items: center;
   justify-content: center;
 }
+
+@mixin flex-wrap-center {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
