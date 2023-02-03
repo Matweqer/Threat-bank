@@ -1,12 +1,12 @@
 import React, { FC, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { ItemParams } from 'shared/types'
+import { ItemInfoData, ItemParams, ItemTableData } from 'shared/types'
 
-import { ItemTable, ItemHeader, ItemTableData } from 'shared/components'
+import { ItemInfo } from 'shared/components'
 import { useAppDispatch, useAppSelector } from 'store'
 import { axiosGetSfcItem } from 'store/SFC/actions'
 
-import s from './SfcItem.module.scss'
+// import s from './SfcItem.module.scss'
 
 const SfcItem: FC = () => {
   const { id } = useParams<ItemParams>()
@@ -31,13 +31,19 @@ const SfcItem: FC = () => {
     { id: 8, name: 'Архетипы', value: sfcItem.archetypes }
   ]
 
+  const data: ItemInfoData | null = sfcItem && {
+    id: sfcItem.id,
+    name: sfcItem.name,
+    type: 'SFC',
+    table,
+    sources: [{ name: 'some source', link: 'vk.com' }],
+    articles: [{ name: 'some article', link: 'vk.com' }]
+  }
+
   return (
-    <div className={s.container}>
-      {sfcItem && <ItemHeader id={sfcItem.id} name={sfcItem.name} type={'SFC'}/>}
-
-      {table && <ItemTable table={table}/>}
-    </div>
-
+    <>
+      {data && <ItemInfo data={data}/>}
+    </>
   )
 }
 

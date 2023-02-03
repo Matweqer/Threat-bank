@@ -1,0 +1,28 @@
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 1174px;
+  max-width: 1174px;
+  margin: 0 auto;
+}
+
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 1174px;
+  background: #FFFFFF;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  margin: 80px auto 64px;
+}
+
+.sourceContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 1174px;
+}

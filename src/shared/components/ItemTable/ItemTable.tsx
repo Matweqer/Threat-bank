@@ -1,13 +1,8 @@
 import React, { FC } from 'react'
+import { ItemTableData } from 'shared/types'
 
 import s from './itemTable.module.scss'
 
-
-export interface ItemTableData {
-  id: number
-  name: string
-  value: string
-}
 
 interface ItemTableProps {
   table: ItemTableData[]

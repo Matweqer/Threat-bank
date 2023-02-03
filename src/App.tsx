@@ -15,11 +15,10 @@ import {
   NotFound, Login
 } from 'modules'
 
-import { DefaultLayout } from './shared/layout'
-import { RequiredAuth } from './shared/layout/RequiredAuth'
+import { DefaultLayout, RequiredAuth } from 'shared/layout'
 
 import { ROUTES } from 'shared/constants'
-import { store } from './store'
+import { store } from 'store'
 
 const App: FC = () => {
   return (
