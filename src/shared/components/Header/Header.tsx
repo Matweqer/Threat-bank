@@ -1,7 +1,8 @@
 import React, { FC, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
-import { ROUTES } from 'shared/constants'
+import { ActiveMenuItemElement } from './types'
+import { headerMenuList } from './constants'
 
 import LoginIcon from 'assets/images/Header/LoginIcon.png'
 import Logo from 'assets/images/Header/Logo.png'
@@ -10,40 +11,9 @@ import MenuActiveIcon from 'assets/images/Header/MenuActiveItem.png'
 
 import s from './Header.module.scss'
 
-type HeaderMenuItem = {
-  link: string
-  name: string
-}
-
-const HeaderMenuList: HeaderMenuItem[] = [
-  {
-    link: ROUTES.home,
-    name: 'Главная'
-  },
-  {
-    link: ROUTES.services,
-    name: 'Сервисы'
-  },
-  {
-    link: ROUTES.tdo,
-    name: 'Банк данных угроз'
-  }
-]
-
-type ActiveMenuItemElement = HeaderMenuItem & {
-  status: boolean
-}
 
 const Header: FC = () => {
-  const [activeElement, setActiveElement] = useState<ActiveMenuItemElement>()
-
-  const selectActiveElement = (element: HeaderMenuItem, status: boolean) => {
-    setActiveElement({
-      name: element.name,
-      link: element.link,
-      status
-    })
-  }
+  const [activeElement] = useState<ActiveMenuItemElement>()
 
   return (
     <header className={s.header}>
@@ -52,18 +22,11 @@ const Header: FC = () => {
       </div>
       <div className={s.menu}>
         {
-          HeaderMenuList.map((item, index) => {
+          headerMenuList.map((item) => {
             return (
-              <div className={s.menuItem} key={index}>
+              <div className={s.menuItem} key={item.id}>
                 <NavLink
-                  className={({ isActive }) => {
-                    if (isActive) {
-                      selectActiveElement(item, true)
-                      return s.menuItemActive
-                    } else {
-                      return ''
-                    }
-                  }}
+                className={({ isActive }) => (isActive ? s.menuItemActive : '')}
                   to={item.link}>
                     {item.name}
                 </NavLink>
