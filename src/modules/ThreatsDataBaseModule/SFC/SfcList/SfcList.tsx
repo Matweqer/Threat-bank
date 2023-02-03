@@ -18,7 +18,7 @@ const SfcList: FC = () => {
 
   return (
     <div>
-      <List items={sfc}/>
+      <List items={sfc} type={'SFC'}/>
     </div>
   )
 }

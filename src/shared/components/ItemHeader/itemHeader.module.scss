@@ -3,11 +3,13 @@
 .header {
   min-width: 1144px;
   height: 40px;
+  margin: 32px 16px 40px;
 }
 
 .title {
   color: $color-main;
-  @include main-font(36px, 700)
+  @include main-font(36px, 700);
+  margin-bottom: 24px;
 }
 
 .id {

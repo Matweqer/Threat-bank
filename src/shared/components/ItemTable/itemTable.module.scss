@@ -1,3 +1,5 @@
+@import 'src/assets/scss/index.scss';
+
 .table {
   display: flex;
   flex-direction: column;
@@ -7,13 +9,33 @@
 
 .row {
   display: flex;
+  min-height: 48px;
 }
 
 .name {
-  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+
+  @include main-font(20px, 800);
+  font-style: italic;
+  color: $color-main;
+
+  padding: 8px;
+  border-bottom: 0.5px solid $color-main;
+  width: 248px;
+  margin-right: 8px;
+  min-height: 48px;
 }
 
 .value {
-  border-left: 1px solid black;
+  @include main-font(20px, 500);
+  border-left: 0.5px solid $color-main;
+  width: 888px;
+  padding: 8px 24px;
+
+}
+.row:nth-child(odd) .value {
+  background: rgba(90, 192, 102, 0.25);
 }
 
