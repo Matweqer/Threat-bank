@@ -2,8 +2,103 @@
 
 .footer {
   width: 100%;
-  height: 150px;
+  height: 498px;
   margin-top: 60px;
   background: $color-main;
   flex: 0 0 auto;
+
+  &Content {
+    margin: 56px 0px 0px 0px;
+    @include flex-wrap-center;
+    gap: 93px;
+  }
+
+  &Row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &SocailMediaIcons{
+      @include flex-space-between;
+      width: 248px;
+      margin: 36px 0px 0px 0px;
+
+      &Item {
+          width: 30px;
+          height: 30px;
+          cursor: pointer;
+      }
+    }
+
+    &NameSite {
+      @include flex-center;
+      width: 264px;
+      height: 40px;
+      margin: 77px 0px 0px 0px;
+      background: rgba(90, 192, 102, 0.25);
+      border: 1px solid $color-white;
+      box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      & p {
+        font-family: 'Raleway';
+        font-weight: 300;
+        font-size: 24px;
+        color: $color-white;
+      }
+    }
+
+    &Copyright {
+      @include flex-wrap-center;
+      width: 104px ;
+      gap: 19px;
+      margin: 78px 0px 0px 0px;
+
+      &Icon {
+        padding: 3px 0px 0px 0px;
+        height: 24px;
+        width: 24px;
+      }
+
+      &Text {
+        @include flex-center;
+        & p {
+          font-family: 'Raleway';
+          font-weight: 400;
+          font-size: 24px;
+          color: $color-white;
+        }
+      }
+    }
+  }
+
+  &Column {
+    margin: 56px 0px 0px 0px;
+
+    &Separator{
+      width: 370px;
+      height: 0px;
+      border: 2px solid $color-white;
+    }
+
+    &Logo{
+      width: 248px;
+      height: 104px;
+    }
+
+    &Items{
+      @include flex-column-center;
+      margin: 40px 0px 0px 0px;
+    }
+
+    &Item {
+      margin: 8px 0px 0px 0px;
+      color: $color-white;
+      font-family: 'Raleway';
+      font-weight: 400;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  }
+
 }
+

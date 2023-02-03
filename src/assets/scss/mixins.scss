@@ -21,3 +21,20 @@
   align-items: center;
   justify-content: center;
 }
+
+@mixin flex-wrap-center {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@mixin flex-space-between{
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
