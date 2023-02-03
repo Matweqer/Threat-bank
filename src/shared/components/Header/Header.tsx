@@ -68,7 +68,7 @@ const Header: FC = () => {
                     {item.name}
                 </NavLink>
                 {
-                activeElement?.status && (
+                activeElement?.link === item.link && activeElement?.status && (
                   <div>
                     <img className={s.menuItemActiveIcon} src={MenuActiveIcon} />
                   </div>

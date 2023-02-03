@@ -12,53 +12,51 @@
   @include flex-wrap-center;
   margin: 10px 0px 0px 0px;
   gap: 48px;
-}
 
-
-.menuItem {
-  @include flex-wrap-center;
-  gap: 10px;
-  font-family: 'Raleway';
-  font-weight: 600;
-  font-size: 24px;
-  position: relative;
-  cursor: pointer;
-
-  &:hover {
-    color: $color-main;
-  }
-
-  &Active {
-    color: $color-main;
+  &Item {
+    @include flex-wrap-center;
+    gap: 10px;
+    font-family: 'Raleway';
+    font-weight: 600;
+    font-size: 24px;
     position: relative;
-    text-decoration: none;
+    cursor: pointer;
 
-    &Icon {
-      margin: 0px 0px 2px 0px;
+    &:hover {
+      color: $color-main;
     }
 
-    &::after {
-      content: "";
-      position: absolute;
-      width: 50px;
-      bottom: 28px;
-      height: 3px;
-      left: 2%;
-      background-color: $color-main;
-     
+    &Active {
+      color: $color-main;
+      position: relative;
+      text-decoration: none;
+
+      &Icon {
+        margin: 0px 0px 2px 0px;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 50px;
+        bottom: 28px;
+        height: 3px;
+        left: 2%;
+        background-color: $color-main;
+      
+      }
     }
   }
 }
-
 
 .iconsHeader {
   @include flex-wrap-center;
   margin: 10px 0px 0px 0px;
   gap: 28px;
-}
 
-.iconsHeaderItem {
-   cursor: pointer;
-   height: 32px;
-   width: 32px;
+  &Item {
+    cursor: pointer;
+    height: 32px;
+    width: 32px;
+  }
 }
