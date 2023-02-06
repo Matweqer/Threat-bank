@@ -1,11 +1,15 @@
 import React, { FC } from 'react'
 import { Link } from 'react-router-dom'
 
+import { ListTypes } from 'shared/types'
+
 import s from './listItem.module.scss'
+
 
 interface ListItemProps {
   id: number
   name: string
+  type: ListTypes
   impact_level?: number
   criticality_level?: number
   destabilization_level?: number
@@ -16,6 +20,7 @@ interface ListItemProps {
 const ListItem: FC<ListItemProps> = ({
   id,
   name,
+  type,
   impact_level,
   criticality_level,
   destabilization_level,
@@ -49,11 +54,9 @@ const ListItem: FC<ListItemProps> = ({
 
   return (
       <Link className={s.link} to={id.toString()}>
-        <div className={s.color} style={{ background: getColor() }}>
-
-        </div>
+        <div className={s.color} style={{ background: getColor() }}/>
         <div className={s.id}>
-          {id}
+          {type}-{id}.
         </div>
         <div className={s.name} >
           {name}

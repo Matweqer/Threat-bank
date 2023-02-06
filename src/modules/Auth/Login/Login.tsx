@@ -1,8 +1,7 @@
 import React, { FC, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ROUTES } from '../../../shared/constants'
-import { useAppDispatch } from '../../../store'
-import { axiosAuthLogin } from '../../../store/Auth/actions'
+import { useAppDispatch } from 'store'
+import { axiosAuthLogin } from 'store/Auth/actions'
 
 const Login: FC = () => {
   const navigate = useNavigate()
@@ -21,7 +20,7 @@ const Login: FC = () => {
   const handleSubmit = (event: React.FormEvent): void => {
     event.preventDefault()
     dispatch(axiosAuthLogin({ email, password }))
-      .then(() => navigate(ROUTES.home))
+      .then(() => navigate(-1))
       .catch(e => console.log(e))
   }
 
