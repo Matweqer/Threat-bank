@@ -5,15 +5,11 @@ import { axiosAuthLogin, axiosAuthRefresh } from './actions'
 
 
 interface AuthState {
-  isAuth: boolean
-  access: string | null
   status: string | null
   error: string | null
 }
 
 const initialState: AuthState = {
-  isAuth: false,
-  access: null,
   status: null,
   error: null
 }
@@ -34,14 +30,14 @@ export const sfcSlice = createSlice({
         state.status = 'loading'
       })
       .addCase(axiosAuthLogin.fulfilled, (state, action) => {
-        state.access = action.payload.access_token
         Cookies.set('refresh', action.payload.refresh_token)
-        state.isAuth = true
+        Cookies.set('access', action.payload.access_token)
+        Cookies.set('isAuth', 'true')
         state.status = 'resolved'
       })
       .addCase(axiosAuthLogin.rejected, (state, action) => {
-        state.isAuth = false
-        state.access = null
+        Cookies.set('access', '')
+        Cookies.set('isAuth', 'true')
         if ((action.payload?.errorMessage) != null) {
           state.error = action.payload?.errorMessage
         }
@@ -54,14 +50,14 @@ export const sfcSlice = createSlice({
         state.status = 'loading'
       })
       .addCase(axiosAuthRefresh.fulfilled, (state, action) => {
-        state.access = action.payload.access
         Cookies.set('refresh', action.payload.refresh)
-        state.isAuth = true
+        Cookies.set('access', action.payload.access)
+        Cookies.set('isAuth', 'true')
         state.status = 'resolved'
       })
       .addCase(axiosAuthRefresh.rejected, (state, action) => {
-        state.isAuth = false
-        state.access = null
+        Cookies.set('access', '')
+        Cookies.set('isAuth', 'true')
         if ((action.payload?.errorMessage) != null) {
           state.error = action.payload?.errorMessage
         }

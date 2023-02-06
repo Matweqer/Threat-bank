@@ -1,7 +1,6 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ROUTES } from 'shared/constants'
-import { useAppDispatch, useAppSelector } from 'store'
+import { useAppDispatch } from 'store'
 import { axiosAuthLogin } from 'store/Auth/actions'
 
 const Login: FC = () => {
