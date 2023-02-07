@@ -1,6 +1,7 @@
 export * from './TdbItem'
 export * from './Header'
 export * from './Footer'
+export * from './Breadcrumbs'
 
 export * from './List'
 export * from './ListItem'

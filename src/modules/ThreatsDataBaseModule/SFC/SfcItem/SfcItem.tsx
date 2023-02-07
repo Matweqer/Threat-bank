@@ -2,7 +2,7 @@ import React, { FC, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { ItemInfoData, ItemParams, ItemTableData } from 'shared/types'
 
-import { ItemInfo } from 'shared/components'
+import { Breadcrumbs, IBreadcrumb, ItemInfo } from 'shared/components'
 import { useAppDispatch, useAppSelector } from 'store'
 import { axiosGetSfcItem } from 'store/SFC/actions'
 
@@ -52,8 +52,24 @@ const SfcItem: FC = () => {
     articles: [{ name: 'some lorem article some lorem article // some lorem article/ some lorem article: some lorem article', link: 'https://ru.wikipedia.org/wiki/%D0%97%D0%B0%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0' }]
   }
 
+  const breadcrumbs: IBreadcrumb[] | null = sfcItem && [
+    {
+      name: 'База данных угроз',
+      link: '/threats-data-base'
+    },
+    {
+      name: 'СФХ',
+      link: '/threats-data-base/SFC'
+    },
+    {
+      name: sfcItem.name,
+      link: `/threats-data-base/SFC/${sfcItem.id}`
+    }
+  ]
+
   return (
     <>
+      {breadcrumbs && <Breadcrumbs breadcrumbs={breadcrumbs} />}
       {data && <ItemInfo data={data}/>}
     </>
   )

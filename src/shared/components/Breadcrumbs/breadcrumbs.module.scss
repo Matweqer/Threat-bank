@@ -1,0 +1,33 @@
+@import "src/assets/scss/index";
+
+.breadcrumbs {
+  margin: 80px 0;
+}
+
+.breadcrumb {
+  @include main-font(20px, 400);
+  color: $color-dark-green;
+}
+
+.breadcrumb:hover {
+  text-shadow: 0 0 1px $color-main ;
+}
+
+.breadcrumb::after {
+  content: '/';
+}
+
+.breadcrumb:last-child {
+  pointer-events: none;
+  сursor: default;
+  color: black;
+}
+
+.breadcrumb:last-child:hover {
+  text-shadow: none;
+}
+
+.breadcrumb:last-child::after {
+  content: '';
+}
+
