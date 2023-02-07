@@ -7,8 +7,10 @@ import { ROUTES } from 'shared/constants'
 const RequiredAuth: FC = () => {
   const location = useLocation()
   const isAuth = Cookies.get('isAuth') === 'true'
+  const access = Cookies.get('access')
+  console.log(access)
 
-  if (!isAuth) return <Navigate to={ROUTES.login} state={{ from: location }} />
+  if (!isAuth || !access) return <Navigate to={ROUTES.login} state={{ from: location }} />
   return <Outlet />
 }
 
