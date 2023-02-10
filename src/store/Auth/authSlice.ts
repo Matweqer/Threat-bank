@@ -57,7 +57,7 @@ export const sfcSlice = createSlice({
       })
       .addCase(axiosAuthRefresh.rejected, (state, action) => {
         Cookies.set('access', '')
-        Cookies.set('isAuth', 'true')
+        Cookies.set('isAuth', 'false')
         if ((action.payload?.errorMessage) != null) {
           state.error = action.payload?.errorMessage
         }

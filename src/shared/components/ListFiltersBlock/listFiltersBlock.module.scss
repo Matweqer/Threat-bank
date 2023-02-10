@@ -1,0 +1,38 @@
+@import "src/assets/scss/index";
+
+
+.settingsContainer {
+  display: flex;
+  align-items: center;
+  @include main-font(20px, 500);
+  margin: 80px 0;
+}
+
+.selectContainer {
+  display: flex;
+  align-items: center;
+}
+
+.select {
+  margin-left: 16px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-left: 56px;
+  &Button {
+    width: 24px;
+    height: 24px;
+    border: none;
+    outline: none;
+    background-color: #FFFFFF;
+    @include main-font(20px, 500);
+    margin-right: 13px;
+  }
+}
+
+
+.create-card {
+
+}

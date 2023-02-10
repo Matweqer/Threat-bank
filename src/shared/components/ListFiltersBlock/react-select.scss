@@ -1,0 +1,34 @@
+
+.custom-select {
+  &__control {
+    width: 208px !important;
+    height: 40px !important;
+    background: #FFFFFF !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 25px !important;
+    cursor: pointer !important;
+
+  }
+  &__control:active {
+    border: 1px solid rgba(0, 0, 0, 0.5) !important;
+  }
+  &__indicator-separator {
+    display: none !important;
+  }
+
+  &__menu {
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  &__option--is-focused {
+    background: rgba(217, 217, 217, 0.5) !important;
+
+  }
+  &__option--is-selected {
+    background: rgba(217, 217, 217, 0.8) !important;
+    color: black !important;
+  }
+}

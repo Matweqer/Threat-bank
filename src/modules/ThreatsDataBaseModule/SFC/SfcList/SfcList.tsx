@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from 'store'
 import { axiosGetSfc } from 'store/SFC/actions'
-import { List, Breadcrumbs, IBreadcrumb } from 'shared/components'
+import { List, Breadcrumbs, IBreadcrumb, ListFiltersBlock } from 'shared/components'
 
 
 const SfcList: FC = () => {
@@ -14,7 +14,6 @@ const SfcList: FC = () => {
   }, [dispatch])
 
   const sfc = useAppSelector(state => state.sfc.results)
-  console.log(sfc)
 
   const breadcrumbs: IBreadcrumb[] = [
     {
@@ -30,6 +29,7 @@ const SfcList: FC = () => {
   return (
     <div>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <ListFiltersBlock/>
       <List items={sfc} type={'SFC'}/>
     </div>
   )
