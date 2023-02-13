@@ -11,16 +11,17 @@ import { axiosGetSfc } from 'store/SFC/actions'
 const SfcList: FC = () => {
   const [sortType, setSortType] = useState<ISortType>(sortTypes[0])
   const [search, setSearch] = useState<string>('')
-  const [pagination, setPagination] = useState<number>(10)
+  const [limit, setLimit] = useState<number>(10)
 
   const dispatch = useAppDispatch()
 
 
   useEffect(() => {
     (async () => {
-      await dispatch(axiosGetSfc(null))
+      await dispatch(axiosGetSfc({ limit }))
     })().catch(e => console.log(e))
-  }, [dispatch])
+  }, [dispatch, limit])
+
 
   const sfc = useAppSelector(state => state.sfc.results)
 
@@ -41,10 +42,10 @@ const SfcList: FC = () => {
       <ListFiltersBlock
         sortType={sortType}
         search={search}
-        pagination={pagination}
+        pagination={limit}
         setSortType={setSortType}
         setSearch={setSearch}
-        setPagination={setPagination}
+        setPagination={setLimit}
       />
       <List items={sfc} type={'SFC'}/>
     </div>

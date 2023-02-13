@@ -3,8 +3,8 @@ import Select from 'react-select'
 import classNames from 'classnames'
 
 import { ListSearch } from 'shared/components'
-import { sortTypes, paginationList } from 'shared/constants'
-import { ISortType, IPaginationElement } from 'shared/types'
+import { sortTypes, limitList } from 'shared/constants'
+import { ISortType, ILimitElement } from 'shared/types'
 
 import s from './listFiltersBlock.module.scss'
 import './react-select.scss'
@@ -31,8 +31,8 @@ const ListFiltersBlock: FC<ListFiltersBlockProps> = ({
     setSearch(event.target.value)
   }
 
-  const handlePagination = (item: IPaginationElement) => {
-    paginationList.forEach((p) => (p.isActive = false))
+  const handlePagination = (item: ILimitElement) => {
+    limitList.forEach((p) => (p.isActive = false))
     item.isActive = true
     setPagination(Number(item.value))
   }
@@ -41,11 +41,10 @@ const ListFiltersBlock: FC<ListFiltersBlockProps> = ({
     if (item) setSortType(item)
   }
 
-  const paginationButtonClasses = (item: IPaginationElement) => classNames({
+  const paginationButtonClasses = (item: ILimitElement) => classNames({
     [s.paginationButton]: true,
     [s.buttonIsActive]: item.isActive
   })
-
 
   return (
     <div>
@@ -68,7 +67,7 @@ const ListFiltersBlock: FC<ListFiltersBlockProps> = ({
 
         {/* TODO create pagination component */}
         <div className={s.pagination}>
-          {paginationList.map((item, index) => (
+          {limitList.map((item, index) => (
             <button
               onClick={() => handlePagination(item)}
               className={paginationButtonClasses(item)}

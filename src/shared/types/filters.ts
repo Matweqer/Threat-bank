@@ -3,7 +3,7 @@ export interface ISortType {
   value: string
 }
 
-export interface IPaginationElement {
+export interface ILimitElement {
   value: string
   isActive: boolean
 }

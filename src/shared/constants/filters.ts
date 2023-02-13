@@ -1,4 +1,4 @@
-import { IPaginationElement, ISortType } from 'shared/types'
+import { ILimitElement, ISortType } from 'shared/types'
 
 export const sortTypes: ISortType[] = [
   {
@@ -15,7 +15,7 @@ export const sortTypes: ISortType[] = [
   }
 ]
 
-export const paginationList: IPaginationElement[] = [
+export const limitList: ILimitElement[] = [
   {
     value: '10',
     isActive: true
