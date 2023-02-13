@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 
 import { ActiveMenuItemElement } from './types'
 import { headerMenuList } from './constants'
@@ -13,7 +13,7 @@ import s from './Header.module.scss'
 
 
 const Header: FC = () => {
-  const [activeElement] = useState<ActiveMenuItemElement>()
+  const { pathname } = useLocation()
 
   return (
     <header className={s.header}>
@@ -31,7 +31,7 @@ const Header: FC = () => {
                     {item.name}
                 </NavLink>
                 {
-                activeElement?.link === item.link && activeElement?.status && (
+                pathname === item.link && (
                   <div>
                     <img className={s.menuItemActiveIcon} src={MenuActiveIcon} />
                   </div>
