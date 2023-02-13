@@ -1,11 +1,20 @@
-import React, { FC, useEffect } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from 'store'
-import { axiosGetSfc } from 'store/SFC/actions'
+
 import { List, Breadcrumbs, IBreadcrumb, ListFiltersBlock } from 'shared/components'
+import { ISortType } from 'shared/types'
+import { sortTypes } from 'shared/constants'
+
+import { axiosGetSfc } from 'store/SFC/actions'
 
 
 const SfcList: FC = () => {
+  const [sortType, setSortType] = useState<ISortType>(sortTypes[0])
+  const [search, setSearch] = useState<string>('')
+  const [pagination, setPagination] = useState<number>(10)
+
   const dispatch = useAppDispatch()
+
 
   useEffect(() => {
     (async () => {
@@ -29,7 +38,14 @@ const SfcList: FC = () => {
   return (
     <div>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
-      <ListFiltersBlock/>
+      <ListFiltersBlock
+        sortType={sortType}
+        search={search}
+        pagination={pagination}
+        setSortType={setSortType}
+        setSearch={setSearch}
+        setPagination={setPagination}
+      />
       <List items={sfc} type={'SFC'}/>
     </div>
   )

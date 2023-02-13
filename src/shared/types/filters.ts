@@ -1,4 +1,4 @@
-export interface ISelectMenuItem {
+export interface ISortType {
   label: string
   value: string
 }

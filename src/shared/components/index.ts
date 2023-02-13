@@ -7,7 +7,6 @@ export * from './List'
 export * from './ListItem'
 export * from './ListFiltersBlock'
 export * from './ListSearch'
-export * from './ListSelect'
 
 export * from './ItemTable'
 export * from './ItemHeader'

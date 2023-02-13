@@ -1,20 +1,32 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import Select from 'react-select'
 import classNames from 'classnames'
 
 import { ListSearch } from 'shared/components'
-import { selectMenu, paginationList } from './constants'
-import { ISelectMenuItem, IPaginationElement } from './types'
+import { sortTypes, paginationList } from 'shared/constants'
+import { ISortType, IPaginationElement } from 'shared/types'
 
 import s from './listFiltersBlock.module.scss'
 import './react-select.scss'
 
+interface ListFiltersBlockProps {
+  sortType: ISortType
+  search: string
+  pagination: number
 
-const ListFiltersBlock: FC = () => {
-  const [selectedValue, setSelectedValue] = useState<ISelectMenuItem>(selectMenu[0])
-  const [search, setSearch] = useState<string>('')
-  const [pagination, setPagination] = useState<number>(10)
+  setSortType: (value: ISortType) => void
+  setSearch: (value: string) => void
+  setPagination: (value: number) => void
+}
 
+const ListFiltersBlock: FC<ListFiltersBlockProps> = ({
+  sortType,
+  search,
+  pagination,
+  setSortType,
+  setPagination,
+  setSearch
+}) => {
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value)
   }
@@ -25,14 +37,15 @@ const ListFiltersBlock: FC = () => {
     setPagination(Number(item.value))
   }
 
-  const handleSelect = (item: ISelectMenuItem | null) => {
-    if (item) setSelectedValue(item)
+  const handleSelect = (item: ISortType | null) => {
+    if (item) setSortType(item)
   }
 
   const paginationButtonClasses = (item: IPaginationElement) => classNames({
     [s.paginationButton]: true,
     [s.buttonIsActive]: item.isActive
   })
+
 
   return (
     <div>
@@ -45,12 +58,13 @@ const ListFiltersBlock: FC = () => {
           <Select
             onChange={handleSelect}
             className={s.select}
-            options={selectMenu}
-            defaultValue={selectedValue}
+            options={sortTypes}
+            defaultValue={sortType}
             isSearchable={false}
             classNamePrefix={'custom-select'}
           />
         </div>
+
 
         {/* TODO create pagination component */}
         <div className={s.pagination}>

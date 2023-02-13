@@ -1,7 +1,6 @@
-import { ISelectMenuItem, IPaginationElement } from './types'
+import { IPaginationElement, ISortType } from 'shared/types'
 
-
-export const selectMenu: ISelectMenuItem[] = [
+export const sortTypes: ISortType[] = [
   {
     label: 'возрастанию',
     value: '1'
@@ -33,4 +32,3 @@ export const paginationList: IPaginationElement[] = [
     value: '100',
     isActive: false
   }]
-
