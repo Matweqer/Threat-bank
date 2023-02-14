@@ -1,0 +1,18 @@
+@import "src/assets/scss/index";
+
+.button {
+  background: rgba(41, 150, 54, 0.5);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  color: #076B13;
+  min-height: 40px;
+  padding: 8px 16px;
+  @include main-font(21px, 600);
+  border: none;
+}
+
+.button:hover {
+  cursor: pointer;
+  background: #0A6214;
+  color: #FFFFFF;
+}

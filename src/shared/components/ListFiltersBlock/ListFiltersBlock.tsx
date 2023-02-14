@@ -9,22 +9,22 @@ import { ISortType, ILimitElement } from 'shared/types'
 import s from './listFiltersBlock.module.scss'
 import './react-select.scss'
 
-interface ListFiltersBlockProps {
+export interface ListFiltersBlockProps {
   sortType: ISortType
   search: string
-  pagination: number
+  limit: number
 
   setSortType: (value: ISortType) => void
   setSearch: (value: string) => void
-  setPagination: (value: number) => void
+  setLimit: (value: number) => void
 }
 
 const ListFiltersBlock: FC<ListFiltersBlockProps> = ({
   sortType,
   search,
-  pagination,
+  limit,
   setSortType,
-  setPagination,
+  setLimit,
   setSearch
 }) => {
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,7 +34,7 @@ const ListFiltersBlock: FC<ListFiltersBlockProps> = ({
   const handlePagination = (item: ILimitElement) => {
     limitList.forEach((p) => (p.isActive = false))
     item.isActive = true
-    setPagination(Number(item.value))
+    setLimit(Number(item.value))
   }
 
   const handleSelect = (item: ISortType | null) => {

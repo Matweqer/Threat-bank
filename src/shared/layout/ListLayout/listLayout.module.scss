@@ -1,0 +1,7 @@
+@import "src/assets/scss/index";
+
+.buttonContainer {
+  @include flex-column-center;
+  margin-top: 56px;
+  margin-bottom: 120px;
+}

@@ -1,11 +1,12 @@
 import React, { FC, useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from 'store'
 
-import { List, Breadcrumbs, IBreadcrumb, ListFiltersBlock } from 'shared/components'
+import { List, IBreadcrumb } from 'shared/components'
 import { ISortType } from 'shared/types'
 import { sortTypes } from 'shared/constants'
 
 import { axiosGetSfc } from 'store/SFC/actions'
+import { ListLayout } from '../../../../shared/layout/ListLayout'
 
 
 const SfcList: FC = () => {
@@ -15,6 +16,9 @@ const SfcList: FC = () => {
 
   const dispatch = useAppDispatch()
 
+  const addItems = () => {
+    setLimit(limit + 10)
+  }
 
   useEffect(() => {
     (async () => {
@@ -37,18 +41,14 @@ const SfcList: FC = () => {
   ]
 
   return (
-    <div>
-      <Breadcrumbs breadcrumbs={breadcrumbs} />
-      <ListFiltersBlock
-        sortType={sortType}
-        search={search}
-        pagination={limit}
-        setSortType={setSortType}
-        setSearch={setSearch}
-        setPagination={setLimit}
-      />
-      <List items={sfc} type={'SFC'}/>
-    </div>
+    <>
+      <ListLayout breadcrumbs={breadcrumbs} sortType={sortType} search={search} limit={limit}
+                  setSortType={setSortType} setSearch={setSearch} setLimit={setLimit}
+                  buttonTitle={'Показать ещё'} buttonOnClick={addItems}>
+        <List items={sfc} type={'SFC'} />
+      </ListLayout>
+
+    </>
   )
 }
 
