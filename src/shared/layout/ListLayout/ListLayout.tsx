@@ -2,7 +2,6 @@ import React, { FC } from 'react'
 import {
   Breadcrumbs,
   Button,
-  ButtonProps,
   IBreadcrumb,
   ListFiltersBlock,
   ListFiltersBlockProps
@@ -10,7 +9,7 @@ import {
 
 import s from './listLayout.module.scss'
 
-interface ListLayoutProps extends ListFiltersBlockProps, ButtonProps {
+interface ListLayoutProps extends ListFiltersBlockProps {
   breadcrumbs: IBreadcrumb[]
   children: React.ReactNode
 }
@@ -23,10 +22,12 @@ const ListLayout: FC<ListLayoutProps> = ({
   setLimit,
   sortType,
   setSortType,
-  buttonTitle,
-  buttonOnClick,
   children
 }) => {
+  const addItems = () => {
+    setLimit(limit + 10)
+  }
+
   return (
     <>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
@@ -40,7 +41,7 @@ const ListLayout: FC<ListLayoutProps> = ({
       />
       {children}
       <div className={s.buttonContainer}>
-        <Button buttonTitle={buttonTitle} buttonOnClick={buttonOnClick}/>
+        <Button buttonTitle={'Показать ещё'} buttonOnClick={addItems}/>
       </div>
     </>
   )

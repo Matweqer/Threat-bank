@@ -16,10 +16,6 @@ const SfcList: FC = () => {
 
   const dispatch = useAppDispatch()
 
-  const addItems = () => {
-    setLimit(limit + 10)
-  }
-
   useEffect(() => {
     (async () => {
       await dispatch(axiosGetSfc({ limit }))
@@ -42,9 +38,10 @@ const SfcList: FC = () => {
 
   return (
     <>
-      <ListLayout breadcrumbs={breadcrumbs} sortType={sortType} search={search} limit={limit}
-                  setSortType={setSortType} setSearch={setSearch} setLimit={setLimit}
-                  buttonTitle={'Показать ещё'} buttonOnClick={addItems}>
+      <ListLayout
+        breadcrumbs={breadcrumbs} sortType={sortType} search={search} limit={limit}
+        setSortType={setSortType} setSearch={setSearch} setLimit={setLimit}
+      >
         <List items={sfc} type={'SFC'} />
       </ListLayout>
 
