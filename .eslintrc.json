@@ -61,6 +61,7 @@
         "no-multiple-empty-lines": "off",
         "@typescript-eslint/consistent-type-definitions": "off",
         "@typescript-eslint/naming-convention": "off",
-        "@typescript-eslint/strict-boolean-expressions": "off"
+        "@typescript-eslint/strict-boolean-expressions": "off",
+        "no-trailing-spaces": "off"
     }
 }

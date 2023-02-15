@@ -1,7 +1,7 @@
 @import 'src/assets/scss/index.scss';
 
 .title {
-  color: $color-source;
+  color: $color-dark-green;
   @include main-font(28px, 700);
   margin-bottom: 48px;
 }
@@ -12,7 +12,7 @@
 }
 
 .subtitle {
-  color: $color-source;
+  color: $color-dark-green;
   @include main-font(24px, 600);
   margin-bottom: 24px;
 }
@@ -22,7 +22,7 @@
   list-style-type: disc;
   list-style-position: outside;
   margin-left: 22px;
-  color: $color-source;
+  color: $color-dark-green;
   margin-bottom: 20px;
   padding-left: 10px;
 }
@@ -35,7 +35,7 @@
 
 .link a {
   @include main-font(20px, 400);
-  color: $color-source;
+  color: $color-dark-green;
   text-decoration: underline;
 }
 

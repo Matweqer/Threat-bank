@@ -10,18 +10,31 @@ interface ISfcResponse {
   results: ISfc[]
 }
 
+interface IParams {
+  search?: string
+  limit?: number
+  offset?: number
+  ordering?: string
+}
+
 export interface MyKnownError {
   errorMessage: string
 }
 
 export const axiosGetSfc = createAsyncThunk<
 ISfcResponse,
-null,
+IParams | null,
 { rejectValue: MyKnownError }
 >(
   'sfc/axiosGetSfc',
-  async (_, thunkApi) => {
-    const response = await api.get('/sfc/characteristics/')
+  async (params, thunkApi) => {
+    const response = await api.get('/sfc/characteristics/', {
+      ...(params && {
+        params: {
+          limit: params.limit
+        }
+      })
+    })
     if (response.status >= 400) {
       return thunkApi.rejectWithValue((response.data) as MyKnownError)
     }

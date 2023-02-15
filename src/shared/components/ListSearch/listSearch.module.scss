@@ -1,0 +1,24 @@
+@import "src/assets/scss/index";
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  width: 1174px;
+  height: 48px;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+}
+
+.input {
+  width: 1174px;
+  height: 48px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  padding: 8px 16px;
+  @include main-font(20px, 500)
+}

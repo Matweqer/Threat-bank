@@ -26,7 +26,6 @@ IRefreshRequest,
 >(
   'auth/refresh',
   async ({ refresh }, thunkApi) => {
-    console.log('refresh req')
     const response = await api.post('/auth/token/refresh/', { refresh })
     if (response.status >= 400) {
       return thunkApi.rejectWithValue((response.data) as MyKnownError)
