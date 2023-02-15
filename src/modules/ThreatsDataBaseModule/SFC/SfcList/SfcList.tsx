@@ -6,7 +6,7 @@ import { ISortType } from 'shared/types'
 import { sortTypes } from 'shared/constants'
 
 import { axiosGetSfc } from 'store/SFC/actions'
-import { ListLayout } from '../../../../shared/layout/ListLayout'
+import { ListLayout } from 'shared/layout'
 
 
 const SfcList: FC = () => {
