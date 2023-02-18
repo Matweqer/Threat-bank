@@ -64,7 +64,6 @@ const ListFiltersBlock: FC<ListFiltersBlockProps> = ({
           />
         </div>
 
-
         {/* TODO create pagination component */}
         <div className={s.pagination}>
           {limitList.map((item, index) => (

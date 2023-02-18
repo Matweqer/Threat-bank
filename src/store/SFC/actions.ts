@@ -28,10 +28,14 @@ IParams | null,
 >(
   'sfc/axiosGetSfc',
   async (params, thunkApi) => {
+    console.log('send req')
     const response = await api.get('/sfc/characteristics/', {
       ...(params && {
         params: {
-          limit: params.limit
+          limit: params.limit,
+          ordering: params.ordering,
+          offset: params.offset,
+          search: params.search
         }
       })
     })
