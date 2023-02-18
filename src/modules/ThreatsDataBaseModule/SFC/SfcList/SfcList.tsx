@@ -17,10 +17,11 @@ const SfcList: FC = () => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
+    console.log('effect');
     (async () => {
-      await dispatch(axiosGetSfc({ limit }))
+      await dispatch(axiosGetSfc({ limit, search, ordering: sortType.value }))
     })().catch(e => console.log(e))
-  }, [dispatch, limit])
+  }, [dispatch, limit, search, sortType.value])
 
 
   const sfc = useAppSelector(state => state.sfc.results)

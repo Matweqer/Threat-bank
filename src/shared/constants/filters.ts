@@ -3,15 +3,15 @@ import { ILimitElement, ISortType } from 'shared/types'
 export const sortTypes: ISortType[] = [
   {
     label: 'возрастанию',
-    value: '1'
+    value: 'id'
   },
   {
     label: 'убыванию',
-    value: '2'
+    value: '-id'
   },
   {
     label: 'критичности',
-    value: '3'
+    value: '-criticality_level'
   }
 ]
 
