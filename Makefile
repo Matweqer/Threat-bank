@@ -1,7 +1,7 @@
 .PHONY: build-front
 build-front:
 	ssh -i ~/.ssh/id_rsa ubuntu@5.188.118.169 \
-	"cd /opt/Threat_bank; \
+	"cd /opt/Threat-bank; \
 	git pull; \
 	docker build -t threats-frontend-image:latest ."
 
