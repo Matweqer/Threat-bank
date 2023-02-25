@@ -11,6 +11,7 @@ export default {
   objectItem: '/threats-data-base/objects/:id',
   sfcList: '/threats-data-base/SFC',
   sfcItem: '/threats-data-base/SFC/:id',
+  createCardSfc: '/threats-data-base/SFC/create-card',
   attacksList: '/threats-data-base/attacks',
   attackItem: '/threats-data-base/attacks/:id',
   vulnerabilitiesList: '/threats-data-base/vulnerabilities',

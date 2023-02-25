@@ -1,0 +1,111 @@
+@import 'src/assets/scss/index.scss';
+
+.sfc-form {
+    width: 1174px;
+    height: 1672px;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 32px 0px 0px 40px;
+
+    &-label {
+        width: 1081px;
+        @include main-font(24px, 500);
+        font-style: normal;
+
+        &::after {
+            content: '';
+            margin-top: 8px;
+            border: 1px solid $color-grey;
+            display: block;
+        }
+    }
+
+    &-input {
+        width: 1080px;
+        height: 40px;
+        background: $color-white;
+        border: 0.5px solid $color-grey;
+        box-shadow: inset 0px 1px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        @include main-font(20px, 400);
+        font-style: italic;
+        color: #A3A3A3;
+        padding-left: 16px;
+        margin: 24px 0px 40px 0px;
+    }
+
+    &-textarea {
+        width: 1080px;
+        height: 216px;
+        background: $color-white;
+        border: 0.5px solid $color-grey;
+        box-shadow: inset 0px 1px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        @include main-font(20px, 400);
+        font-style: italic;
+        color: #A3A3A3;
+        padding: 16px 16px 0px 9px;
+        margin: 24px 0px 40px 0px;
+    }
+
+    &-select {
+        width: 856px;
+        height: 40px;
+        background: $color-white;
+        margin: 24px 0px 40px 0px;
+      }
+    &-group-levels {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 48px;
+        margin: 24px 0px 40px 0px;
+
+        &__item {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+            
+            &+label {
+            display: inline-block;
+            width: 144px;
+            height: 40px;
+            background: #E5E5E5;
+            box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @include main-font(20px, 500);
+            font-style: normal;
+            cursor: pointer;
+            }
+            
+            &:checked+label {
+                background: #299636;
+                color: $color-white;
+                box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+                border-radius: 10px;
+            }
+        }
+    }
+
+    &-submit-container {
+        display: flex;
+        justify-content: center;
+
+        & > button {
+            width: 208px;
+            height: 40px;
+            background: rgba(41, 150, 54, 0.5);
+            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            @include main-font(20px, 600);
+            font-style: normal;
+            cursor: pointer;
+            color: #076B13;
+            margin: 56px 0px 120px 0px;
+        }
+    }
+}
