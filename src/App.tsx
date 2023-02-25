@@ -6,7 +6,7 @@ import {
   Home,
   ThreatsDataBase,
   Services,
-  SfcList, SfcItem,
+  SfcList, SfcItem, CreateCardSfc,
   AttacksList, AttackItem,
   ObjectsList, ObjectItem,
   VulnerabilitiesList, VulnerabilityItem,
@@ -40,6 +40,7 @@ const App: FC = () => {
               <Route path={ROUTES.attackItem} element={<AttackItem/>} />
               <Route path={ROUTES.sfcList} element={<SfcList/>} />
               <Route path={ROUTES.sfcItem} element={<SfcItem/>} />
+              <Route path={ROUTES.createCardSfc} element={<CreateCardSfc/>} />
               <Route path={ROUTES.vulnerabilitiesList} element={<VulnerabilitiesList/>} />
               <Route path={ROUTES.vulnerabilityItem} element={<VulnerabilityItem/>} />
               <Route path={ROUTES.risksList} element={<RisksList/>} />
