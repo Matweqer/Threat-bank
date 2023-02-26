@@ -1,8 +1,8 @@
 import { useState, ChangeEvent } from 'react'
 
-type typeElements = HTMLInputElement | HTMLTextAreaElement
+type TypeElements = HTMLInputElement | HTMLTextAreaElement
 
-const useInput = <T extends typeElements>(initialValue: string) => {
+const useInput = <T extends TypeElements>(initialValue: string) => {
   const [value, setValue] = useState<string>(initialValue)
 
   const handleChange = (event: ChangeEvent<T>) => {

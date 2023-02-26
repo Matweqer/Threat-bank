@@ -1,12 +1,11 @@
 import React, { FC, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { ItemInfoData, ItemParams, ItemTableData } from 'shared/types'
 
+import { ItemInfoData, ItemParams, ItemTableData } from 'shared/types'
 import { Breadcrumbs, IBreadcrumb, ItemInfo } from 'shared/components'
 import { useAppDispatch, useAppSelector } from 'store'
 import { axiosGetSfcItem } from 'store/SFC/actions'
 
-// import s from './SfcItem.module.scss'
 
 const SfcItem: FC = () => {
   const { id } = useParams<ItemParams>()
@@ -19,7 +18,7 @@ const SfcItem: FC = () => {
   }, [dispatch, id])
 
   const sfcItem = useAppSelector(state => state.sfc.currentSfc)
-
+  // TODO CREATE BUILDER TABLE
   const table: ItemTableData[] | null = sfcItem && [
     { id: 1, name: 'Описание', value: sfcItem.description },
     { id: 2, name: 'Тип', value: sfcItem.evaluation_object.type.name },
@@ -56,7 +55,7 @@ const SfcItem: FC = () => {
       }
     ]
   }
-
+  // TODO CREATE BUILDER BREADECRUMB
   const breadcrumbs: IBreadcrumb[] | null = sfcItem && [
     {
       name: 'База данных угроз',

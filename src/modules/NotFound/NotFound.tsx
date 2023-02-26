@@ -3,7 +3,12 @@ import React, { FC } from 'react'
 const NotFound: FC = () => {
   return (
     <div>
-      Страница не найдена
+      <p>
+        404
+      </p>
+      <p>
+        Страница не найдена
+      </p>
     </div>
   )
 }

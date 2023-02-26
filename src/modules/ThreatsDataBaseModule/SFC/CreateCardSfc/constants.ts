@@ -22,7 +22,7 @@ const radioOptionsCriticalityLevels: radioOptions = {
     }
   ]
 }
-  
+
 const radioOptionsDestabilizationLevels: radioOptions = {
   radioGroup: 'destabilizationLevels',
   options: [
@@ -45,24 +45,17 @@ const radioOptionsDestabilizationLevels: radioOptions = {
   ]
 }
 
-const options: SelectOptionType[] = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' }
-]
-
 const selectOptionsTypes: SelectOptionType[] = [
   { value: 'firmware', label: 'Микропрограммное обеспечение' }
 ]
 const selectOptionsObjects: SelectOptionType[] = [
   { value: 'operatingSystem', label: 'Операционная система' }
 ]
- 
+
 
 export {
   radioOptionsCriticalityLevels,
-  radioOptionsDestabilizationLevels, 
-  options,
+  radioOptionsDestabilizationLevels,
   selectOptionsTypes,
   selectOptionsObjects
 }

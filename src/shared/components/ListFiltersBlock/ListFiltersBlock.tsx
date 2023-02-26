@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { ChangeEvent, FC } from 'react'
 import Select from 'react-select'
 import classNames from 'classnames'
 
@@ -6,18 +6,10 @@ import { ListSearch } from 'shared/components'
 import { sortTypes, limitList } from 'shared/constants'
 import { ISortType, ILimitElement } from 'shared/types'
 
+import { ListFiltersBlockProps } from './types'
 import s from './listFiltersBlock.module.scss'
 import './react-select.scss'
 
-export interface ListFiltersBlockProps {
-  sortType: ISortType
-  search: string
-  limit: number
-
-  setSortType: (value: ISortType) => void
-  setSearch: (value: string) => void
-  setLimit: (value: number) => void
-}
 
 const ListFiltersBlock: FC<ListFiltersBlockProps> = ({
   sortType,
@@ -27,7 +19,7 @@ const ListFiltersBlock: FC<ListFiltersBlockProps> = ({
   setLimit,
   setSearch
 }) => {
-  const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value)
   }
 
