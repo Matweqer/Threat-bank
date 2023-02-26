@@ -1,18 +1,14 @@
 import React, { FC } from 'react'
+
 import {
   Breadcrumbs,
   Button,
-  IBreadcrumb,
-  ListFiltersBlock,
-  ListFiltersBlockProps
+  ListFiltersBlock
 } from 'shared/components'
 
+import { ListLayoutProps } from './types'
 import s from './listLayout.module.scss'
 
-interface ListLayoutProps extends ListFiltersBlockProps {
-  breadcrumbs: IBreadcrumb[]
-  children: React.ReactNode
-}
 
 const ListLayout: FC<ListLayoutProps> = ({
   breadcrumbs,
@@ -39,7 +35,9 @@ const ListLayout: FC<ListLayoutProps> = ({
         setSearch={setSearch}
         setLimit={setLimit}
       />
+
       {children}
+
       <div className={s.buttonContainer}>
         <Button buttonTitle={'Показать ещё'} buttonOnClick={addItems}/>
       </div>

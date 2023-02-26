@@ -1,4 +1,4 @@
-export default {
+const ROUTES = {
   home: '/',
 
   login: '/login',
@@ -22,5 +22,10 @@ export default {
   threatItem: '/threats-data-base/threats/:id'
 
 }
+
+export {
+  ROUTES
+}
+
 
 

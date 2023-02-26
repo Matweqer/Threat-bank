@@ -2,11 +2,11 @@ import React, { FC, useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from 'store'
 
 import { List, IBreadcrumb } from 'shared/components'
-import { ISortType } from 'shared/types'
 import { sortTypes } from 'shared/constants'
+import { ListLayout } from 'shared/layout'
+import { ISortType } from 'shared/types'
 
 import { axiosGetSfc } from 'store/SFC/actions'
-import { ListLayout } from 'shared/layout'
 
 
 const SfcList: FC = () => {
@@ -45,7 +45,6 @@ const SfcList: FC = () => {
       >
         <List items={sfc} type={'SFC'} />
       </ListLayout>
-
     </>
   )
 }

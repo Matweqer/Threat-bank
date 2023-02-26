@@ -28,3 +28,8 @@ export interface IRefreshResponse {
 export interface MyKnownError {
   errorMessage: string
 }
+
+export interface AuthState {
+  status: string | null
+  error: string | null
+}

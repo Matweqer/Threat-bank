@@ -1,20 +1,10 @@
 import React, { FC } from 'react'
 import { Link } from 'react-router-dom'
 
-import { ListTypes } from 'shared/types'
+import { getColorByLevel } from 'shared/utils'
 
+import { ListItemProps } from './types'
 import s from './listItem.module.scss'
-
-
-interface ListItemProps {
-  id: number
-  name: string
-  type: ListTypes
-  impact_level?: number
-  criticality_level?: number
-  destabilization_level?: number
-  danger_degree?: number
-}
 
 
 const ListItem: FC<ListItemProps> = ({
@@ -26,44 +16,26 @@ const ListItem: FC<ListItemProps> = ({
   destabilization_level,
   danger_degree
 }) => {
-  const getColor = (): string => {
-    const level: number | undefined =
-      impact_level ??
-      criticality_level ??
-      destabilization_level ??
-      danger_degree ?? undefined
-    let color: string
-    switch (level) {
-      case 3:
-        color = '#FF1D1D'
-        break
-      case 2:
-        color = '#F9761D'
-        break
-      case 1:
-        color = '#FAC712'
-        break
-      case 0:
-        color = '#0FD100'
-        break
-      default:
-        color = '#0FD100'
-    }
-    return color
-  }
+  const level: number | undefined =
+    impact_level ??
+    criticality_level ??
+    destabilization_level ??
+    danger_degree ?? undefined
 
   return (
       <Link className={s.link} to={id.toString()}>
-        <div className={s.color} style={{ background: getColor() }}/>
+        <div className={s.color} style={{ background: getColorByLevel(level) }}/>
+
         <div className={s.id}>
           {type}-{id}.
         </div>
+
         <div className={s.name} >
           {name}
         </div>
+
       </Link>
   )
 }
-
 
 export { ListItem }

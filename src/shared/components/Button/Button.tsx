@@ -1,11 +1,8 @@
 import React, { FC } from 'react'
 
+import { ButtonProps } from './types'
 import s from './button.module.scss'
 
-export interface ButtonProps {
-  buttonTitle: string
-  buttonOnClick: () => void
-}
 
 const Button: FC<ButtonProps> = ({ buttonTitle, buttonOnClick }) => {
   return (

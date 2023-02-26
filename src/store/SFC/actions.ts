@@ -2,24 +2,9 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { api } from 'api'
 
 import { ISfc } from 'shared/types'
+import { IParams, ISfcResponse, MyKnownError } from './types'
 
-interface ISfcResponse {
-  count: number
-  next: string | null
-  previous: string | null
-  results: ISfc[]
-}
 
-interface IParams {
-  search?: string
-  limit?: number
-  offset?: number
-  ordering?: string
-}
-
-export interface MyKnownError {
-  errorMessage: string
-}
 
 export const axiosGetSfc = createAsyncThunk<
 ISfcResponse,

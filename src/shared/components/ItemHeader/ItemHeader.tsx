@@ -1,12 +1,8 @@
 import React, { FC } from 'react'
-import { ListTypes } from 'shared/types'
+
+import { ItemHeaderProps } from './types'
 import s from './itemHeader.module.scss'
 
-interface ItemHeaderProps {
-  id: number
-  type: ListTypes
-  name: string
-}
 
 const ItemHeader: FC<ItemHeaderProps> = ({ id, type, name }) => {
   return (

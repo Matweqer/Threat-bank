@@ -1,12 +1,8 @@
 import React, { FC } from 'react'
-import { ItemTableData } from 'shared/types'
 
+import { ItemTableProps } from './types'
 import s from './itemTable.module.scss'
 
-
-interface ItemTableProps {
-  table: ItemTableData[]
-}
 
 const ItemTable: FC<ItemTableProps> = ({ table }) => {
   return (
@@ -20,7 +16,6 @@ const ItemTable: FC<ItemTableProps> = ({ table }) => {
           )
         }
       </div>
-
   )
 }
 

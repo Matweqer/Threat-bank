@@ -1,15 +1,22 @@
 import React, { FC } from 'react'
 
 import { ItemHeader, ItemTable, ItemUsefulLinks } from 'shared/components'
-import { ItemInfoData } from 'shared/types'
 
+import { ItemInfoProps } from './types'
 import s from './itemInfo.module.scss'
 
-interface ItemInfoProps {
-  data: ItemInfoData
-}
 
-const ItemInfo: FC<ItemInfoProps> = ({ data: { id, name, type, table, sources, articles } }) => {
+const ItemInfo: FC<ItemInfoProps> = (
+  {
+    data: {
+      id,
+      name,
+      type,
+      table,
+      sources,
+      articles
+    } 
+  }) => {
   return (
     <div className={s.container}>
 

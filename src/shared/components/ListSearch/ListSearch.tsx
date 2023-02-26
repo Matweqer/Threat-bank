@@ -1,13 +1,9 @@
 import React, { FC } from 'react'
 
-import s from './listSearch.module.scss'
-
 import searchIcon from 'assets/images/List/search-icon.png'
 
-interface ListSearchProps {
-  inputValue: string
-  onChahge: (event: React.ChangeEvent<HTMLInputElement>) => void
-}
+import { ListSearchProps } from './types'
+import s from './listSearch.module.scss'
 
 const ListSearch: FC<ListSearchProps> = ({
   inputValue,

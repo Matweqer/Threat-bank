@@ -1,13 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 import Cookies from 'js-cookie'
-
 import { axiosAuthLogin, axiosAuthRefresh } from './actions'
+import { AuthState } from './types'
 
 
-interface AuthState {
-  status: string | null
-  error: string | null
-}
+
 
 const initialState: AuthState = {
   status: null,
@@ -58,7 +55,7 @@ export const sfcSlice = createSlice({
       .addCase(axiosAuthRefresh.rejected, (state, action) => {
         Cookies.set('access', '')
         Cookies.set('isAuth', 'false')
-        if ((action.payload?.errorMessage) != null) {
+        if (action.payload?.errorMessage) {
           state.error = action.payload?.errorMessage
         }
         state.status = 'rejected'
@@ -66,7 +63,5 @@ export const sfcSlice = createSlice({
   }
 })
 
-
-export const { deleteStatusAndError } = sfcSlice.actions
 
 export const auth = sfcSlice.reducer

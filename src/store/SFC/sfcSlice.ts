@@ -1,18 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
-
-import { ISfc } from 'shared/types'
 import { axiosGetSfc, axiosGetSfcItem } from './actions'
+import { SfcState } from './types'
 
-
-interface SfcState {
-  count: number
-  next: string | null
-  previous: string | null
-  results: ISfc[]
-  currentSfc: ISfc | null
-  status: string | null
-  error: string | null
-}
 
 const initialState: SfcState = {
   count: 0,
@@ -71,8 +60,5 @@ export const sfcSlice = createSlice({
       })
   }
 })
-
-
-export const { deleteStatusAndError } = sfcSlice.actions
 
 export const sfc = sfcSlice.reducer

@@ -4,6 +4,8 @@ import { Outlet } from 'react-router-dom'
 import { Footer, Header } from 'shared/components'
 
 import s from './DefaultLayout.module.scss'
+
+
 const DefaultLayout: FC = () => {
   return (
     <div className={s.content}>

@@ -1,24 +1,18 @@
-import React, { FC, useState } from 'react'
+import React, { FC, FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAppDispatch } from 'store'
 import { axiosAuthLogin } from 'store/Auth/actions'
+import { useInput } from 'shared/hooks'
 
 const Login: FC = () => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
-  const [email, setEmail] = useState<string>('')
-  const [password, setPassword] = useState<string>('')
+  const [email, handleLoginInput] = useInput<HTMLInputElement>('')
+  const [password, handlePasswordInput] = useInput<HTMLInputElement>('')
 
-  const handleLoginInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setEmail(event.target.value)
-  }
-
-  const handlePasswordInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setPassword(event.target.value)
-  }
-
-  const handleSubmit = (event: React.FormEvent): void => {
+  const handleSubmit = (event: FormEvent): void => {
     event.preventDefault()
+    // TODO create useAction hook 
     dispatch(axiosAuthLogin({ email, password }))
       .then(() => navigate(-1))
       .catch(e => console.log(e))

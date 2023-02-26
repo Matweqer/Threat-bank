@@ -1,12 +1,8 @@
 import React, { FC } from 'react'
-import { ISourceItem } from 'shared/types'
 
+import { IUsefulLinksProps } from './types'
 import s from './itemUsefulLinks.module.scss'
 
-interface IUsefulLinksProps {
-  sources: ISourceItem[]
-  articles: ISourceItem[]
-}
 
 const ItemUsefulLinks: FC<IUsefulLinksProps> = ({ sources, articles }) => {
   return (
