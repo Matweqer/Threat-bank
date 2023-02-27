@@ -41,7 +41,7 @@ const VulnerabilitiesList: FC = () => {
         breadcrumbs={breadcrumbs} sortType={sortType} search={search} limit={limit}
         setSortType={setSortType} setSearch={setSearch} setLimit={setLimit}
       >
-        {/* <List items={vulnerabilities} type={'V'} /> */}
+        <List items={vulnerabilities} type={'V'} />
       </ListLayout>
     </>
   )
