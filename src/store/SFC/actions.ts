@@ -1,9 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
+
 import { api } from 'api'
-
-import { ISfc } from 'shared/types'
-import { IParams, ISfcResponse, MyKnownError } from './types'
-
+import { IParams, ISfcResponse, MyKnownError, ISfc } from 'shared/types'
 
 
 export const axiosGetSfc = createAsyncThunk<
@@ -13,7 +11,6 @@ IParams | null,
 >(
   'sfc/axiosGetSfc',
   async (params, thunkApi) => {
-    console.log('send req')
     const response = await api.get('/sfc/characteristics/', {
       ...(params && {
         params: {

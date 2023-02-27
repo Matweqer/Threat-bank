@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
+
+import { IInitialState, ISfc } from 'shared/types'
 import { axiosGetSfc, axiosGetSfcItem } from './actions'
-import { SfcState } from './types'
 
 
-const initialState: SfcState = {
+const initialState: IInitialState<ISfc> = {
   count: 0,
   next: null,
   previous: null,
