@@ -14,7 +14,12 @@ const List: FC<ListProps> = ({
     <div className={s.container}>
       {items.map((item) =>
         <ListItem
-          key={item.id} type={type} id={item.id} name={item.name} criticality_level={item.criticality_level}
+          key={item.id}
+          type={type}
+          id={item.id}
+          name={item.name}
+          criticality_level={item.criticality_level}
+
         />
       )}
     </div>

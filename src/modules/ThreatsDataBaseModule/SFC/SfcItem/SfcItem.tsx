@@ -17,7 +17,7 @@ const SfcItem: FC = () => {
     })().catch(e => console.log(e))
   }, [dispatch, id])
 
-  const sfcItem = useAppSelector(state => state.sfc.currentSfc)
+  const sfcItem = useAppSelector(state => state.sfc.current)
   // TODO CREATE BUILDER TABLE
   const table: ItemTableData[] | null = sfcItem && [
     { id: 1, name: 'Описание', value: sfcItem.description },

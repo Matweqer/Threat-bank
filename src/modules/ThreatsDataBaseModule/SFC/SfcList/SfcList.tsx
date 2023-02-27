@@ -17,7 +17,6 @@ const SfcList: FC = () => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    console.log('effect');
     (async () => {
       await dispatch(axiosGetSfc({ limit, search, ordering: sortType.value }))
     })().catch(e => console.log(e))

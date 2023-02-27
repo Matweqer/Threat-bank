@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { IInitialState, ISfc } from 'shared/types'
-import { axiosGetSfc, axiosGetSfcItem } from './actions'
+import { IInitialState, IVulnerability } from 'shared/types'
+import { axiosGetVulnerabilities, axiosGetVulnerability } from './actions'
 
 
-const initialState: IInitialState<ISfc> = {
+const initialState: IInitialState<IVulnerability> = {
   count: 0,
   next: null,
   previous: null,
@@ -14,8 +14,8 @@ const initialState: IInitialState<ISfc> = {
   error: null
 }
 
-export const sfcSlice = createSlice({
-  name: 'sfc',
+export const vulnerabilitiesSlice = createSlice({
+  name: 'vulnerabilities',
   initialState,
   reducers: {
     deleteStatusAndError: (state) => {
@@ -25,11 +25,11 @@ export const sfcSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      .addCase(axiosGetSfc.pending, state => {
+      .addCase(axiosGetVulnerabilities.pending, state => {
         state.error = null
         state.status = 'loading'
       })
-      .addCase(axiosGetSfc.fulfilled, (state, action) => {
+      .addCase(axiosGetVulnerabilities.fulfilled, (state, action) => {
         const { count, next, previous, results } = action.payload
         state.results = results
         state.count = count
@@ -37,7 +37,7 @@ export const sfcSlice = createSlice({
         state.previous = previous
         state.status = 'resolved'
       })
-      .addCase(axiosGetSfc.rejected, (state, action) => {
+      .addCase(axiosGetVulnerabilities.rejected, (state, action) => {
         if (action.payload?.errorMessage) {
           state.error = action.payload?.errorMessage
         }
@@ -45,15 +45,15 @@ export const sfcSlice = createSlice({
       })
 
     builder
-      .addCase(axiosGetSfcItem.pending, state => {
+      .addCase(axiosGetVulnerability.pending, state => {
         state.error = null
         state.status = 'loading'
       })
-      .addCase(axiosGetSfcItem.fulfilled, (state, action) => {
+      .addCase(axiosGetVulnerability.fulfilled, (state, action) => {
         state.current = action.payload
         state.status = 'resolved'
       })
-      .addCase(axiosGetSfcItem.rejected, (state, action) => {
+      .addCase(axiosGetVulnerability.rejected, (state, action) => {
         if (action.payload?.errorMessage) {
           state.error = action.payload?.errorMessage
         }
@@ -62,4 +62,4 @@ export const sfcSlice = createSlice({
   }
 })
 
-export const sfc = sfcSlice.reducer
+export const vulnerabilities = vulnerabilitiesSlice.reducer

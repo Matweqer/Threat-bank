@@ -4,7 +4,7 @@ export interface IInitialState<T> {
   next: string | null
   previous: string | null
   results: T[]
-  currentSfc: T | null
+  current: T | null
   status: string | null
   error: string | null
 }

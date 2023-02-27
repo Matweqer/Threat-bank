@@ -3,13 +3,15 @@ import { useDispatch, useSelector, TypedUseSelectorHook } from 'react-redux'
 
 import { sfc } from './SFC'
 import { auth } from './Auth'
+import { vulnerabilities } from './Vulnerabilities'
 
 type AppDispatch = typeof store.dispatch
 
 export const store = configureStore({
   reducer: {
     auth,
-    sfc
+    sfc,
+    vulnerabilities
   }
 })
 
