@@ -16,7 +16,7 @@ const ListLayout: FC<ListLayoutProps> = ({
   setSearch,
   limit,
   setLimit,
-  sortType,
+  sortTypes,
   setSortType,
   children
 }) => {
@@ -28,7 +28,7 @@ const ListLayout: FC<ListLayoutProps> = ({
     <>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
       <ListFiltersBlock
-        sortType={sortType}
+        sortTypes={sortTypes}
         search={search}
         limit={limit}
         setSortType={setSortType}

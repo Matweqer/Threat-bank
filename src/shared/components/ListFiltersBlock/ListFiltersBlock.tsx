@@ -3,7 +3,7 @@ import Select from 'react-select'
 import classNames from 'classnames'
 
 import { ListSearch } from 'shared/components'
-import { sortTypes, limitList } from 'shared/constants'
+import { SfcSortTypes, limitList } from 'shared/constants'
 import { ISortType, ILimitElement } from 'shared/types'
 
 import { ListFiltersBlockProps } from './types'
@@ -12,7 +12,7 @@ import './react-select.scss'
 
 
 const ListFiltersBlock: FC<ListFiltersBlockProps> = ({
-  sortType,
+  sortTypes,
   search,
   limit,
   setSortType,
@@ -49,8 +49,8 @@ const ListFiltersBlock: FC<ListFiltersBlockProps> = ({
           <Select
             onChange={handleSelect}
             className={s.select}
-            options={sortTypes}
-            defaultValue={sortType}
+            options={SfcSortTypes}
+            defaultValue={sortTypes[0]}
             isSearchable={false}
             classNamePrefix={'custom-select'}
           />

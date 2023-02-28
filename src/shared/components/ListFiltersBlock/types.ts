@@ -1,7 +1,7 @@
 import { ISortType } from 'shared/types'
 
 export interface ListFiltersBlockProps {
-  sortType: ISortType
+  sortTypes: ISortType[]
   search: string
   limit: number
 
