@@ -23,7 +23,7 @@ export const SfcSortTypes: ISortType[] = [
 export const VulnerabilitiesSortTypes: ISortType[] = [
   ...DefaultSortTypes,
   {
-    label: 'критичности',
+    label: 'степени опасности',
     value: '-danger_degree'
   }
 ]

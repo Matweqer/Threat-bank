@@ -33,9 +33,18 @@
   border-left: 0.5px solid $color-main;
   width: 888px;
   padding: 8px 24px;
-
 }
 .row:nth-child(odd) .value {
   background: rgba(90, 192, 102, 0.25);
+}
+
+.showMore {
+  color: $color-main;
+  padding-left: 10px;
+}
+
+.showMore:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
