@@ -1,5 +1,5 @@
 import { ILimitElement, ISortType } from 'shared/types'
-import { VulnerabilitiesList } from '../../modules'
+
 
 const DefaultSortTypes: ISortType[] = [
   {
