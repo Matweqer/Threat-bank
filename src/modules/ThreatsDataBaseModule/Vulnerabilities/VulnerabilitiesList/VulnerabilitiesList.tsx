@@ -5,13 +5,13 @@ import { List, IBreadcrumb } from 'shared/components'
 import { VulnerabilitiesSortTypes } from 'shared/constants'
 import { ListLayout } from 'shared/layout'
 import { ISortType } from 'shared/types'
-import { getLimitParam, setLimitParam } from 'shared/utils'
+import { getLimitParam, setLimitParam, setSearchParam, getSearchParam } from 'shared/utils'
 
 import { axiosGetVulnerabilities } from 'store/Vulnerabilities/actions'
 
 const VulnerabilitiesList: FC = () => {
   const [sortType, setSortType] = useState<ISortType>(VulnerabilitiesSortTypes[0])
-  const [search, setSearch] = useState<string>('')
+  const [search, setSearch] = useState<string>(getSearchParam())
   const [limit, setLimit] = useState<number>(getLimitParam())
 
   const dispatch = useAppDispatch()
@@ -20,13 +20,9 @@ const VulnerabilitiesList: FC = () => {
     (async () => {
       await dispatch(axiosGetVulnerabilities({ limit, search, ordering: sortType.value }))
     })().catch(e => console.log(e))
-  }, [dispatch, limit, search, sortType.value])
-
-  useEffect(() => {
-    console.log('set lim')
     setLimitParam(limit)
-  }, [limit])
-
+    setSearchParam(search)
+  }, [dispatch, limit, search, sortType.value])
 
   const vulnerabilities = useAppSelector(state => state.vulnerabilities.results)
 
