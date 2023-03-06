@@ -2,27 +2,31 @@ import React, { FC, useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from 'store'
 
 import { List, IBreadcrumb } from 'shared/components'
-import { sortTypes } from 'shared/constants'
+import { SfcSortTypes } from 'shared/constants'
 import { ListLayout } from 'shared/layout'
 import { ISortType } from 'shared/types'
 
 import { axiosGetSfc } from 'store/SFC/actions'
+import { getLimitParam, setLimitParam } from 'shared/utils'
 
 
 const SfcList: FC = () => {
-  const [sortType, setSortType] = useState<ISortType>(sortTypes[0])
+  const [sortType, setSortType] = useState<ISortType>(SfcSortTypes[0])
   const [search, setSearch] = useState<string>('')
-  const [limit, setLimit] = useState<number>(10)
+  const [limit, setLimit] = useState<number>(getLimitParam())
 
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    console.log('effect');
     (async () => {
       await dispatch(axiosGetSfc({ limit, search, ordering: sortType.value }))
     })().catch(e => console.log(e))
   }, [dispatch, limit, search, sortType.value])
 
+  useEffect(() => {
+    console.log('set lim')
+    setLimitParam(limit)
+  }, [limit])
 
   const sfc = useAppSelector(state => state.sfc.results)
 
@@ -40,7 +44,7 @@ const SfcList: FC = () => {
   return (
     <>
       <ListLayout
-        breadcrumbs={breadcrumbs} sortType={sortType} search={search} limit={limit}
+        breadcrumbs={breadcrumbs} sortTypes={SfcSortTypes} search={search} limit={limit}
         setSortType={setSortType} setSearch={setSearch} setLimit={setLimit}
       >
         <List items={sfc} type={'SFC'} />

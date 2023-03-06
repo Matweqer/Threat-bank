@@ -11,16 +11,13 @@ const ListItem: FC<ListItemProps> = ({
   id,
   name,
   type,
-  impact_level,
-  criticality_level,
-  destabilization_level,
-  danger_degree
+  level
 }) => {
-  const level: number | undefined =
-    impact_level ??
-    criticality_level ??
-    destabilization_level ??
-    danger_degree ?? undefined
+  // const level: number | undefined =
+  //   impact_level ??
+  //   criticality_level ??
+  //   destabilization_level ??
+  //   danger_degree ?? undefined
 
   return (
       <Link className={s.link} to={id.toString()}>

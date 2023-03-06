@@ -1,4 +1,5 @@
 import { ISfc } from './ISfc'
+import { IVulnerability } from './IVulnerability'
 
 export interface IResponse<T> {
   count: number
@@ -8,3 +9,4 @@ export interface IResponse<T> {
 }
 
 export type ISfcResponse = IResponse<ISfc>
+export type IVulnerabilityResponse = IResponse<IVulnerability>

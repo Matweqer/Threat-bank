@@ -1,6 +1,7 @@
 import { ILimitElement, ISortType } from 'shared/types'
 
-export const sortTypes: ISortType[] = [
+
+const DefaultSortTypes: ISortType[] = [
   {
     label: 'возрастанию',
     value: 'id'
@@ -8,10 +9,22 @@ export const sortTypes: ISortType[] = [
   {
     label: 'убыванию',
     value: '-id'
-  },
+  }
+]
+
+export const SfcSortTypes: ISortType[] = [
+  ...DefaultSortTypes,
   {
     label: 'критичности',
     value: '-criticality_level'
+  }
+]
+
+export const VulnerabilitiesSortTypes: ISortType[] = [
+  ...DefaultSortTypes,
+  {
+    label: 'степени опасности',
+    value: '-danger_degree'
   }
 ]
 
