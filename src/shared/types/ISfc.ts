@@ -17,8 +17,8 @@ export interface ISfc {
   description: string
   name_in_system: string
   version: string
-  criticality_level: number
-  destabilization_level: number
+  criticality_level: string
+  destabilization_level: string
   archetypes: string
   certificate_validity_date: string
   sources: ISourceItem[]

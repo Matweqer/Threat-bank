@@ -2,6 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 import { IInitialState, IVulnerability } from 'shared/types'
 import { axiosGetVulnerabilities, axiosGetVulnerability } from './actions'
+import { replaceFields } from 'shared/utils'
+import { vulnerabilityReplacement } from 'shared/constants'
 
 
 const initialState: IInitialState<IVulnerability> = {
@@ -50,7 +52,7 @@ export const vulnerabilitiesSlice = createSlice({
         state.status = 'loading'
       })
       .addCase(axiosGetVulnerability.fulfilled, (state, action) => {
-        state.current = action.payload
+        state.current = replaceFields(action.payload, vulnerabilityReplacement)
         state.status = 'resolved'
       })
       .addCase(axiosGetVulnerability.rejected, (state, action) => {
