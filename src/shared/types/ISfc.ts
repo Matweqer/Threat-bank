@@ -1,3 +1,5 @@
+import { ISourceItem } from './tdb'
+
 interface IEvaluation_object {
   id: number
   type: {
@@ -19,5 +21,6 @@ export interface ISfc {
   destabilization_level: number
   archetypes: string
   certificate_validity_date: string
+  sources: ISourceItem[]
 }
 

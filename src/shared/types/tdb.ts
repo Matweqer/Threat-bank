@@ -11,8 +11,10 @@ export interface ItemTableData {
 }
 
 export interface ISourceItem {
+  id: number
   name: string
-  link: string
+  url: string
+  type: number
 }
 
 export interface ItemInfoData {

@@ -15,7 +15,7 @@ const ItemInfo: FC<ItemInfoProps> = (
       table,
       sources,
       articles
-    } 
+    }
   }) => {
   return (
     <div className={s.container}>
