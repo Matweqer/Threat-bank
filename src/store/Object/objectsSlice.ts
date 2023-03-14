@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { IInitialState, IVulnerability } from 'shared/types'
-import { axiosGetVulnerabilities, axiosGetVulnerability } from './actions'
+import { IInitialState, IObject } from 'shared/types'
+import { axiosGetObjects, axiosGetObject } from './actions'
 import { replaceFields } from 'shared/utils'
-import { vulnerabilityReplacement } from 'shared/constants'
+import { objectReplacement } from 'shared/constants'
 
 
-const initialState: IInitialState<IVulnerability> = {
+const initialState: IInitialState<IObject> = {
   count: 0,
   next: null,
   previous: null,
@@ -16,8 +16,8 @@ const initialState: IInitialState<IVulnerability> = {
   error: null
 }
 
-export const vulnerabilitiesSlice = createSlice({
-  name: 'vulnerabilities',
+export const objectsSlice = createSlice({
+  name: 'objects',
   initialState,
   reducers: {
     deleteStatusAndError: (state) => {
@@ -27,11 +27,11 @@ export const vulnerabilitiesSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      .addCase(axiosGetVulnerabilities.pending, state => {
+      .addCase(axiosGetObjects.pending, state => {
         state.error = null
         state.status = 'loading'
       })
-      .addCase(axiosGetVulnerabilities.fulfilled, (state, action) => {
+      .addCase(axiosGetObjects.fulfilled, (state, action) => {
         const { count, next, previous, results } = action.payload
         state.results = results
         state.count = count
@@ -39,7 +39,7 @@ export const vulnerabilitiesSlice = createSlice({
         state.previous = previous
         state.status = 'resolved'
       })
-      .addCase(axiosGetVulnerabilities.rejected, (state, action) => {
+      .addCase(axiosGetObjects.rejected, (state, action) => {
         if (action.payload?.errorMessage) {
           state.error = action.payload?.errorMessage
         }
@@ -47,15 +47,15 @@ export const vulnerabilitiesSlice = createSlice({
       })
 
     builder
-      .addCase(axiosGetVulnerability.pending, state => {
+      .addCase(axiosGetObject.pending, state => {
         state.error = null
         state.status = 'loading'
       })
-      .addCase(axiosGetVulnerability.fulfilled, (state, action) => {
-        state.current = replaceFields(action.payload, vulnerabilityReplacement)
+      .addCase(axiosGetObject.fulfilled, (state, action) => {
+        state.current = replaceFields(action.payload, objectReplacement)
         state.status = 'resolved'
       })
-      .addCase(axiosGetVulnerability.rejected, (state, action) => {
+      .addCase(axiosGetObject.rejected, (state, action) => {
         if (action.payload?.errorMessage) {
           state.error = action.payload?.errorMessage
         }
@@ -64,4 +64,4 @@ export const vulnerabilitiesSlice = createSlice({
   }
 })
 
-export const vulnerabilities = vulnerabilitiesSlice.reducer
+export const objects = objectsSlice.reducer

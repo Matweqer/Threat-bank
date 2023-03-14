@@ -4,5 +4,5 @@ export interface ListItemProps {
   id: number
   name: string
   type: ListTypes
-  level: number
+  level: string
 }

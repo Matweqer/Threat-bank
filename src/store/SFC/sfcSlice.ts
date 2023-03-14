@@ -2,6 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 import { IInitialState, ISfc } from 'shared/types'
 import { axiosGetSfc, axiosGetSfcItem } from './actions'
+import { replaceFields } from 'shared/utils'
+import { sfcReplacement } from 'shared/constants'
 
 
 const initialState: IInitialState<ISfc> = {
@@ -50,7 +52,7 @@ export const sfcSlice = createSlice({
         state.status = 'loading'
       })
       .addCase(axiosGetSfcItem.fulfilled, (state, action) => {
-        state.current = action.payload
+        state.current = replaceFields(action.payload, sfcReplacement)
         state.status = 'resolved'
       })
       .addCase(axiosGetSfcItem.rejected, (state, action) => {

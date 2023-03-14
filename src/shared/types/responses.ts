@@ -1,5 +1,6 @@
 import { ISfc } from './ISfc'
 import { IVulnerability } from './IVulnerability'
+import { IObject } from './IObject'
 
 export interface IResponse<T> {
   count: number
@@ -10,3 +11,4 @@ export interface IResponse<T> {
 
 export type ISfcResponse = IResponse<ISfc>
 export type IVulnerabilityResponse = IResponse<IVulnerability>
+export type IObjectsResponse = IResponse<IObject>

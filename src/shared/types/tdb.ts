@@ -1,7 +1,8 @@
 import { ISfc } from './ISfc'
 import { IVulnerability } from './IVulnerability'
+import { IObject } from './IObject'
 
-export type ListItemsTypes = ISfc | IVulnerability;
+export type ListItemsTypes = ISfc | IVulnerability | IObject;
 export type ListTypes = 'O' | 'SFC' | 'A' | 'V' | 'R' | 'T';
 
 export interface ItemTableData {
@@ -11,8 +12,10 @@ export interface ItemTableData {
 }
 
 export interface ISourceItem {
+  id: number
   name: string
-  link: string
+  url: string
+  type: number
 }
 
 export interface ItemInfoData {

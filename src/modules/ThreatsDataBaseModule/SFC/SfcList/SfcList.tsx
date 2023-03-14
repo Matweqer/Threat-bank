@@ -7,12 +7,12 @@ import { ListLayout } from 'shared/layout'
 import { ISortType } from 'shared/types'
 
 import { axiosGetSfc } from 'store/SFC/actions'
-import { getLimitParam, setLimitParam } from 'shared/utils'
+import { getLimitParam, setLimitParam, setSearchParam, getSearchParam } from 'shared/utils'
 
 
 const SfcList: FC = () => {
   const [sortType, setSortType] = useState<ISortType>(SfcSortTypes[0])
-  const [search, setSearch] = useState<string>('')
+  const [search, setSearch] = useState<string>(getSearchParam())
   const [limit, setLimit] = useState<number>(getLimitParam())
 
   const dispatch = useAppDispatch()
@@ -21,12 +21,9 @@ const SfcList: FC = () => {
     (async () => {
       await dispatch(axiosGetSfc({ limit, search, ordering: sortType.value }))
     })().catch(e => console.log(e))
-  }, [dispatch, limit, search, sortType.value])
-
-  useEffect(() => {
-    console.log('set lim')
     setLimitParam(limit)
-  }, [limit])
+    setSearchParam(search)
+  }, [dispatch, limit, search, sortType.value])
 
   const sfc = useAppSelector(state => state.sfc.results)
 

@@ -5,9 +5,9 @@ export const COLORS = [
   '#FF1D1D'
 ]
 
-export const getColorByLevel = (level: number | undefined) => {
+export const getColorByLevel = (level: string | undefined) => {
   if (!level) return '#0FD100'
-  const color = COLORS[level]
+  const color = COLORS[+level]
   if (!color) return '#0FD100'
   return color
 }
