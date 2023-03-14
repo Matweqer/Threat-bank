@@ -1,7 +1,8 @@
 import { ISfc } from './ISfc'
 import { IVulnerability } from './IVulnerability'
+import { IObject } from './IObject'
 
-export type ListItemsTypes = ISfc | IVulnerability;
+export type ListItemsTypes = ISfc | IVulnerability | IObject;
 export type ListTypes = 'O' | 'SFC' | 'A' | 'V' | 'R' | 'T';
 
 export interface ItemTableData {

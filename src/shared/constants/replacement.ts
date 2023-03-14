@@ -6,8 +6,7 @@ const LEVELS = {
 }
 
 const objectReplacement = {
-  criticality_level: LEVELS,
-  domain: LEVELS
+  criticality_level: LEVELS
 }
 const sfcReplacement = {
   criticality_level: LEVELS,

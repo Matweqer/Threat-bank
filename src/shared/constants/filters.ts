@@ -3,12 +3,12 @@ import { ILimitElement, ISortType } from 'shared/types'
 
 const DefaultSortTypes: ISortType[] = [
   {
-    label: 'возрастанию',
-    value: 'id'
+    label: 'умолчанию',
+    value: '-id'
   },
   {
-    label: 'убыванию',
-    value: '-id'
+    label: 'названию',
+    value: 'name'
   }
 ]
 
@@ -25,6 +25,14 @@ export const VulnerabilitiesSortTypes: ISortType[] = [
   {
     label: 'степени опасности',
     value: '-danger_degree'
+  }
+]
+
+export const ObjectsSortTypes: ISortType[] = [
+  ...DefaultSortTypes,
+  {
+    label: 'критичности',
+    value: '-criticality_level'
   }
 ]
 

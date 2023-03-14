@@ -19,8 +19,6 @@ export function replaceFields<T extends ListItemsTypes> (object: T, replacement:
       newObject[key] = replaceItem[newObject[key]]
     }
   }
-
-
   return newObject as T
 }
 
