@@ -36,6 +36,14 @@ export const ObjectsSortTypes: ISortType[] = [
   }
 ]
 
+export const RisksSortTypes: ISortType[] = [
+  ...DefaultSortTypes,
+  {
+    label: 'критичности',
+    value: '-criticality_level'
+  }
+]
+
 export const limitList: ILimitElement[] = [
   {
     value: '10',
