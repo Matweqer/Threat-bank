@@ -6,6 +6,7 @@ import { auth } from './Auth'
 import { vulnerabilities } from './Vulnerabilities'
 import { objects } from './Object'
 import { risks } from './Risk'
+import { attacks } from './Attack'
 
 type AppDispatch = typeof store.dispatch
 
@@ -15,7 +16,8 @@ export const store = configureStore({
     sfc,
     vulnerabilities,
     objects,
-    risks
+    risks,
+    attacks
   }
 })
 

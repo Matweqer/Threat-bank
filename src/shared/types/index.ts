@@ -8,4 +8,5 @@ export * from './ISfc'
 export * from './IVulnerability'
 export * from './IObject'
 export * from './IRisk'
+export * from './IAttack'
 

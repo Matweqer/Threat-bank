@@ -43,7 +43,7 @@ const RisksList: FC = () => {
         breadcrumbs={breadcrumbs} sortTypes={RisksSortTypes} search={search} limit={limit}
         setSortType={setSortType} setSearch={setSearch} setLimit={setLimit}
       >
-        <List items={risks} type={'O'} />
+        <List items={risks} type={'R'} />
       </ListLayout>
     </>
   )

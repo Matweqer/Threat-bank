@@ -2,8 +2,9 @@ import { ISfc } from './ISfc'
 import { IVulnerability } from './IVulnerability'
 import { IObject } from './IObject'
 import { IRisk } from './IRisk'
+import { IAttack } from './IAttack'
 
-export type ListItemsTypes = ISfc | IVulnerability | IObject | IRisk;
+export type ListItemsTypes = ISfc | IVulnerability | IObject | IRisk | IAttack;
 export type ListTypes = 'O' | 'SFC' | 'A' | 'V' | 'R' | 'T';
 
 export interface ItemTableData {
