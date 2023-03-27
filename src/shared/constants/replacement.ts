@@ -13,33 +13,15 @@ const sfcReplacement = {
   destabilization_level: LEVELS
 }
 const attackReplacement = {
-  purpose: {
-    0: 'Конфиденциальность',
-    1: 'Целостность',
-    2: 'Доступность'
-  },
   impact_nature: {
     0: 'Активный',
     1: 'Пассивный'
   },
-  tools: {
-    0: 'Свободное ПО',
-    1: 'Коммерческое ПО',
-    2: 'Вспомогательные средства',
-    3: 'Специальное ПО',
-    4: 'Самостоятельно разработанное ПО'
-  },
-  consequences: {
-    0: 'Влияние на человека',
-    1: 'Влияние на информацию',
-    2: 'Влияние на окружающую среду'
-  },
   impact_level: LEVELS,
-  intruder_possibility: LEVELS,
-  potential_level: LEVELS,
-  type: {
-    0: 'Внешний',
-    1: 'Внутренний'
+  stage: {
+    0: 'Вектор',
+    1: 'Точка входа',
+    2: 'Нарушение функций безопасности'
   }
 }
 const vulnerabilityReplacement = {

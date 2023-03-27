@@ -22,15 +22,15 @@ const AttackItem: FC = () => {
 
   const table: ItemTableData[] | null = attack && [
     { id: 1, name: 'Описание', value: attack.description },
-    { id: 2, name: 'Цель', value: attack.purposes.map(p => p.name).join(', ') || '-' },
+    { id: 2, name: 'Цель', value: attack.purposes?.map(p => p.name).join(', ') || '-' },
     { id: 3, name: 'Характер воздействия сценария', value: attack.impact_nature || '-' },
     { id: 4, name: 'Этап', value: attack.stage || '-' },
-    { id: 5, name: 'Инструментарий', value: attack.tools.map(t => t.name).join(', ') || '-' },
-    { id: 6, name: 'Последствия', value: attack.consequences.map(c => c.name).join(', ') || '-' },
+    { id: 5, name: 'Инструментарий', value: attack.tools?.map(t => t.name).join(', ') || '-' },
+    { id: 6, name: 'Последствия', value: attack.consequences?.map(c => c.name).join(', ') || '-' },
     { id: 7, name: 'Уровень влияния', value: attack.impact_level || '-' },
     { id: 8, name: 'CAPEC_ID', value: attack.capec_id || '-' },
     { id: 9, name: 'Архетипы', value: attack.archetypes },
-    { id: 10, name: 'Нарушители', value: attack.intruders.map(i => i.name).join(', ') || '-' }
+    { id: 10, name: 'Нарушители', value: attack.intruders?.map(i => i.name).join(', ') || '-' }
   ]
 
   const data: ItemInfoData | null = attack && {

@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import { IAttack, IInitialState } from 'shared/types'
 import { axiosGetAttack, axiosGetAttacks } from './actions'
 import { replaceFields } from 'shared/utils'
-import { riskReplacement } from 'shared/constants'
+import { attackReplacement, riskReplacement } from 'shared/constants'
 
 
 const initialState: IInitialState<IAttack> = {
@@ -52,7 +52,7 @@ export const attacksSlice = createSlice({
         state.status = 'loading'
       })
       .addCase(axiosGetAttack.fulfilled, (state, action) => {
-        state.current = replaceFields(action.payload, riskReplacement)
+        state.current = replaceFields(action.payload, attackReplacement)
         state.status = 'resolved'
       })
       .addCase(axiosGetAttack.rejected, (state, action) => {
