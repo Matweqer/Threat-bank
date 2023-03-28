@@ -51,6 +51,10 @@ export const AttacksSortTypes: ISortType[] = [
     value: '-impact_level'
   }
 ]
+export const ThreatsSortTypes: ISortType[] = [
+  ...DefaultSortTypes
+]
+
 
 export const limitList: ILimitElement[] = [
   {

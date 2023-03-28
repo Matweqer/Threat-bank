@@ -48,7 +48,7 @@ const AttackItem: FC = () => {
       link: '/threats-data-base'
     },
     {
-      name: 'Аттаки',
+      name: 'Атаки',
       link: '/threats-data-base/attacks'
     },
     {

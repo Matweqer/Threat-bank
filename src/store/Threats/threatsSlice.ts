@@ -1,12 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { IAttack, IInitialState } from 'shared/types'
-import { axiosGetAttack, axiosGetAttacks } from './actions'
-import { replaceFields } from 'shared/utils'
-import { attackReplacement } from 'shared/constants'
+import { IInitialState, IThreat } from 'shared/types'
+import { axiosGetThreats, axiosGetThreat } from './actions'
 
 
-const initialState: IInitialState<IAttack> = {
+const initialState: IInitialState<IThreat> = {
   count: 0,
   next: null,
   previous: null,
@@ -16,8 +14,8 @@ const initialState: IInitialState<IAttack> = {
   error: null
 }
 
-export const attacksSlice = createSlice({
-  name: 'attacks',
+export const threatsSlice = createSlice({
+  name: 'threats',
   initialState,
   reducers: {
     deleteStatusAndError: (state) => {
@@ -27,11 +25,11 @@ export const attacksSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      .addCase(axiosGetAttacks.pending, state => {
+      .addCase(axiosGetThreats.pending, state => {
         state.error = null
         state.status = 'loading'
       })
-      .addCase(axiosGetAttacks.fulfilled, (state, action) => {
+      .addCase(axiosGetThreats.fulfilled, (state, action) => {
         const { count, next, previous, results } = action.payload
         state.results = results
         state.count = count
@@ -39,7 +37,7 @@ export const attacksSlice = createSlice({
         state.previous = previous
         state.status = 'resolved'
       })
-      .addCase(axiosGetAttacks.rejected, (state, action) => {
+      .addCase(axiosGetThreats.rejected, (state, action) => {
         if (action.payload?.errorMessage) {
           state.error = action.payload?.errorMessage
         }
@@ -47,15 +45,15 @@ export const attacksSlice = createSlice({
       })
 
     builder
-      .addCase(axiosGetAttack.pending, state => {
+      .addCase(axiosGetThreat.pending, state => {
         state.error = null
         state.status = 'loading'
       })
-      .addCase(axiosGetAttack.fulfilled, (state, action) => {
-        state.current = replaceFields(action.payload, attackReplacement)
+      .addCase(axiosGetThreat.fulfilled, (state, action) => {
+        state.current = action.payload
         state.status = 'resolved'
       })
-      .addCase(axiosGetAttack.rejected, (state, action) => {
+      .addCase(axiosGetThreat.rejected, (state, action) => {
         if (action.payload?.errorMessage) {
           state.error = action.payload?.errorMessage
         }
@@ -64,4 +62,4 @@ export const attacksSlice = createSlice({
   }
 })
 
-export const attacks = attacksSlice.reducer
+export const threats = threatsSlice.reducer

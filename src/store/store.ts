@@ -7,6 +7,7 @@ import { vulnerabilities } from './Vulnerabilities'
 import { objects } from './Object'
 import { risks } from './Risk'
 import { attacks } from './Attack'
+import { threats } from './Threats'
 
 type AppDispatch = typeof store.dispatch
 
@@ -17,7 +18,8 @@ export const store = configureStore({
     vulnerabilities,
     objects,
     risks,
-    attacks
+    attacks,
+    threats
   }
 })
 
