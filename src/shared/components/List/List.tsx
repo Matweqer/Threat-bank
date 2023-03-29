@@ -23,7 +23,10 @@ const List: FC<ListProps> = ({
             ? item.danger_degree
             : ('criticality_level' in item)
                 ? item.criticality_level
-                : '0'}
+                : ('impact_level' in item)
+                    ? item.impact_level
+                    : '0'
+        }
 
         />
       )}
