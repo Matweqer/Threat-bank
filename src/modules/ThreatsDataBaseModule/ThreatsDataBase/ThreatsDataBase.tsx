@@ -8,7 +8,6 @@ import s from './ThreatsDataBase.module.scss'
 
 const ThreatsDataBase: FC = () => {
   return (
-    <div className={s.content}>
       <div className={s.tileContainer}>
         {
           tdbItems.map((i) =>
@@ -21,8 +20,6 @@ const ThreatsDataBase: FC = () => {
           )
         }
       </div>
-    </div>
-
   )
 }
 

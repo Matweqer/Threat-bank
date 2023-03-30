@@ -22,6 +22,11 @@ export interface ISourceItem {
   type: number
 }
 
+export interface IImage {
+  name: string
+  url: string
+}
+
 export interface ItemInfoData {
   id: number
   type: ListTypes
@@ -29,4 +34,5 @@ export interface ItemInfoData {
   table: ItemTableData[] | null
   sources: ISourceItem[]
   articles: ISourceItem[]
+  images?: IImage[]
 }

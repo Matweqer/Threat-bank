@@ -1,3 +1,5 @@
+import { IImage } from './tdb'
+
 export interface ICommonNote {
   id: number
   name: string
@@ -8,6 +10,7 @@ export interface IIntruder {
   name: string
   type: string
 }
+
 
 export interface IAttack {
   id: number
@@ -25,4 +28,5 @@ export interface IAttack {
   impact_nature: string
   impact_level: string
   archetypes: string
+  images: IImage[]
 }

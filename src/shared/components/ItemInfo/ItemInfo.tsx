@@ -14,19 +14,38 @@ const ItemInfo: FC<ItemInfoProps> = (
       type,
       table,
       sources,
-      articles
+      articles,
+      images
     }
   }) => {
+  const imgTiles = images?.map((img, index) =>
+    (<div className={s.imageBlock} key={index}>
+      <img
+        className={s.img}
+        src={img.url}
+        alt={img.name}
+      />
+      <h3 className={s.name}>
+        {img.name}
+      </h3>
+    </div>))
+
   return (
     <div className={s.container}>
 
       <div className={s.tableContainer}>
-        <ItemHeader id={id} type={type} name={name}/>
-        {table && <ItemTable table={table}/> }
+        <ItemHeader id={id} type={type} name={name} />
+        {table && <ItemTable table={table} />}
+        {imgTiles &&
+          <div className={s.imagesContainer}>
+            {imgTiles}
+          </div>
+        }
+
       </div>
 
-      <div className={s.sourceContainer}>
-        <ItemUsefulLinks sources={sources} articles={articles}/>
+      <div className={s.sourcesContainer}>
+        <ItemUsefulLinks sources={sources} articles={articles} />
       </div>
 
     </div>

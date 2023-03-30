@@ -1,4 +1,4 @@
-
+@import '../../../assets/scss/index';
 
 .container {
   display: flex;
@@ -20,7 +20,33 @@
   margin: 80px auto 64px;
 }
 
-.sourceContainer {
+.imagesContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 425px;
+  width: 100%;
+
+  .imageBlock {
+    //margin: 0 116px 0 0;
+    @include flex-column-center;
+
+    .img {
+      display: block;
+      width: 370px;
+      height: 272px;
+
+    }
+
+    .name {
+      display: block;
+      margin-top: 96px;
+      @include main-font(24px, 500)
+    }
+  }
+}
+
+.sourcesContainer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
