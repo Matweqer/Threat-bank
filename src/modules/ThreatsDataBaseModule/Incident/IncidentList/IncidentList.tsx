@@ -4,16 +4,16 @@ import { useAppDispatch, useAppSelector } from 'store'
 import { List, IBreadcrumb } from 'shared/components'
 import { IncidentsSortTypes } from 'shared/constants'
 import { ListLayout } from 'shared/layout'
-import { ISortType } from 'shared/types'
-import { getLimitParam, setLimitParam, setSearchParam, getSearchParam } from 'shared/utils'
+import { setLimitParam, setSearchParam } from 'shared/utils'
+import { useQuerySettings } from 'shared/hooks'
+
 
 import { axiosGetIncidents } from 'store/Incident/actions'
 
 
 const IncidentsList: FC = () => {
-  const [sortType, setSortType] = useState<ISortType>(IncidentsSortTypes[0])
-  const [search, setSearch] = useState<string>(getSearchParam())
-  const [limit, setLimit] = useState<number>(getLimitParam())
+  const querySettings = useQuerySettings(IncidentsSortTypes)
+  const { limit, search, sortType } = querySettings
 
   const dispatch = useAppDispatch()
 
@@ -41,8 +41,7 @@ const IncidentsList: FC = () => {
   return (
     <>
       <ListLayout
-        breadcrumbs={breadcrumbs} sortTypes={IncidentsSortTypes} search={search} limit={limit}
-        setSortType={setSortType} setSearch={setSearch} setLimit={setLimit}
+        breadcrumbs={breadcrumbs} querySettings={querySettings}
       >
         <List items={incidents} type={'I'} />
       </ListLayout>

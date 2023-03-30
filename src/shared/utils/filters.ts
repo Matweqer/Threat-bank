@@ -5,19 +5,19 @@ const defaultParams = {
 }
 
 export const getLimitParam = () => {
-  const limit: number = Number(localStorage.getItem('limit')) || defaultParams.limit
+  const limit: number = Number(sessionStorage.getItem('limit')) || defaultParams.limit
   return limit
 }
 export const setLimitParam = (limit: number) => {
-  localStorage.setItem('limit', limit.toString())
+  sessionStorage.setItem('limit', limit.toString())
 }
 
 export const getSearchParam = () => {
-  const search: string = localStorage.getItem('search') ?? defaultParams.search
+  const search: string = sessionStorage.getItem('search') ?? defaultParams.search
   return search
 }
 export const setSearchParam = (search: string) => {
-  localStorage.setItem('search', search)
+  sessionStorage.setItem('search', search)
 }
 
 

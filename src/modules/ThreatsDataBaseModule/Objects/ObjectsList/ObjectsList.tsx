@@ -1,18 +1,18 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from 'store'
 
 import { List, IBreadcrumb } from 'shared/components'
 import { ObjectsSortTypes } from 'shared/constants'
 import { ListLayout } from 'shared/layout'
-import { ISortType } from 'shared/types'
-import { getLimitParam, setLimitParam, setSearchParam, getSearchParam } from 'shared/utils'
+import { setLimitParam, setSearchParam } from 'shared/utils'
+import { useQuerySettings } from 'shared/hooks'
 
 import { axiosGetObjects } from 'store/Object/actions'
 
 const ObjectsList: FC = () => {
-  const [sortType, setSortType] = useState<ISortType>(ObjectsSortTypes[0])
-  const [search, setSearch] = useState<string>(getSearchParam())
-  const [limit, setLimit] = useState<number>(getLimitParam())
+  const querySettings = useQuerySettings(ObjectsSortTypes)
+  const { limit, search, sortType } = querySettings
+
 
   const dispatch = useAppDispatch()
 
@@ -40,8 +40,7 @@ const ObjectsList: FC = () => {
   return (
     <>
       <ListLayout
-        breadcrumbs={breadcrumbs} sortTypes={ObjectsSortTypes} search={search} limit={limit}
-        setSortType={setSortType} setSearch={setSearch} setLimit={setLimit}
+        breadcrumbs={breadcrumbs} querySettings={querySettings}
       >
         <List items={objects} type={'O'} />
       </ListLayout>

@@ -1,18 +1,19 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from 'store'
 
 import { List, IBreadcrumb } from 'shared/components'
 import { ThreatsSortTypes } from 'shared/constants'
 import { ListLayout } from 'shared/layout'
-import { ISortType } from 'shared/types'
-import { getLimitParam, setLimitParam, setSearchParam, getSearchParam } from 'shared/utils'
+import { setLimitParam, setSearchParam } from 'shared/utils'
+import { useQuerySettings } from 'shared/hooks'
+
 
 import { axiosGetThreats } from 'store/Threats/actions'
 
 const ThreatsList: FC = () => {
-  const [sortType, setSortType] = useState<ISortType>(ThreatsSortTypes[0])
-  const [search, setSearch] = useState<string>(getSearchParam())
-  const [limit, setLimit] = useState<number>(getLimitParam())
+  const querySettings = useQuerySettings(ThreatsSortTypes)
+  const { limit, search, sortType } = querySettings
+
 
   const dispatch = useAppDispatch()
 
@@ -40,8 +41,7 @@ const ThreatsList: FC = () => {
   return (
     <>
       <ListLayout
-        breadcrumbs={breadcrumbs} sortTypes={ThreatsSortTypes} search={search} limit={limit}
-        setSortType={setSortType} setSearch={setSearch} setLimit={setLimit}
+        breadcrumbs={breadcrumbs} querySettings={querySettings}
       >
         <List items={threats} type={'T'} />
       </ListLayout>

@@ -12,28 +12,18 @@ import s from './listLayout.module.scss'
 
 const ListLayout: FC<ListLayoutProps> = ({
   breadcrumbs,
-  search,
-  setSearch,
-  limit,
-  setLimit,
-  sortTypes,
-  setSortType,
+  querySettings,
   children
 }) => {
   const addItems = () => {
-    setLimit(limit + 10)
+    querySettings.setLimit(querySettings.limit + 10)
   }
 
   return (
     <>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
       <ListFiltersBlock
-        sortTypes={sortTypes}
-        search={search}
-        limit={limit}
-        setSortType={setSortType}
-        setSearch={setSearch}
-        setLimit={setLimit}
+        querySettings={querySettings}
       />
 
       {children}
