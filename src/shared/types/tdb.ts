@@ -4,9 +4,10 @@ import { IObject } from './IObject'
 import { IRisk } from './IRisk'
 import { IAttack } from './IAttack'
 import { IThreat } from './IThreat'
+import { IIncident } from './IIncident'
 
-export type ListItemsTypes = ISfc | IVulnerability | IObject | IRisk | IAttack | IThreat;
-export type ListTypes = 'O' | 'SFC' | 'A' | 'V' | 'R' | 'T';
+export type ListItemsTypes = ISfc | IVulnerability | IObject | IRisk | IAttack | IThreat | IIncident;
+export type ListTypes = 'O' | 'SFC' | 'A' | 'V' | 'R' | 'T' | 'I';
 
 export interface ItemTableData {
   id: number

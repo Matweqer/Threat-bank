@@ -8,6 +8,7 @@ import { objects } from './Object'
 import { risks } from './Risk'
 import { attacks } from './Attack'
 import { threats } from './Threats'
+import { incident } from './Incident'
 
 type AppDispatch = typeof store.dispatch
 
@@ -19,7 +20,8 @@ export const store = configureStore({
     objects,
     risks,
     attacks,
-    threats
+    threats,
+    incident
   }
 })
 

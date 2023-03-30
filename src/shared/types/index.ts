@@ -10,4 +10,5 @@ export * from './IObject'
 export * from './IRisk'
 export * from './IAttack'
 export * from './IThreat'
+export * from './IIncident'
 

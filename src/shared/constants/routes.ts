@@ -19,7 +19,9 @@ const ROUTES = {
   risksList: '/threats-data-base/risks',
   riskItem: '/threats-data-base/risks/:id',
   threatsList: '/threats-data-base/threats',
-  threatItem: '/threats-data-base/threats/:id'
+  threatItem: '/threats-data-base/threats/:id',
+  incidentList: '/threats-data-base/incidents',
+  incidentItem: '/threats-data-base/incidents/:id'
 
 }
 
