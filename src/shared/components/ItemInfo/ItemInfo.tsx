@@ -16,6 +16,7 @@ const ItemInfo: FC<ItemInfoProps> = (
       sources,
       articles,
       images
+      // cvss_vector
     }
   }) => {
   const imgTiles = images?.map((img, index) =>
@@ -30,12 +31,24 @@ const ItemInfo: FC<ItemInfoProps> = (
       </h3>
     </div>))
 
+  // const cvss_vector = { name: 'test vector', url: 'https://bdu.fstec.ru/calc?bs=AV%3AN%2FAC%3AL%2FAu%3AN%2FC%3AC%2FI%3AP%2FA%3AP' }
+
   return (
     <div className={s.container}>
 
       <div className={s.tableContainer}>
         <ItemHeader id={id} type={type} name={name} />
+
+        {/* {cvss_vector && */}
+        {/*   <div className={s.cvss}> */}
+        {/*     CVSS-вектор 2.0: */}
+        {/*     {<a className={s.link} href={cvss_vector.url}> */}
+        {/*       {cvss_vector.name.toUpperCase()} */}
+        {/*     </a>} */}
+        {/*   </div>} */}
+
         {table && <ItemTable table={table} />}
+
         {imgTiles &&
           <div className={s.imagesContainer}>
             {imgTiles}

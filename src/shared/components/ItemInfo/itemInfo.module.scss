@@ -9,6 +9,15 @@
   margin: 0 auto;
 }
 
+.cvss {
+  @include main-font(20px, 300);
+  width: 100%;
+  margin-bottom: 32px;
+  .link {
+    text-decoration: underline 0.1px;
+  }
+}
+
 .tableContainer {
   display: flex;
   flex-direction: column;
@@ -17,7 +26,8 @@
   background: #FFFFFF;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
-  margin: 80px auto 64px;
+  margin: 0 0 64px;
+  padding: 0 16px 32px;
 }
 
 .imagesContainer {
@@ -28,7 +38,6 @@
   width: 100%;
 
   .imageBlock {
-    //margin: 0 116px 0 0;
     @include flex-column-center;
 
     .img {
