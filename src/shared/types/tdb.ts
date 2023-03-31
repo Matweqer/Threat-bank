@@ -35,4 +35,6 @@ export interface ItemInfoData {
   sources: ISourceItem[]
   articles: ISourceItem[]
   images?: IImage[]
+  cvss_vector_2?: string
+  cvss_vector_3?: string
 }

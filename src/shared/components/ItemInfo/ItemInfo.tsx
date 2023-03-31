@@ -15,8 +15,9 @@ const ItemInfo: FC<ItemInfoProps> = (
       table,
       sources,
       articles,
-      images
-      // cvss_vector
+      images,
+      cvss_vector_2,
+      cvss_vector_3
     }
   }) => {
   const imgTiles = images?.map((img, index) =>
@@ -31,21 +32,29 @@ const ItemInfo: FC<ItemInfoProps> = (
       </h3>
     </div>))
 
-  // const cvss_vector = { name: 'test vector', url: 'https://bdu.fstec.ru/calc?bs=AV%3AN%2FAC%3AL%2FAu%3AN%2FC%3AC%2FI%3AP%2FA%3AP' }
-
   return (
     <div className={s.container}>
 
       <div className={s.tableContainer}>
         <ItemHeader id={id} type={type} name={name} />
 
-        {/* {cvss_vector && */}
-        {/*   <div className={s.cvss}> */}
-        {/*     CVSS-вектор 2.0: */}
-        {/*     {<a className={s.link} href={cvss_vector.url}> */}
-        {/*       {cvss_vector.name.toUpperCase()} */}
-        {/*     </a>} */}
-        {/*   </div>} */}
+        {(cvss_vector_2 ?? cvss_vector_3) &&
+          <div className={s.cvss}>
+            {cvss_vector_2 && <p>
+                <span>CVSS-вектор 2.0: </span>
+                {<span className={s.vector}>
+                  {cvss_vector_2.toUpperCase()}
+                </span>}
+              </p>}
+            {cvss_vector_3 && <p>
+                <span>CVSS-вектор 3.0: </span>
+                {<span className={s.vector}>
+                  {cvss_vector_3.toUpperCase()}
+                </span>}
+              </p>
+            }
+
+          </div>}
 
         {table && <ItemTable table={table} />}
 

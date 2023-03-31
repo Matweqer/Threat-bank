@@ -25,13 +25,8 @@ const attackReplacement = {
   }
 }
 const vulnerabilityReplacement = {
-  danger_degree: LEVELS,
-  type: {
-    0: 'Политики безопасности',
-    1: 'Эксплуатационная',
-    2: 'Технологическая'
-  },
-  grade: {
+  danger_level: LEVELS,
+  vul_class: {
     0: 'Кода',
     1: 'Архитектуры',
     2: 'Многофакторный',
