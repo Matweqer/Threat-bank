@@ -17,7 +17,7 @@
   margin-bottom: 24px;
 }
 
-.vector {
+.link {
   display:list-item;
   list-style-type: disc;
   list-style-position: outside;
@@ -27,13 +27,13 @@
   padding-left: 10px;
 }
 
-.vector::marker {
+.link::marker {
   width: 10px;
   height: 10px;
 }
 
 
-.vector a {
+.link a {
   @include main-font(20px, 400);
   color: $color-dark-green;
   text-decoration: underline;
