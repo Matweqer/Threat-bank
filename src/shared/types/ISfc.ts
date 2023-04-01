@@ -1,18 +1,18 @@
 import { ISourceItem } from './tdb'
 
-interface IEvaluation_object {
+interface ISfc_type {
   id: number
-  type: {
+  name: string
+  is_certified: boolean
+  sfc_class: {
     id: number
     name: string
   }
-  name: string
-  is_certified: boolean
 }
 
 export interface ISfc {
   id: number
-  evaluation_object: IEvaluation_object
+  sfc_type: ISfc_type
   name: string
   description: string
   name_in_system: string

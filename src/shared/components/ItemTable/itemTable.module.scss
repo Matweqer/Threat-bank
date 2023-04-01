@@ -55,3 +55,15 @@
   cursor: pointer;
 }
 
+.valueLinkWrap:after{
+  content: ', ';
+}
+
+.valueLinkWrap:last-child:after{
+  content: '';
+}
+
+.valueLink {
+  text-decoration: underline 0.1px;
+}
+

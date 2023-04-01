@@ -21,9 +21,18 @@ const ItemTable: FC<ItemTableProps> = ({ table }) => {
 
   const getRowValue = (item: ItemTableData) => {
     if (!item.value) return (<p> {'-'} </p>)
+
+    if (typeof item.value !== 'string') {
+      return (<p>
+        {item.value.map((v, index) => (<span key={index} className={s.valueLinkWrap}>
+          <a className={s.valueLink} target='_blank' rel='noreferrer' href={v.url}>{v.value}</a>
+        </span>))}
+      </p>)
+    }
+
     if (dataIsLong(item.value) && !openedRows[item.name]) {
       return (<p>
-        <span> { item.value.toString().slice(0, dataMaxLen) + '...'} </span>
+        <span>{ item.value.toString().slice(0, dataMaxLen) + '...'}</span>
         <span className={s.showMore} onClick={() => toggleRowView(item.name)} >{'Показать ещё'}</span>
       </p>)
     }
@@ -34,7 +43,8 @@ const ItemTable: FC<ItemTableProps> = ({ table }) => {
       </p>)
     }
 
-    return (<p> <span>{item.value}</span>   </p>)
+
+    return (<p><span>{item.value}</span></p>)
   }
 
   return (

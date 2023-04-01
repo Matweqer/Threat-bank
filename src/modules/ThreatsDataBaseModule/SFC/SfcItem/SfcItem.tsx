@@ -21,12 +21,12 @@ const SfcItem: FC = () => {
   // TODO CREATE BUILDER TABLE
   const table: ItemTableData[] | null = sfcItem && [
     { id: 1, name: 'Описание', value: sfcItem.description },
-    { id: 2, name: 'Тип', value: sfcItem.evaluation_object.type.name },
-    { id: 3, name: 'Объект СФХ', value: sfcItem.evaluation_object.name },
+    { id: 2, name: 'Класс', value: sfcItem.sfc_type?.sfc_class?.name || '-' },
+    { id: 3, name: 'Тип', value: sfcItem.sfc_type?.name || '-' },
     { id: 4, name: 'Наименование в системе', value: sfcItem.name_in_system },
     { id: 5, name: 'Версия', value: sfcItem.version },
-    { id: 6, name: 'Уровень критичности', value: sfcItem.criticality_level.toString() },
-    { id: 7, name: 'Уровень дестабилизации', value: sfcItem.destabilization_level.toString() },
+    { id: 6, name: 'Уровень критичности', value: sfcItem.criticality_level },
+    { id: 7, name: 'Уровень дестабилизации', value: sfcItem.destabilization_level },
     { id: 8, name: 'Архетипы', value: sfcItem.archetypes }
   ]
 
