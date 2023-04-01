@@ -12,13 +12,11 @@ import './react-select.scss'
 
 
 const ListFiltersBlock: FC<ListFiltersBlockProps> = ({
-  sortTypes,
-  search,
-  limit,
-  setSortType,
-  setLimit,
-  setSearch
+  querySettings
 }) => {
+  const { search, setSearch, setLimit, sortTypes, setSortType } = querySettings
+
+
   const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value)
   }

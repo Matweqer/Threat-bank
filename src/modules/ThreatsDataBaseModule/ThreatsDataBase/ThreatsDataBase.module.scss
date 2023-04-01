@@ -1,13 +1,9 @@
 @import '../../../assets/scss/index';
 
-.content {
-  @include flex-column-center;
-}
-
 .tileContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  width: 1174px;
+  justify-content: center;
+  min-width: 1200px;
   margin: 0 auto;
 }

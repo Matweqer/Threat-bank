@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { SelectOptionType } from 'shared/types/select'
+import { SelectOptionType } from 'shared/types'
 
 
 
@@ -11,7 +11,7 @@ const useSelect = (initialOption: SelectOptionType) => {
       setValue(option)
     }
   }
-  
+
   return [
     value,
     onChangeSelectionType

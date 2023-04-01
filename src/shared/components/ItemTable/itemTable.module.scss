@@ -4,8 +4,7 @@
   display: flex;
   flex-direction: column;
   min-width: 1144px;
-  padding: 32px 14px;
-  margin-top: 40px;
+
 }
 
 .row {
@@ -22,7 +21,7 @@
   font-style: italic;
   color: $color-main;
 
-  padding: 8px;
+  padding: 8px 8px 8px 0;
   border-bottom: 0.5px solid $color-main;
   width: 248px;
   margin-right: 8px;
@@ -54,5 +53,17 @@
 .showMore:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+.valueLinkWrap:after{
+  content: ', ';
+}
+
+.valueLinkWrap:last-child:after{
+  content: '';
+}
+
+.valueLink {
+  text-decoration: underline 0.1px;
 }
 

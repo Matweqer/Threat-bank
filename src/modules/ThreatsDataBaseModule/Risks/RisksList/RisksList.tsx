@@ -1,18 +1,17 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from 'store'
 
 import { List, IBreadcrumb } from 'shared/components'
 import { RisksSortTypes } from 'shared/constants'
 import { ListLayout } from 'shared/layout'
-import { ISortType } from 'shared/types'
-import { getLimitParam, setLimitParam, setSearchParam, getSearchParam } from 'shared/utils'
+import { setLimitParam, setSearchParam } from 'shared/utils'
+import { useQuerySettings } from 'shared/hooks'
 
 import { axiosGetRisks } from 'store/Risk/actions'
 
 const RisksList: FC = () => {
-  const [sortType, setSortType] = useState<ISortType>(RisksSortTypes[0])
-  const [search, setSearch] = useState<string>(getSearchParam())
-  const [limit, setLimit] = useState<number>(getLimitParam())
+  const querySettings = useQuerySettings(RisksSortTypes)
+  const { limit, search, sortType } = querySettings
 
   const dispatch = useAppDispatch()
 
@@ -40,8 +39,7 @@ const RisksList: FC = () => {
   return (
     <>
       <ListLayout
-        breadcrumbs={breadcrumbs} sortTypes={RisksSortTypes} search={search} limit={limit}
-        setSortType={setSortType} setSearch={setSearch} setLimit={setLimit}
+        breadcrumbs={breadcrumbs} querySettings={querySettings}
       >
         <List items={risks} type={'R'} />
       </ListLayout>

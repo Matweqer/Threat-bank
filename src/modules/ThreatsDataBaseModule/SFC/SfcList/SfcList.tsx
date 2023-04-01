@@ -1,19 +1,19 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from 'store'
 
 import { List, IBreadcrumb } from 'shared/components'
 import { SfcSortTypes } from 'shared/constants'
 import { ListLayout } from 'shared/layout'
-import { ISortType } from 'shared/types'
+
+import { useQuerySettings } from 'shared/hooks'
+import { setLimitParam, setSearchParam } from 'shared/utils'
 
 import { axiosGetSfc } from 'store/SFC/actions'
-import { getLimitParam, setLimitParam, setSearchParam, getSearchParam } from 'shared/utils'
 
 
 const SfcList: FC = () => {
-  const [sortType, setSortType] = useState<ISortType>(SfcSortTypes[0])
-  const [search, setSearch] = useState<string>(getSearchParam())
-  const [limit, setLimit] = useState<number>(getLimitParam())
+  const querySettings = useQuerySettings(SfcSortTypes)
+  const { limit, search, sortType } = querySettings
 
   const dispatch = useAppDispatch()
 
@@ -41,8 +41,7 @@ const SfcList: FC = () => {
   return (
     <>
       <ListLayout
-        breadcrumbs={breadcrumbs} sortTypes={SfcSortTypes} search={search} limit={limit}
-        setSortType={setSortType} setSearch={setSearch} setLimit={setLimit}
+        breadcrumbs={breadcrumbs} querySettings={querySettings}
       >
         <List items={sfc} type={'SFC'} />
       </ListLayout>

@@ -55,6 +55,10 @@ export const ThreatsSortTypes: ISortType[] = [
   ...DefaultSortTypes
 ]
 
+export const IncidentsSortTypes: ISortType[] = [
+  ...DefaultSortTypes
+]
+
 
 export const limitList: ILimitElement[] = [
   {

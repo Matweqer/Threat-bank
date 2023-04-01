@@ -19,6 +19,7 @@ import { DefaultLayout, RequiredAuth } from 'shared/layout'
 
 import { ROUTES } from 'shared/constants'
 import { store } from 'store'
+import { IncidentItem, IncidentsList } from './modules/ThreatsDataBaseModule/Incident'
 
 const App: FC = () => {
   return (
@@ -47,6 +48,8 @@ const App: FC = () => {
               <Route path={ROUTES.riskItem} element={<RiskItem/>} />
               <Route path={ROUTES.threatsList} element={<ThreatsList/>} />
               <Route path={ROUTES.threatItem} element={<ThreatItem/>} />
+              <Route path={ROUTES.incidentList} element={<IncidentsList/>} />
+              <Route path={ROUTES.incidentItem} element={<IncidentItem/>} />
             </Route>
 
           </Route>

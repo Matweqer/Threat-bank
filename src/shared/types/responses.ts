@@ -4,6 +4,7 @@ import { IObject } from './IObject'
 import { IRisk } from './IRisk'
 import { IAttack } from './IAttack'
 import { IThreat } from './IThreat'
+import { IIncident } from './IIncident'
 
 export interface IResponse<T> {
   count: number
@@ -18,4 +19,5 @@ export type IObjectsResponse = IResponse<IObject>
 export type IRiskResponse = IResponse<IRisk>
 export type IAttackResponse = IResponse<IAttack>
 export type IThreatResponse = IResponse<IThreat>
+export type IIncidentResponse = IResponse<IIncident>
 
