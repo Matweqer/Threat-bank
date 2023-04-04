@@ -12,7 +12,7 @@ const RequiredAuth: FC = () => {
   const access = Cookies.get('access')
 
   if (!isAuth || !access || status === 'rejected') {
-    return <Navigate to={ROUTES.login} state={{ from: location }} />
+    return <Navigate to={ROUTES.auth} state={{ from: location }} />
   }
 
   return <Outlet />
