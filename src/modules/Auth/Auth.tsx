@@ -24,10 +24,6 @@ const Auth: FC = () => {
 
   return (
     <div className={s.auth} >
-
-      <div>
-      </div>
-
       <form className={s.form} onSubmit={handleSubmit}>
         <h2 className={s.formTitle}>Вход</h2>
 
