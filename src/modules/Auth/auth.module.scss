@@ -1,0 +1,105 @@
+@import 'src/assets/scss/index.scss';
+
+.auth {
+  @include flex-column-center;
+  @include full-display;
+}
+
+.container {
+
+}
+
+.title {
+
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 370px;
+  height: 352px;
+  background: #5CC86A;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+
+  .formTitle {
+    @include main-font(24px, 600);
+    color: $color-black-green;
+    margin: 32px 0 24px;
+  }
+
+  .inputLabel {
+    width: 280px;
+    height: 40px;
+    border-radius: 5px;
+    margin-bottom: 24px;
+    background-color: $color-main;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+
+  .imgBox {
+    @include flex-column-center;
+    box-sizing: border-box;
+    width: 40px;
+    height: 100%;
+  }
+
+  .input, .input:hover, .input:focus  {
+    @include main-font(16px, 500);
+    display: block;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    border: solid 6px $color-main;
+    background-color: $color-main !important;
+    color: #FFFFFF;
+    outline: none;
+  }
+
+  .input::placeholder {
+    @include main-font(16px, 500);
+    color: rgba(255,255,255,0.5);
+  }
+
+  .input:-webkit-autofill,
+  .input:-webkit-autofill:hover,
+  .input:-webkit-autofill:focus,
+  .input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px $color-main inset !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+  }
+
+  .forgetPass {
+    @include main-font(16px, 600);
+    color: $color-black-green;
+    margin-top: 12px;
+    margin-bottom: 32px;
+  }
+
+  .forgetPass:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .submit {
+    @include main-font(20px, 600);
+    color: $color-dark-green;
+    background: #FFFFFF;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    width: 98px;
+    height: 40px;
+    border: none;
+  }
+
+  .submit:hover {
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+
+}
+
+
