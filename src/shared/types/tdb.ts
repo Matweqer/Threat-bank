@@ -28,8 +28,9 @@ export interface ISourceItem {
 }
 
 export interface IImage {
+  id: number
   name: string
-  url: string
+  image: string
 }
 
 export interface ItemInfoData {
