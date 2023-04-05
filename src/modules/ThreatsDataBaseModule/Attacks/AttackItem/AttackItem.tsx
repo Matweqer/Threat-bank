@@ -39,7 +39,8 @@ const AttackItem: FC = () => {
     type: 'A',
     table,
     sources: [],
-    articles: []
+    articles: [],
+    images: attack.images
   }
 
   const breadcrumbs: IBreadcrumb[] | null = attack && [

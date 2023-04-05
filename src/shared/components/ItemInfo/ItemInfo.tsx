@@ -20,11 +20,13 @@ const ItemInfo: FC<ItemInfoProps> = (
       cvss_vector_3
     }
   }) => {
-  const imgTiles = images?.map((img, index) =>
-    (<div className={s.imageBlock} key={index}>
+  const imgTiles = !images?.length
+    ? null
+    : images?.map((img, index) =>
+      (<div className={s.imageBlock} key={index}>
       <img
         className={s.img}
-        src={img.url}
+        src={img.image}
         alt={img.name}
       />
       <h3 className={s.name}>
