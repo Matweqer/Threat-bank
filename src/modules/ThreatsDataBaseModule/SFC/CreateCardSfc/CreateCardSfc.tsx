@@ -1,14 +1,23 @@
 import React, { FC } from 'react'
 import Select from 'react-select'
-import { 
-  radioOptionsCriticalityLevels, 
+
+import {
+  Breadcrumbs,
+  IBreadcrumb,
+  FormLabel,
+  FormInput,
+  FormTextArea,
+  FormRadioButtonsLevels
+} from 'shared/components'
+import { useInput, useSelect } from 'shared/hooks'
+
+
+import {
+  radioOptionsCriticalityLevels,
   radioOptionsDestabilizationLevels,
   selectOptionsObjects,
-  selectOptionsTypes 
+  selectOptionsTypes
 } from './constants'
-import { FormLabel } from './FormLabel'
-import { FormRadioButtonsLevels } from './FormRadioButtonsLevels'
-import { useInput, useSelect } from 'shared/hooks'
 import s from './CreateCardSfc.module.scss'
 
 
@@ -23,75 +32,98 @@ const CreateCardSfc: FC = () => {
   const [type, onChangeSelectionType] = useSelect(selectOptionsTypes[0])
   const [object, onChangeSelectionObject] = useSelect(selectOptionsObjects[0])
 
+  const breadcrumbs: IBreadcrumb[] = [
+    {
+      name: 'База данных угроз',
+      link: '/threats-data-base'
+    },
+    {
+      name: 'СФХ',
+      link: '/threats-data-base/SFC'
+    },
+    {
+      name: 'Создание карточки СФХ',
+      link: '/threats-data-base/CFC/create-card'
+    }
+  ]
+
   return (
-        <div>
-            <div className={s['sfc-form']}>
-                <FormLabel value={'Наименование'}/>
-                <input type='text' 
-                    className={s['sfc-form-input']} 
-                    placeholder='Наименование'
-                    value={name}
-                    onChange={onChangeName}
-                />
-               <FormLabel value={'Описание'}/>
-                <textarea 
-                    className={s['sfc-form-textarea']} 
-                    placeholder='Введите текст'
-                    value={description}
-                    onChange={onChangeDescription}
-                />
-                <FormLabel value={'Тип'}/>
-                <Select
-                    options={selectOptionsTypes}
-                    className={s['sfc-form-select']}
-                    onChange={onChangeSelectionType}
-                    defaultValue={selectOptionsTypes[0]}
-                />
-                <FormLabel value={'Объект'}/>
-                <Select
-                    options={selectOptionsObjects}
-                    className={s['sfc-form-select']}
-                    onChange={onChangeSelectionObject}
-                    defaultValue={selectOptionsObjects[0]}
-                />
-                 <FormLabel value={'Наименование в системе'}/>
-                <input type='text' 
-                    className={s['sfc-form-input']} 
-                    placeholder='Наименование в системе'
-                    value={nameSystem}
-                    onChange={onChangeNameSystem}
-                />
-                <FormLabel value={'Версия'}/>
-                <input type='text' 
-                    className={s['sfc-form-input']} 
-                    placeholder='Версия'
-                    value={version}
-                    onChange={onChangeVersion}
-                />
-                <FormRadioButtonsLevels 
-                    label={'Уровень критичности'} 
-                    groupRadioButton={radioOptionsCriticalityLevels} 
-                    onChange={onChangeCriticality}
-                    />
-                <FormRadioButtonsLevels 
-                    label={'Уровень Дестабилизации'} 
-                    groupRadioButton={radioOptionsDestabilizationLevels}
-                    onChange={onChangeDestabilization} 
-                    />
-                <FormLabel value={'Архетипы'}/>
-                <textarea 
-                    className={s['sfc-form-textarea']} 
-                    placeholder='Введите текст'
-                    value={archetype}
-                    onChange={onChangeArchetype}
-                    />
-                </div>
-                <div className={s['sfc-form-submit-container']}>
-                    <button>
-                        Создать карточку
-                    </button>
-                </div>
-        </div>
+    <div>
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
+
+      <div className={s['sfc-form']}>
+
+        <FormLabel value={'Название'} />
+        <FormInput
+               placeholder='Наименование'
+               value={name}
+               onChangeHandler={onChangeName}
+        />
+
+        <FormLabel value={'Описание'} />
+        <FormTextArea
+          placeholder='Введите текст'
+          value={description}
+          onChangeHandler={onChangeDescription}
+        />
+
+        <FormLabel value={'Тип'} />
+        <Select
+          options={selectOptionsTypes}
+          className={s['sfc-form-select']}
+          onChange={onChangeSelectionType}
+          defaultValue={selectOptionsTypes[0]}
+        />
+
+        <FormLabel value={'Объект'} />
+        <Select
+          options={selectOptionsObjects}
+          className={s['sfc-form-select']}
+          onChange={onChangeSelectionObject}
+          defaultValue={selectOptionsObjects[0]}
+        />
+
+        <FormLabel value={'Наименование в системе'} />
+        <FormInput
+          placeholder='Наименование в системе'
+          value={version}
+          onChangeHandler={onChangeVersion}
+        />
+
+        <FormLabel value={'Версия'} />
+        <FormInput
+               placeholder='Версия'
+               value={version}
+               onChangeHandler={onChangeVersion}
+        />
+
+        <FormLabel value={'Уровень критичности'} />
+        <FormRadioButtonsLevels
+          groupRadioButton={radioOptionsCriticalityLevels}
+          onChange={onChangeCriticality}
+        />
+
+        <FormLabel value={'Уровень Дестабилизации'} />
+        <FormRadioButtonsLevels
+          groupRadioButton={radioOptionsDestabilizationLevels}
+          onChange={onChangeDestabilization}
+        />
+
+        <FormLabel value={'Архетипы'} />
+        <FormTextArea
+          placeholder='Введите текст'
+          value={archetype}
+          onChangeHandler={onChangeArchetype}
+        />
+      </div>
+
+      <div className={s['sfc-form-submit-container']}>
+        <button>
+          Создать карточку
+        </button>
+      </div>
+
+    </div>
   )
 }
 

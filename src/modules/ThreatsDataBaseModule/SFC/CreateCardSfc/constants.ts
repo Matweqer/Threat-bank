@@ -1,5 +1,5 @@
 import { SelectOptionType } from 'shared/types/select'
-import { radioOptions } from './types'
+import { radioOptions } from 'shared/components/CreateCardUI'
 
 const radioOptionsCriticalityLevels: radioOptions = {
   radioGroup: 'criticalitiesLevels',

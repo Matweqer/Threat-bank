@@ -1,0 +1,37 @@
+@import 'src/assets/scss/index.scss';
+
+
+.container {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 48px;
+  margin: 24px 0 40px;
+
+  &__item {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+
+    &+label {
+      width: 144px;
+      height: 40px;
+      background: #E5E5E5;
+      box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include main-font(20px, 500);
+      font-style: normal;
+      cursor: pointer;
+    }
+
+    &:checked+label {
+      background: #299636;
+      color: $color-white;
+      box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+    }
+  }
+}
