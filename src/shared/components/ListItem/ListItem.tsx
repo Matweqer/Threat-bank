@@ -13,12 +13,9 @@ const ListItem: FC<ListItemProps> = ({
   type,
   level
 }) => {
-  // const level: number | undefined =
-  //   impact_level ??
-  //   criticality_level ??
-  //   destabilization_level ??
-  //   danger_degree ?? undefined
-
+  const getValue = (value: string) => {
+    return value.length > 75 ? value.slice(0, 75) + '...' : value
+  }
   return (
       <Link className={s.link} to={id.toString()}>
         <div className={s.color} style={{ background: getColorByLevel(level) }}/>
@@ -28,7 +25,7 @@ const ListItem: FC<ListItemProps> = ({
         </div>
 
         <div className={s.name} >
-          {name}
+          {getValue(name)}
         </div>
 
       </Link>

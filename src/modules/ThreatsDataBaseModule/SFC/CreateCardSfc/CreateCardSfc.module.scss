@@ -1,6 +1,6 @@
 @import 'src/assets/scss/index.scss';
 
-.sfc-form {
+.sfcForm {
     width: 1174px;
     height: 1672px;
     background: #FFFFFF;
@@ -8,14 +8,15 @@
     border-radius: 20px;
     padding: 32px 0 0 40px;
 
-    &-select {
+    &Select {
+        @include main-font(20px, 500);
         width: 856px;
         height: 40px;
         background: $color-white;
         margin: 24px 0 40px 0;
       }
 
-    &-submit-container {
+    &SubmitContainer {
         display: flex;
         justify-content: center;
 

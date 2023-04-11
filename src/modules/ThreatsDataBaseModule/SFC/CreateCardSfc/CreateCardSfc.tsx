@@ -7,15 +7,14 @@ import {
   FormLabel,
   FormInput,
   FormTextArea,
-  FormRadioButtonsLevels
+  FormRadioButtonsLevels, Button
 } from 'shared/components'
 import { useInput, useSelect } from 'shared/hooks'
-
 
 import {
   radioOptionsCriticalityLevels,
   radioOptionsDestabilizationLevels,
-  selectOptionsObjects,
+  selectOptionsClasses,
   selectOptionsTypes
 } from './constants'
 import s from './CreateCardSfc.module.scss'
@@ -29,8 +28,24 @@ const CreateCardSfc: FC = () => {
   const [archetype, onChangeArchetype] = useInput<HTMLTextAreaElement>('')
   const [criticality, onChangeCriticality] = useInput<HTMLInputElement>('')
   const [destabilization, onChangeDestabilization] = useInput<HTMLInputElement>('')
-  const [type, onChangeSelectionType] = useSelect(selectOptionsTypes[0])
-  const [object, onChangeSelectionObject] = useSelect(selectOptionsObjects[0])
+  const [sfc_type, onChangeSelectionType] = useSelect(selectOptionsTypes[0])
+  const [sfc_class, onChangeSelectionObject] = useSelect(selectOptionsClasses[0])
+
+  const onSubmitHandler = () => {
+    const sfc = {
+      name,
+      description,
+      nameSystem,
+      version,
+      archetype,
+      criticality,
+      destabilization,
+      sfc_type,
+      sfc_class
+    }
+
+    console.log(sfc)
+  }
 
   const breadcrumbs: IBreadcrumb[] = [
     {
@@ -51,13 +66,13 @@ const CreateCardSfc: FC = () => {
     <div>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
 
-      <div className={s['sfc-form']}>
+      <div className={s.sfcForm}>
 
         <FormLabel value={'Название'} />
         <FormInput
-               placeholder='Наименование'
-               value={name}
-               onChangeHandler={onChangeName}
+          placeholder='Наименование'
+          value={name}
+          onChangeHandler={onChangeName}
         />
 
         <FormLabel value={'Описание'} />
@@ -70,31 +85,31 @@ const CreateCardSfc: FC = () => {
         <FormLabel value={'Тип'} />
         <Select
           options={selectOptionsTypes}
-          className={s['sfc-form-select']}
+          className={s.sfcFormSelect}
           onChange={onChangeSelectionType}
           defaultValue={selectOptionsTypes[0]}
         />
 
         <FormLabel value={'Объект'} />
         <Select
-          options={selectOptionsObjects}
-          className={s['sfc-form-select']}
+          options={selectOptionsClasses}
+          className={s.sfcFormSelect}
           onChange={onChangeSelectionObject}
-          defaultValue={selectOptionsObjects[0]}
+          defaultValue={selectOptionsClasses[0]}
         />
 
         <FormLabel value={'Наименование в системе'} />
         <FormInput
           placeholder='Наименование в системе'
-          value={version}
-          onChangeHandler={onChangeVersion}
+          value={nameSystem}
+          onChangeHandler={onChangeNameSystem}
         />
 
         <FormLabel value={'Версия'} />
         <FormInput
-               placeholder='Версия'
-               value={version}
-               onChangeHandler={onChangeVersion}
+          placeholder='Версия'
+          value={version}
+          onChangeHandler={onChangeVersion}
         />
 
         <FormLabel value={'Уровень критичности'} />
@@ -117,10 +132,8 @@ const CreateCardSfc: FC = () => {
         />
       </div>
 
-      <div className={s['sfc-form-submit-container']}>
-        <button>
-          Создать карточку
-        </button>
+      <div className={s.sfcFormSubmitContainer}>
+        <Button buttonOnClick={onSubmitHandler} buttonTitle={'Создать карточку'}/>
       </div>
 
     </div>

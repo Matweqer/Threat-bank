@@ -4,10 +4,10 @@ import { ButtonProps } from './types'
 import s from './button.module.scss'
 
 
-const Button: FC<ButtonProps> = ({ buttonTitle, buttonOnClick }) => {
+const Button: FC<ButtonProps> = ({ buttonTitle, buttonOnClick, type }) => {
   return (
-    <button className={s.button} onClick={buttonOnClick}>
-      {buttonTitle}
+    <button className={s.button} onClick={buttonOnClick} type={type ?? 'button'} >
+      {buttonTitle ?? ''}
     </button>
   )
 }
