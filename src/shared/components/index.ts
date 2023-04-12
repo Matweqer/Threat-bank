@@ -5,6 +5,7 @@ export * from './Breadcrumbs'
 export * from './Button'
 
 export * from './InfoSection'
+export * from './LinkTo'
 
 export * from './List'
 export * from './ListItem'

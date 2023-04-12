@@ -5,11 +5,13 @@ import classNames from 'classnames'
 import { InfoSectionProps } from './types'
 
 import s from './infoSection.module.scss'
+import { LinkTo } from '../LinkTo'
 
 const InfoSection: FC<InfoSectionProps> = ({
   title,
   text,
   link,
+  linkTitle,
   img,
   isReversed
 }) => {
@@ -24,10 +26,7 @@ const InfoSection: FC<InfoSectionProps> = ({
         <p className={s.text}>
           {text}
         </p>
-        <Link className={s.link} to={link}>
-          Узнать подробнее
-          <span></span>
-        </Link>
+        <LinkTo title={linkTitle} url={link}/>
       </div>
       <div className={s.right}>
         <img src={img} alt='' />

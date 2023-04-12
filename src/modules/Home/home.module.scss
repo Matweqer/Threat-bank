@@ -56,20 +56,6 @@
       margin-top: 160px;
       margin-bottom: 110px;
     }
-
-    &_link {
-      color: $color-main;
-      display: flex;
-      align-items: center;
-
-      & > span {
-        background-image: url("../../assets/images/Home/arrowLeft.png");
-        display: inline-block;
-        height: 27px;
-        width: 27px;
-        margin-left: 30px;
-      }
-    }
   }
 
   &_img {

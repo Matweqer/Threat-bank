@@ -1,8 +1,6 @@
 import React, { FC } from 'react'
 
-import { Link } from 'react-router-dom'
-import { InfoSection } from 'shared/components'
-
+import { InfoSection, LinkTo } from 'shared/components'
 
 import rector from 'assets/images/Home/rector.png'
 import map from 'assets/images/Home/map.png'
@@ -29,10 +27,7 @@ const Home: FC = () => {
                 очередь это работа с атаками на БПЛА, защита их от проникновения злоумышлеников, проработка
                 сценариев защиты от различных атак.
               </p>
-              <Link className={s.about_greenContainer_link} to={'/about-us'}>
-                Узнать больше
-                <span/>
-              </Link>
+            <LinkTo title={'Узнать больше'} url={'/about-us'}/>
             </div>
             <img className={s.about_img} src={rector} alt='Наша команда' />
           </div>
@@ -45,6 +40,7 @@ const Home: FC = () => {
                        ' на специальном компьютерном языке. Но слово «хакер» также применимо ' +
                        'к человеку, который пытается украсть информацию из компьютерных систем.'}
                      link={'/home'}
+                     linkTitle={'Узнать больше'}
                      img={map}
                      isReversed={true}/>
 
@@ -56,6 +52,7 @@ const Home: FC = () => {
                        ' Но слово «хакер» также применимо к человеку,' +
                        ' который пытается украсть информацию из компьютерных систем.'}
                      link={'/services'}
+                     linkTitle={'Перейти в "Сервисы"'}
                      img={services}
         />
 
@@ -67,6 +64,7 @@ const Home: FC = () => {
                        ' Но слово «хакер» также применимо к человеку,' +
                        ' который пытается украсть информацию из компьютерных систем.'}
                      link={'/threats-data-base'}
+                     linkTitle={'Перейти в "База данных угроз"'}
                      img={drone}
                      isReversed={true}
         />
