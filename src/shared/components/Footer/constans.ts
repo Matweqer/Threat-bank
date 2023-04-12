@@ -1,4 +1,5 @@
 import { LinkItem, SocialMediaIcon } from './types'
+
 import FacebookIcon from 'assets/images/Footer/FacebookIcon.png'
 import TelegramIcon from 'assets/images/Footer/TelegramIcon.png'
 import VkIcon from 'assets/images/Footer/VkIcon.png'

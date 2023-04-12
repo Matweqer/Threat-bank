@@ -4,6 +4,8 @@ export * from './Footer'
 export * from './Breadcrumbs'
 export * from './Button'
 
+export * from './InfoSection'
+
 export * from './List'
 export * from './ListItem'
 export * from './ListFiltersBlock'
