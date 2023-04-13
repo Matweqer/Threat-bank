@@ -1,5 +1,5 @@
 import { SelectOptionType } from 'shared/types/select'
-import { radioOptions } from './types'
+import { radioOptions } from 'shared/components/CreateCardUI'
 
 const radioOptionsCriticalityLevels: radioOptions = {
   radioGroup: 'criticalitiesLevels',
@@ -48,7 +48,7 @@ const radioOptionsDestabilizationLevels: radioOptions = {
 const selectOptionsTypes: SelectOptionType[] = [
   { value: 'firmware', label: 'Микропрограммное обеспечение' }
 ]
-const selectOptionsObjects: SelectOptionType[] = [
+const selectOptionsClasses: SelectOptionType[] = [
   { value: 'operatingSystem', label: 'Операционная система' }
 ]
 
@@ -57,5 +57,5 @@ export {
   radioOptionsCriticalityLevels,
   radioOptionsDestabilizationLevels,
   selectOptionsTypes,
-  selectOptionsObjects
+  selectOptionsClasses
 }

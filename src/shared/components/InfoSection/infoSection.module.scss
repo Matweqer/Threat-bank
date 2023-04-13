@@ -1,0 +1,53 @@
+@import 'src/assets/scss/index.scss';
+
+.info {
+  height: 660px;
+  margin-top: 110px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reversed {
+  flex-direction: row-reverse;
+}
+
+.left, .right {
+  width: 48%;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  @include main-font(48px, 500);
+  font-style: italic;
+  margin-bottom: 136px;
+}
+
+.text {
+  margin-bottom: 135px;
+}
+
+.link {
+  color: $color-main;
+  display: flex;
+  align-items: center;
+
+  & > span {
+    background-image: url("../../../assets/images/Home/arrowLeft.png");
+    display: inline-block;
+    height: 27px;
+    width: 27px;
+    margin-left: 30px;
+  }
+}
+
+.right {
+  & > img {
+    width: 100%;
+  }
+}

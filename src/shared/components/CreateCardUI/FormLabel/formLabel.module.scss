@@ -1,0 +1,14 @@
+@import 'src/assets/scss/index.scss';
+
+.label {
+  width: 1081px;
+  @include main-font(24px, 500);
+  font-style: normal;
+
+  &::after {
+    content: '';
+    margin-top: 8px;
+    border: 1px solid $color-grey;
+    display: block;
+  }
+}

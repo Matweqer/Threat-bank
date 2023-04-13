@@ -8,7 +8,7 @@
   flex: 0 0 auto;
 
   &Content {
-    margin: 56px 0px 0px 0px;
+    margin: 56px 0 0 0;
     @include flex-wrap-center;
     gap: 93px;
   }
@@ -21,7 +21,7 @@
     &SocailMediaIcons{
       @include flex-space-between;
       width: 248px;
-      margin: 36px 0px 0px 0px;
+      margin: 36px 0 0 0;
 
       &Item {
           width: 30px;
@@ -34,15 +34,13 @@
       @include flex-center;
       width: 264px;
       height: 40px;
-      margin: 77px 0px 0px 0px;
+      margin: 77px 0 0 0;
       background: rgba(90, 192, 102, 0.25);
       border: 1px solid $color-white;
-      box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
       border-radius: 10px;
       & p {
-        font-family: 'Raleway';
-        font-weight: 300;
-        font-size: 24px;
+        @include main-font(24px, 300);
         color: $color-white;
       }
     }
@@ -62,9 +60,7 @@
       &Text {
         @include flex-center;
         & p {
-          font-family: 'Raleway';
-          font-weight: 400;
-          font-size: 24px;
+          @include main-font(24px, 400);
           color: $color-white;
         }
       }
@@ -72,7 +68,7 @@
   }
 
   &Column {
-    margin: 56px 0px 0px 0px;
+    margin: 56px 0 0 0;
 
     &Separator{
       width: 370px;
