@@ -1,4 +1,4 @@
-export * from './Home'
+export * from './MainModule'
 export * from './ThreatsDataBaseModule'
 export * from './ServicesModule'
 export * from './NotFound'

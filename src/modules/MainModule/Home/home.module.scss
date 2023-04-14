@@ -1,4 +1,4 @@
-@import 'src/assets/scss/index.scss';
+@import '../../../assets/scss/index';
 
 .home {
   width: 100%
@@ -16,7 +16,7 @@
 .topSection {
   width: 99.2vw;
   height: 500px;
-  background-image: url(../../assets/images/Home/stand.png);
+  background-image: url(../../../assets/images/Home/stand.png);
   background-size: cover;
   display: flex;
   justify-content: center;
