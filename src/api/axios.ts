@@ -2,7 +2,7 @@ import axios, { AxiosInstance } from 'axios'
 import { onRequestError, onRequest, onResponseError, onResponse } from './interceptors'
 
 const api: AxiosInstance = axios.create({
-  baseURL: 'https://api.threat-base.ru/api'
+  baseURL: 'http://172.10.0.8:8000/api'
 })
 
 api.interceptors.request.use(onRequest, onRequestError)
