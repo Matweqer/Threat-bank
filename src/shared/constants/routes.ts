@@ -1,5 +1,7 @@
 const ROUTES = {
   home: '/',
+  aboutUs: '/about-us',
+  statistics: '/statistics',
 
   auth: '/auth',
 

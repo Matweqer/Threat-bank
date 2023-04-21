@@ -26,17 +26,15 @@
 
 .id {
   height: 100%;
-  width: 80px;
+  min-width: 80px;
   margin-left: 20px;
+  margin-right: 10px;
   @include main-font(24px, 700)
-
 }
 
 .name {
   height: 100%;
-
   @include main-font(24px, 400)
-
 }
 
 
