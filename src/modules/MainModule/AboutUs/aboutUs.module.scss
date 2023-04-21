@@ -1,0 +1,145 @@
+@import '../../../assets/scss/index';
+
+.container {
+  width: 1220px;
+  margin: 100px auto 0;
+  @include main-font(28px, 400);
+}
+
+.title {
+  @include main-font(36px, 600);
+  color: $color-main;
+  margin-left: 90px;
+  margin-bottom: 46px;
+}
+
+.textTop {
+  margin-bottom: 49px;
+}
+
+.teamImg {
+  margin-bottom: 124px;
+}
+
+.textMiddle {
+  margin-bottom: 46px;
+}
+
+.textPurpose {
+  @include main-font(28px, 700);
+  color: $color-black-green;
+}
+
+.photos_box {
+  width: 100%;
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  justify-content: space-between;
+}
+
+.figure_triangle {
+  width: 0;
+  height: 0;
+  border-bottom: 506px solid $color-dark-green;
+  border-right: 610px solid transparent;
+  position: relative;
+
+  & img {
+    position: absolute;
+    display: block;
+    width: 503px;
+    height: 342px;
+    left: 45px;
+    top: 112px;
+  }
+}
+
+.figure_rectangle {
+  width: 558px;
+  height: 377px;
+  background: #A2E7AA;
+  position: relative;
+
+  & img {
+    position: absolute;
+    z-index: 100;
+    display: block;
+    width: 510px;
+    height: 327px;
+    left: 24px;
+    top: 25px;
+  }
+}
+
+.figure_triangle_small {
+  width: 0;
+  height: 0;
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+  border-bottom: 174px solid #FFFFFF;
+  border-right: 226px solid transparent;
+}
+
+.achievements {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.partners {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.partner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 360px;
+  margin-bottom: 100px;
+
+  &Img {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.articles_box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 543px;
+  height: 420px;
+  border: 0.5px solid rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease-out 0s;
+  border-radius: 10px;
+  margin: 25px;
+
+  & h4 {
+    max-width: 492px;
+    margin-top: 33px;
+  }
+}
+
+.article:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+

@@ -19,9 +19,9 @@ const Home: FC = () => {
         </section>
 
         <section className={s.about}>
-          <h3 className={s.about_title}>О нас</h3>
           <div className={s.about_container}>
             <div className={s.about_greenContainer}>
+              <h3 className={s.about_title}>О нас</h3>
               <p>
                 Наша команда занимается проектами, которые востребованы в сфере кибербезопасности. В первую
                 очередь это работа с атаками на БПЛА, защита их от проникновения злоумышлеников, проработка

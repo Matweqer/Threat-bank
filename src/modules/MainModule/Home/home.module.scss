@@ -34,8 +34,7 @@
     @include main-font(48px, 500);
     font-style: italic;
     width: 100%;
-    padding-left: 196px;
-    margin-bottom: 45px;
+    margin-top: 50px;
   }
 
   &_container {
@@ -53,7 +52,7 @@
     padding-left: 24px;
 
     & > p {
-      margin-top: 160px;
+      margin-top: 50px;
       margin-bottom: 110px;
     }
   }
