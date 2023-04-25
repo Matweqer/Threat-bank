@@ -6,6 +6,10 @@ const ROUTES = {
   auth: '/auth',
 
   services: '/services',
+  serviceSfc: '/services/sfc-analyse',
+  serviceVuln: '/services/vulnerabilities-list',
+  serviceVector: '/services/attack-vector',
+  serviceThreat: '/services/threat-model',
 
   tdo: '/threats-data-base',
 

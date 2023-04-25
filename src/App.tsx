@@ -33,8 +33,9 @@ const App: FC = () => {
             <Route path={ROUTES.aboutUs} element={<AboutUs />} />
             <Route path={ROUTES.statistics} element={<Statistics />} />
 
+            <Route path={ROUTES.services} element={<Services/>} />
+
             <Route element={<RequiredAuth/>}>
-              <Route path={ROUTES.services} element={<Services/>} />
 
               <Route path={ROUTES.tdo} element={<ThreatsDataBase/>} />
               <Route path={ROUTES.objectsList} element={<ObjectsList/>} />
