@@ -4,6 +4,8 @@ export * from './Footer'
 export * from './Breadcrumbs'
 export * from './Button'
 
+export * from './ServiceItem'
+
 export * from './InfoSection'
 export * from './LinkTo'
 
