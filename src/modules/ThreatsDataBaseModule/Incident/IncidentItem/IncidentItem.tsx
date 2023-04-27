@@ -2,7 +2,7 @@ import React, { FC, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { ItemInfoData, ItemParams, ItemTableData } from 'shared/types'
-import { Breadcrumbs, IBreadcrumb, ItemInfo } from 'shared/components'
+import { Breadcrumbs, BreadcrumbsSkeleton, IBreadcrumb, ItemInfo, TableSkeleton } from 'shared/components'
 import { useAppDispatch, useAppSelector } from 'store'
 
 import { axiosGetIncident } from 'store/Incident/actions'
@@ -19,7 +19,7 @@ const IncidentItem: FC = () => {
     })().catch(e => console.log(e))
   }, [dispatch, id])
 
-  const incident = useAppSelector(state => state.incident.current)
+  const { status, current: incident } = useAppSelector(state => state.incident)
 
   const table: ItemTableData[] | null = incident && [
     // { id: 1, name: 'Описание', value: incident.description }
@@ -55,8 +55,11 @@ const IncidentItem: FC = () => {
 
   return (
     <>
-      {breadcrumbs && <Breadcrumbs breadcrumbs={breadcrumbs} />}
-      {data && <ItemInfo data={data}/>}
+      {status !== 'resolved' && <BreadcrumbsSkeleton/>}
+      {status !== 'resolved' && <TableSkeleton/>}
+
+      {breadcrumbs && status === 'resolved' && <Breadcrumbs breadcrumbs={breadcrumbs} />}
+      {data && status === 'resolved' && <ItemInfo data={data}/> }
     </>
   )
 }

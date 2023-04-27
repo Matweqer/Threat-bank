@@ -2,7 +2,7 @@ import React, { FC, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { ItemInfoData, ItemParams, ItemTableData } from 'shared/types'
-import { Breadcrumbs, IBreadcrumb, ItemInfo } from 'shared/components'
+import { Breadcrumbs, BreadcrumbsSkeleton, IBreadcrumb, ItemInfo, TableSkeleton } from 'shared/components'
 import { useAppDispatch, useAppSelector } from 'store'
 import { axiosGetObject } from 'store/Object/actions'
 
@@ -18,7 +18,9 @@ const ObjectItem: FC = () => {
     })().catch(e => console.log(e))
   }, [dispatch, id])
 
-  const object = useAppSelector(state => state.objects.current)
+  const { current: object, status } = useAppSelector(state => state.objects)
+
+  console.log(status)
 
   const table: ItemTableData[] | null = object && [
     { id: 1, name: 'Описание', value: object.description },
@@ -54,8 +56,11 @@ const ObjectItem: FC = () => {
 
   return (
     <>
-      {breadcrumbs && <Breadcrumbs breadcrumbs={breadcrumbs} />}
-      {data && <ItemInfo data={data}/>}
+      {status !== 'resolved' && <BreadcrumbsSkeleton/>}
+      {status !== 'resolved' && <TableSkeleton/>}
+
+      {breadcrumbs && status === 'resolved' && <Breadcrumbs breadcrumbs={breadcrumbs} />}
+      {data && status === 'resolved' && <ItemInfo data={data}/> }
     </>
   )
 }

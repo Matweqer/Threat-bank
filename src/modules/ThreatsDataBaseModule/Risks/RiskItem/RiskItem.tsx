@@ -2,7 +2,7 @@ import React, { FC, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { ItemInfoData, ItemParams, ItemTableData } from 'shared/types'
-import { Breadcrumbs, IBreadcrumb, ItemInfo } from 'shared/components'
+import { Breadcrumbs, BreadcrumbsSkeleton, IBreadcrumb, ItemInfo, TableSkeleton } from 'shared/components'
 import { useAppDispatch, useAppSelector } from 'store'
 import { axiosGetRisk } from 'store/Risk/actions'
 
@@ -18,7 +18,7 @@ const RiskItem: FC = () => {
     })().catch(e => console.log(e))
   }, [dispatch, id])
 
-  const risk = useAppSelector(state => state.risks.current)
+  const { status, current: risk } = useAppSelector(state => state.risks)
 
   const table: ItemTableData[] | null = risk && [
     { id: 1, name: 'Описание', value: risk.description },
@@ -53,8 +53,11 @@ const RiskItem: FC = () => {
 
   return (
     <>
-      {breadcrumbs && <Breadcrumbs breadcrumbs={breadcrumbs} />}
-      {data && <ItemInfo data={data}/>}
+      {status !== 'resolved' && <BreadcrumbsSkeleton/>}
+      {status !== 'resolved' && <TableSkeleton/>}
+
+      {breadcrumbs && status === 'resolved' && <Breadcrumbs breadcrumbs={breadcrumbs} />}
+      {data && status === 'resolved' && <ItemInfo data={data}/> }
     </>
   )
 }

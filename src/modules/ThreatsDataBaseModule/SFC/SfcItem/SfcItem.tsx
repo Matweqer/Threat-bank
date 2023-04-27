@@ -2,7 +2,7 @@ import React, { FC, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { ItemInfoData, ItemParams, ItemTableData } from 'shared/types'
-import { Breadcrumbs, IBreadcrumb, ItemInfo } from 'shared/components'
+import { Breadcrumbs, BreadcrumbsSkeleton, IBreadcrumb, ItemInfo, TableSkeleton } from 'shared/components'
 import { useAppDispatch, useAppSelector } from 'store'
 import { axiosGetSfcItem } from 'store/SFC/actions'
 
@@ -17,7 +17,7 @@ const SfcItem: FC = () => {
     })().catch(e => console.log(e))
   }, [dispatch, id])
 
-  const sfcItem = useAppSelector(state => state.sfc.current)
+  const { status, current: sfcItem } = useAppSelector(state => state.sfc)
   // TODO CREATE BUILDER TABLE
   const table: ItemTableData[] | null = sfcItem && [
     { id: 1, name: 'Описание', value: sfcItem.description },
@@ -57,8 +57,11 @@ const SfcItem: FC = () => {
 
   return (
     <>
-      {breadcrumbs && <Breadcrumbs breadcrumbs={breadcrumbs} />}
-      {data && <ItemInfo data={data}/>}
+      {status !== 'resolved' && <BreadcrumbsSkeleton/>}
+      {status !== 'resolved' && <TableSkeleton/>}
+
+      {breadcrumbs && status === 'resolved' && <Breadcrumbs breadcrumbs={breadcrumbs} />}
+      {data && status === 'resolved' && <ItemInfo data={data}/> }
     </>
   )
 }
