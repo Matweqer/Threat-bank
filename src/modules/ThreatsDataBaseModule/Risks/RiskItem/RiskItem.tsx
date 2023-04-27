@@ -2,7 +2,7 @@ import React, { FC, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { ItemInfoData, ItemParams, ItemTableData } from 'shared/types'
-import { Breadcrumbs, IBreadcrumb, ItemInfo, TableSkeleton } from 'shared/components'
+import { Breadcrumbs, BreadcrumbsSkeleton, IBreadcrumb, ItemInfo, TableSkeleton } from 'shared/components'
 import { useAppDispatch, useAppSelector } from 'store'
 import { axiosGetRisk } from 'store/Risk/actions'
 
@@ -53,8 +53,10 @@ const RiskItem: FC = () => {
 
   return (
     <>
-      {breadcrumbs && <Breadcrumbs breadcrumbs={breadcrumbs} />}
+      {status !== 'resolved' && <BreadcrumbsSkeleton/>}
       {status !== 'resolved' && <TableSkeleton/>}
+
+      {breadcrumbs && status === 'resolved' && <Breadcrumbs breadcrumbs={breadcrumbs} />}
       {data && status === 'resolved' && <ItemInfo data={data}/> }
     </>
   )

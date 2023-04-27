@@ -22,3 +22,4 @@ export * from './ItemInfo'
 export * from './CreateCardUI'
 
 export * from './TableSkeleton'
+export * from './BreadcrumbsSkeleton'
