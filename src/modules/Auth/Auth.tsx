@@ -8,7 +8,6 @@ import s from './auth.module.scss'
 
 import mailIcon from 'assets/images/Auth/mail-icon.svg'
 import passIcon from 'assets/images/Auth/pass-icon.svg'
-import { Button } from '../../shared/components'
 
 const Auth: FC = () => {
   const navigate = useNavigate()

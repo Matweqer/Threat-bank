@@ -1,6 +1,3 @@
-import { Simulate } from 'react-dom/test-utils'
-import select = Simulate.select
-
 export * from './params'
 export * from './tdb'
 export * from './filters'

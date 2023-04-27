@@ -1,7 +1,6 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 
-import { ActiveMenuItemElement } from './types'
 import { headerMenuList } from './constants'
 
 import LoginIcon from 'assets/images/Header/LoginIcon.png'
