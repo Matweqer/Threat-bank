@@ -2,7 +2,7 @@ import React, { FC, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { ItemInfoData, ItemParams, ItemTableData } from 'shared/types'
-import { Breadcrumbs, IBreadcrumb, ItemInfo } from 'shared/components'
+import { Breadcrumbs, IBreadcrumb, ItemInfo, TableSkeleton } from 'shared/components'
 import { useAppDispatch, useAppSelector } from 'store'
 import { axiosGetThreat } from 'store/Threats/actions'
 
@@ -18,7 +18,7 @@ const ThreatItem: FC = () => {
     })().catch(e => console.log(e))
   }, [dispatch, id])
 
-  const threat = useAppSelector(state => state.threats.current)
+  const { status, current: threat } = useAppSelector(state => state.threats)
 
   const table: ItemTableData[] | null = threat && [
     { id: 1, name: 'Описание', value: threat.description },
@@ -56,7 +56,8 @@ const ThreatItem: FC = () => {
   return (
     <>
       {breadcrumbs && <Breadcrumbs breadcrumbs={breadcrumbs} />}
-      {data && <ItemInfo data={data}/>}
+      {status !== 'resolved' && <TableSkeleton/>}
+      {data && status === 'resolved' && <ItemInfo data={data}/> }
     </>
   )
 }

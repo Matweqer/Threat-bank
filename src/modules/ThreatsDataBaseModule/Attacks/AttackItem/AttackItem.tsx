@@ -2,7 +2,7 @@ import React, { FC, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { ItemInfoData, ItemParams, ItemTableData } from 'shared/types'
-import { Breadcrumbs, IBreadcrumb, ItemInfo } from 'shared/components'
+import { Breadcrumbs, IBreadcrumb, ItemInfo, TableSkeleton } from 'shared/components'
 import { useAppDispatch, useAppSelector } from 'store'
 import { axiosGetAttack } from 'store/Attack/actions'
 
@@ -18,7 +18,7 @@ const AttackItem: FC = () => {
     })().catch(e => console.log(e))
   }, [dispatch, id])
 
-  const attack = useAppSelector(state => state.attacks.current)
+  const { status, current: attack } = useAppSelector(state => state.attacks)
 
   const table: ItemTableData[] | null = attack && [
     { id: 1, name: 'Описание', value: attack.description },
@@ -61,7 +61,8 @@ const AttackItem: FC = () => {
   return (
     <>
       {breadcrumbs && <Breadcrumbs breadcrumbs={breadcrumbs} />}
-      {data && <ItemInfo data={data}/>}
+      {status !== 'resolved' && <TableSkeleton/>}
+      {data && status === 'resolved' && <ItemInfo data={data}/> }
     </>
   )
 }

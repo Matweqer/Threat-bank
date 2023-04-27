@@ -20,3 +20,5 @@ export * from './ItemUsefulLinks'
 export * from './ItemInfo'
 
 export * from './CreateCardUI'
+
+export * from './TableSkeleton'
