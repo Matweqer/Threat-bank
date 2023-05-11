@@ -16,13 +16,35 @@ IParams | null,
         params: {
           limit: params.limit,
           ordering: params.ordering,
-          offset: params.offset,
           search: params.search
         }
       })
     })
     if (response.status >= 400) {
       return thunkApi.rejectWithValue((response.data) as MyKnownError)
+    }
+
+    return response.data as ISfcResponse
+  }
+)
+
+
+export const axiosAddSfc = createAsyncThunk<
+ISfcResponse,
+IParams,
+{ rejectValue: MyKnownError }
+>(
+  'sfc/axiosAddSfc',
+  async ({ next }, thunkApi) => {
+    let response
+    if (next) {
+      const index = (next.match(/api/)?.index ?? 23) + 3
+      const url = next.slice(index)
+      response = await api.get(url)
+    }
+
+    if (!response || response.status >= 400) {
+      return thunkApi.rejectWithValue((response?.data) as MyKnownError)
     }
 
     return response.data as ISfcResponse

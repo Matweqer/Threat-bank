@@ -20,8 +20,6 @@ const ObjectItem: FC = () => {
 
   const { current: object, status } = useAppSelector(state => state.objects)
 
-  console.log(status)
-
   const table: ItemTableData[] | null = object && [
     { id: 1, name: 'Описание', value: object.description },
     { id: 2, name: 'Домен', value: object.domain?.name || '-' },

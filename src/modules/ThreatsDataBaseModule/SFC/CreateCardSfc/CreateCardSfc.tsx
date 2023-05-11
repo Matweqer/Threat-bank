@@ -43,7 +43,6 @@ const CreateCardSfc: FC = () => {
       sfc_type,
       sfc_class
     }
-
     console.log(sfc)
   }
 

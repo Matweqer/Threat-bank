@@ -34,8 +34,6 @@ const ItemInfo: FC<ItemInfoProps> = (
       </h3>
     </div>))
 
-  if (!id) { console.log(id) }
-
   return (
     <div className={s.container}>
 
