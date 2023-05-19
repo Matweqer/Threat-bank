@@ -5,3 +5,5 @@ export * from './Attacks'
 export * from './Vulnerabilities'
 export * from './Risks'
 export * from './Threats'
+export * from './Incident'
+
