@@ -1,0 +1,99 @@
+@import 'src/assets/scss/index.scss';
+
+
+.title {
+  @include main-font(36px, 600);
+  color: #299636;
+  margin-bottom: 110px;
+}
+
+.text {
+  @include main-font(28px, 400);
+  margin-bottom: 90px;
+
+}
+
+.section {
+  display: flex;
+  justify-content: space-between;
+  @include main-font(24px, 400);
+
+}
+
+.left {
+  li {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 60px;
+  }
+
+  .number {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #D9D9D9;
+    margin-right: 20px;
+    @include flex-center();
+  }
+
+  .content {
+    width: 542px;
+  }
+
+  .download {
+    @include flex-center();
+    width: 371px;
+    height: 69px;
+    margin-top: 40px;
+    border: 1.5px solid $color-black-green;
+    @include main-font(24px, 700);
+    color: $color-black-green;
+    background: transparent;
+    cursor: pointer;
+
+}
+
+.download:hover {
+  background: #C0E8C5;
+}
+
+.upload {
+  margin-top: 40px;
+  text-align: center;
+  position: relative;
+
+  .input {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+  }
+
+  .inputButton {
+    width: 230px;
+    height: 72px;
+    @include main-font(20px, 700);
+    color: $color-black-green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    cursor: pointer;
+
+    img {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+    }
+  }
+
+  .inputButton:hover {
+    background: #C0E8C5
+  }
+}
+
+}
+
+
+.right {
+
+}

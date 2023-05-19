@@ -16,7 +16,7 @@ const ListLayout: FC<ListLayoutProps> = ({
   children
 }) => {
   const addItems = () => {
-    querySettings.setLimit(querySettings.limit + 10)
+    querySettings.setOffset(querySettings.offset + 10)
   }
 
   return (

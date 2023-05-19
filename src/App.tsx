@@ -12,14 +12,15 @@ import {
   VulnerabilitiesList, VulnerabilityItem,
   RisksList, RiskItem,
   ThreatsList, ThreatItem,
-  NotFound, Auth, AboutUs, Statistics
+  NotFound, Auth, AboutUs, Statistics,
+  IncidentItem, IncidentsList,
+  SfcAnalyse
 } from 'modules'
 
 import { DefaultLayout, RequiredAuth } from 'shared/layout'
 
 import { ROUTES } from 'shared/constants'
 import { store } from 'store'
-import { IncidentItem, IncidentsList } from './modules/ThreatsDataBaseModule/Incident'
 
 const App: FC = () => {
   return (
@@ -35,7 +36,9 @@ const App: FC = () => {
 
             <Route path={ROUTES.services} element={<Services/>} />
 
+
             <Route element={<RequiredAuth/>}>
+              <Route path={ROUTES.serviceSfc} element={<SfcAnalyse/>} />
 
               <Route path={ROUTES.tdo} element={<ThreatsDataBase/>} />
               <Route path={ROUTES.objectsList} element={<ObjectsList/>} />

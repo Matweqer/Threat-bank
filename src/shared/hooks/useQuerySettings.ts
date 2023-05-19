@@ -7,6 +7,7 @@ const useQuerySettings = (initialSortTypes: ISortType[]) => {
   const [sortType, setSortType] = useState<ISortType>(initialSortTypes[0])
   const [search, setSearch] = useState<string>(getSearchParam())
   const [limit, setLimit] = useState<number>(getLimitParam())
+  const [offset, setOffset] = useState<number>(0)
 
   return {
     sortType,
@@ -15,7 +16,9 @@ const useQuerySettings = (initialSortTypes: ISortType[]) => {
     search,
     setSearch,
     limit,
-    setLimit
+    setLimit,
+    offset,
+    setOffset
   } as const
 }
 

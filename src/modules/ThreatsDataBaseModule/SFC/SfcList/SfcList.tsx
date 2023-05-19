@@ -5,15 +5,15 @@ import { List, IBreadcrumb } from 'shared/components'
 import { SfcSortTypes } from 'shared/constants'
 import { ListLayout } from 'shared/layout'
 
-import { useQuerySettings } from 'shared/hooks'
+import { useAfterFirstRender, useQuerySettings } from 'shared/hooks'
 import { setLimitParam, setSearchParam } from 'shared/utils'
 
-import { axiosGetSfc } from 'store/SFC/actions'
+import { axiosAddSfc, axiosGetSfc } from 'store/SFC/actions'
 
 
 const SfcList: FC = () => {
   const querySettings = useQuerySettings(SfcSortTypes)
-  const { limit, search, sortType } = querySettings
+  const { limit, search, sortType, offset } = querySettings
 
   const dispatch = useAppDispatch()
 
@@ -25,7 +25,20 @@ const SfcList: FC = () => {
     setSearchParam(search)
   }, [dispatch, limit, search, sortType.value])
 
-  const sfc = useAppSelector(state => state.sfc.results)
+
+  const { results: sfc, next } = useAppSelector(state => state.sfc)
+
+  const isAfterFirstRender = useAfterFirstRender()
+
+  useEffect(() => {
+    if (!isAfterFirstRender) return
+    if (next) {
+      (async () => {
+        await dispatch(axiosAddSfc({ next }))
+      })().catch(e => console.log(e))
+    }
+    // eslint-disable-next-line
+  }, [dispatch, offset])
 
   const breadcrumbs: IBreadcrumb[] = [
     {

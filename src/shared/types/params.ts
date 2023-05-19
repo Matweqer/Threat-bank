@@ -7,4 +7,5 @@ export interface IParams {
   limit?: number
   offset?: number
   ordering?: string
+  next?: string
 }

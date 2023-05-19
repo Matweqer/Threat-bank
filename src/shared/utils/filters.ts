@@ -1,7 +1,8 @@
 const defaultParams = {
   limit: 10,
   search: '',
-  sort: 'id'
+  sort: 'id',
+  offset: 0
 }
 
 export const getLimitParam = () => {
@@ -16,10 +17,10 @@ export const getSearchParam = () => {
   const search: string = sessionStorage.getItem('search') ?? defaultParams.search
   return search
 }
+
 export const setSearchParam = (search: string) => {
   sessionStorage.setItem('search', search)
 }
-
 
 
 
