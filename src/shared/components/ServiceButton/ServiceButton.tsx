@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
 
 import { ButtonProps } from 'shared/types'
-import s from './button.module.scss'
+import s from './serviceButton.module.scss'
 
 
-const Button: FC<ButtonProps> = ({ buttonTitle, buttonOnClick, type }) => {
+const ServiceButton: FC<ButtonProps> = ({ buttonTitle, buttonOnClick, type }) => {
   return (
     <button className={s.button} onClick={buttonOnClick} type={type ?? 'button'} >
       {buttonTitle ?? ''}
@@ -12,4 +12,4 @@ const Button: FC<ButtonProps> = ({ buttonTitle, buttonOnClick, type }) => {
   )
 }
 
-export { Button }
+export { ServiceButton }

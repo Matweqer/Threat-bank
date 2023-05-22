@@ -1,6 +1,6 @@
 import React, { FC, FormEvent, useRef } from 'react'
 
-import { Breadcrumbs, IBreadcrumb } from 'shared/components'
+import { Breadcrumbs, IBreadcrumb, ServiceButton } from 'shared/components'
 import { api } from 'api'
 
 import s from './SFCAnalyse.module.scss'
@@ -101,9 +101,7 @@ const SfcAnalyse: FC = () => {
                   приложение, которое позволит просканировать Ваше
                   устройство или систему, тем самым получить хороший результат.
                 </p>
-                <button className={s.download} onClick={handleGetScript}>
-                  Установить приложение
-                </button>
+                <ServiceButton buttonTitle={'Установить приложение'} buttonOnClick={handleGetScript}/>
               </div>
 
             </li>

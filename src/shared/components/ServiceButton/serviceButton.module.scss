@@ -1,0 +1,16 @@
+@import "src/assets/scss/index";
+
+.button {
+  @include flex-center();
+  width: 371px;
+  height: 69px;
+  border: 1.5px solid $color-black-green;
+  @include main-font(24px, 700);
+  color: $color-black-green;
+  background: transparent;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #C0E8C5;
+}
