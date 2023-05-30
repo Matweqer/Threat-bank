@@ -3,7 +3,7 @@
 
 .title {
   @include main-font(36px, 600);
-  color: #299636;
+  color: $color-main;
   margin-bottom: 110px;
 }
 
@@ -13,11 +13,34 @@
 
 }
 
+.systemReq {
+  @include main-font(24px, 700);
+  color: black;
+  margin-bottom: 40px;
+}
+
+.table {
+
+  margin-bottom: 100px;
+  .rowName {
+    @include main-font(24px, 600);
+    padding-right: 20px;
+  }
+  .rowValue {
+    @include main-font(24px, 400);
+  }
+}
+
+.subtitle {
+  @include main-font(28px, 400);
+  color: $color-dark-green;
+  margin-bottom: 50px;
+}
 .section {
   display: flex;
   justify-content: space-between;
   @include main-font(24px, 400);
-
+  margin-bottom: 100px;
 }
 
 .left {
@@ -93,5 +116,17 @@
     }
   }
 
+}
+
+.help {
+  @include main-font(24px, 400);
+  a {
+    color: $color-dark-green;
+    @include main-font(24px, 600);
+  }
+  a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }
 
