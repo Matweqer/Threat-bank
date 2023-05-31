@@ -5,6 +5,8 @@ export * from './store'
 export * from './responses'
 export * from './select'
 
+export * from './buttonProps'
+
 export * from './ISfc'
 export * from './IVulnerability'
 export * from './IObject'

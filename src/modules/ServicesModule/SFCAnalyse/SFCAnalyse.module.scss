@@ -3,7 +3,7 @@
 
 .title {
   @include main-font(36px, 600);
-  color: #299636;
+  color: $color-main;
   margin-bottom: 110px;
 }
 
@@ -13,11 +13,34 @@
 
 }
 
+.systemReq {
+  @include main-font(24px, 700);
+  color: black;
+  margin-bottom: 40px;
+}
+
+.table {
+
+  margin-bottom: 100px;
+  .rowName {
+    @include main-font(24px, 600);
+    padding-right: 20px;
+  }
+  .rowValue {
+    @include main-font(24px, 400);
+  }
+}
+
+.subtitle {
+  @include main-font(28px, 400);
+  color: $color-dark-green;
+  margin-bottom: 50px;
+}
 .section {
   display: flex;
   justify-content: space-between;
   @include main-font(24px, 400);
-
+  margin-bottom: 100px;
 }
 
 .left {
@@ -38,6 +61,9 @@
 
   .content {
     width: 542px;
+    button {
+      margin-top: 40px;
+    }
   }
 
   .download {
@@ -50,50 +76,57 @@
     color: $color-black-green;
     background: transparent;
     cursor: pointer;
-
-}
-
-.download:hover {
-  background: #C0E8C5;
-}
-
-.upload {
-  margin-top: 40px;
-  text-align: center;
-  position: relative;
-
-  .input {
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
   }
 
-  .inputButton {
-    width: 230px;
-    height: 72px;
-    @include main-font(20px, 700);
-    color: $color-black-green;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 3px;
-    cursor: pointer;
+  .download:hover {
+    background: #C0E8C5;
+  }
 
-    img {
-      width: 24px;
-      height: 24px;
-      margin-right: 10px;
+  .upload {
+    margin-top: 40px;
+    text-align: center;
+    position: relative;
+
+    .input {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+    }
+
+    .inputButton {
+      width: 230px;
+      height: 72px;
+      @include main-font(20px, 700);
+      color: $color-black-green;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 3px;
+      cursor: pointer;
+
+      img {
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
+      }
+    }
+
+    .inputButton:hover {
+      background: #C0E8C5
     }
   }
 
-  .inputButton:hover {
-    background: #C0E8C5
+}
+
+.help {
+  @include main-font(24px, 400);
+  a {
+    color: $color-dark-green;
+    @include main-font(24px, 600);
+  }
+  a:hover {
+    text-decoration: underline;
+    cursor: pointer;
   }
 }
 
-}
-
-
-.right {
-
-}

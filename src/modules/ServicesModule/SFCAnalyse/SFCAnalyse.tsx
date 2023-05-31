@@ -1,8 +1,9 @@
 import React, { FC, FormEvent, useRef } from 'react'
 
-import { Breadcrumbs, IBreadcrumb } from 'shared/components'
+import { Breadcrumbs, ServiceButton } from 'shared/components'
 import { api } from 'api'
 
+import { breadcrumbs, systemReqs } from './constants'
 import s from './SFCAnalyse.module.scss'
 
 import mapImg from 'assets/images/Services/sfc-analyse/map.png'
@@ -16,17 +17,6 @@ interface IFileRes {
 }
 
 const SfcAnalyse: FC = () => {
-  const breadcrumbs: IBreadcrumb[] = [
-    {
-      name: 'Сервисы',
-      link: '/services'
-    },
-    {
-      name: 'Анализ СФХ',
-      link: '/services/sfc-analyse'
-    }
-  ]
-
   const submitButton = useRef<HTMLButtonElement>(null)
 
   const handleGetScript = () => {
@@ -88,6 +78,21 @@ const SfcAnalyse: FC = () => {
         путем сканирования. Вы всегда можете отслеживать изменения СФХ в личном кабинете.
       </p>
 
+      <h4 className={s.systemReq}>Системные требования к установке программы</h4>
+
+      <table className={s.table} >
+        {
+          systemReqs.map((sr, index) => (
+            <tr className={s.row} key={index}>
+              <td className={s.rowName}>{sr.name}:</td>
+              <td className={s.rowValue}>{sr.value}</td>
+            </tr>
+          ))
+        }
+      </table>
+
+      <h3 className={s.subtitle}>Алгоритм для успешной работы сервиса</h3>
+
       <div className={s.section}>
         <div className={s.left}>
           <ul>
@@ -101,9 +106,7 @@ const SfcAnalyse: FC = () => {
                   приложение, которое позволит просканировать Ваше
                   устройство или систему, тем самым получить хороший результат.
                 </p>
-                <button className={s.download} onClick={handleGetScript}>
-                  Установить приложение
-                </button>
+                <ServiceButton buttonTitle={'Установить приложение'} buttonOnClick={handleGetScript} />
               </div>
 
             </li>
@@ -140,7 +143,7 @@ const SfcAnalyse: FC = () => {
                     <label htmlFor={'sfc__input__file'} className={s.inputButton}>
                       <span><img src={file} alt='file' /></span>
                       <span>Добавить файл</span>
-                      <button ref={submitButton} style={{ visibility: 'hidden' }}/>
+                      <button ref={submitButton} style={{ visibility: 'hidden' }} />
                     </label>
                   </form>
                 </div>
@@ -155,6 +158,11 @@ const SfcAnalyse: FC = () => {
       </div>
 
 
+      <p className={s.help}>
+        Если в процессе скачивания или загрузки файла возникли проблемы,
+        то обратитесь в <a href={'https://vk.com/dusk__till__dawn'}>Поддержку</a>,
+        где Вам с радостью ответят на все вопросы и помогут в решении трудностей.
+      </p>
     </div>
   )
 }
