@@ -1,12 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { IInitialState, ISfc } from 'shared/types'
+import { IInitialCatalogState, ISfc } from 'shared/types'
 import { axiosAddSfc, axiosGetSfc, axiosGetSfcItem } from './actions'
 import { replaceFields } from 'shared/utils'
 import { sfcReplacement } from 'shared/constants'
 
 
-const initialState: IInitialState<ISfc> = {
+
+const initialState: IInitialCatalogState<ISfc> = {
   count: 0,
   next: null,
   previous: null,

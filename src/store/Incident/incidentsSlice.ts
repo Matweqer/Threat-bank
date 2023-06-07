@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { IIncident, IInitialState } from 'shared/types'
+import { IIncident, IInitialCatalogState } from 'shared/types'
 import { axiosGetIncident, axiosGetIncidents } from './actions'
 
 
-const initialState: IInitialState<IIncident> = {
+const initialState: IInitialCatalogState<IIncident> = {
   count: 0,
   next: null,
   previous: null,

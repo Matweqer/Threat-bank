@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef } from 'react'
+import React, { FC, useEffect } from 'react'
 
 import { Button, ListItem } from 'shared/components'
 import { useAfterFirstRender, useQuerySettings } from 'shared/hooks'

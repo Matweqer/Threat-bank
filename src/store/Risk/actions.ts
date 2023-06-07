@@ -1,12 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import { api } from 'api'
-import { IParams, MyKnownError, IRisk, IRiskResponse } from 'shared/types'
+import { ICatalogParams, MyKnownError, IRisk, IRiskResponse } from 'shared/types'
 
 
 export const axiosGetRisks = createAsyncThunk<
 IRiskResponse,
-IParams | null,
+ICatalogParams | null,
 { rejectValue: MyKnownError }
 >(
   'Risks/axiosGetRisks',

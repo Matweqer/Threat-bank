@@ -6,18 +6,18 @@ import { IAttack } from './IAttack'
 import { IThreat } from './IThreat'
 import { IIncident } from './IIncident'
 
-export interface IResponse<T> {
+export interface ICatalogResponse<T> {
   count: number
   next: string | null
   previous: string | null
   results: T[]
 }
 
-export type ISfcResponse = IResponse<ISfc>
-export type IVulnerabilityResponse = IResponse<IVulnerability>
-export type IObjectsResponse = IResponse<IObject>
-export type IRiskResponse = IResponse<IRisk>
-export type IAttackResponse = IResponse<IAttack>
-export type IThreatResponse = IResponse<IThreat>
-export type IIncidentResponse = IResponse<IIncident>
+export type ISfcResponse = ICatalogResponse<ISfc>
+export type IVulnerabilityResponse = ICatalogResponse<IVulnerability>
+export type IObjectsResponse = ICatalogResponse<IObject>
+export type IRiskResponse = ICatalogResponse<IRisk>
+export type IAttackResponse = ICatalogResponse<IAttack>
+export type IThreatResponse = ICatalogResponse<IThreat>
+export type IIncidentResponse = ICatalogResponse<IIncident>
 

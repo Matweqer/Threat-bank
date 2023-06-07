@@ -7,6 +7,7 @@ const ROUTES = {
 
   services: '/services',
   serviceSfc: '/services/sfc-analyse',
+  serviceSfcResult: '/services/sfc-analyse/result',
   serviceVuln: '/services/vulnerabilities-list',
   serviceVulnSelect: '/services/vulnerabilities-list/select-sfc',
   serviceVector: '/services/attack-vector',

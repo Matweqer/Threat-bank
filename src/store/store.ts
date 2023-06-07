@@ -9,6 +9,7 @@ import { risks } from './Risk'
 import { attacks } from './Attack'
 import { threats } from './Threats'
 import { incident } from './Incident'
+import { sfcService } from './Services'
 
 type AppDispatch = typeof store.dispatch
 
@@ -21,7 +22,8 @@ export const store = configureStore({
     risks,
     attacks,
     threats,
-    incident
+    incident,
+    sfcService
   }
 })
 

@@ -5,4 +5,5 @@ export interface ButtonProps {
   buttonOnClick?: (event: any) => void
   type?: buttonTypes
   className?: string
+  isDisabled?: boolean
 }

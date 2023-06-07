@@ -6,6 +6,7 @@ export * from './Button'
 
 export * from './ServiceItem'
 export * from './ServiceButton'
+export * from './ResultTable'
 
 export * from './InfoSection'
 export * from './LinkTo'

@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { IInitialState, IThreat } from 'shared/types'
+import { IInitialCatalogState, IThreat } from 'shared/types'
 import { axiosGetThreats, axiosGetThreat } from './actions'
 
 
-const initialState: IInitialState<IThreat> = {
+const initialState: IInitialCatalogState<IThreat> = {
   count: 0,
   next: null,
   previous: null,

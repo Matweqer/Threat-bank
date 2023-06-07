@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { IInitialState, IVulnerability } from 'shared/types'
+import { IInitialCatalogState, IVulnerability } from 'shared/types'
 import { axiosGetVulnerabilities, axiosGetVulnerability } from './actions'
 import { replaceFields } from 'shared/utils'
 import { vulnerabilityReplacement } from 'shared/constants'
 
 
-const initialState: IInitialState<IVulnerability> = {
+const initialState: IInitialCatalogState<IVulnerability> = {
   count: 0,
   next: null,
   previous: null,

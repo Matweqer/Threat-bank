@@ -1,0 +1,47 @@
+@import 'src/assets/scss/index.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+}
+
+.headers {
+  width: 100%;
+  color: $color-main;
+  @include main-font(24px, 600);
+  display: flex;
+  justify-content: flex-start;
+}
+
+.header {
+  width: 200px;
+  margin-right: 216px;
+}
+.header:last-child {
+  margin-right: 0;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.item {
+  display: flex;
+  justify-content: flex-start;
+  padding: 30px 0;
+  height: 120px;
+}
+
+.cell {
+  width: 250px;
+  margin-right: 166px;
+  @include main-font(24px, 500)
+}
+
+.cell:last-child {
+  margin-right: 0;
+}
