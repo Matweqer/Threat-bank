@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { IAttack, IInitialState } from 'shared/types'
+import { IAttack, IInitialCatalogState } from 'shared/types'
 import { axiosGetAttack, axiosGetAttacks } from './actions'
 import { replaceFields } from 'shared/utils'
 import { attackReplacement } from 'shared/constants'
 
 
-const initialState: IInitialState<IAttack> = {
+const initialState: IInitialCatalogState<IAttack> = {
   count: 0,
   next: null,
   previous: null,

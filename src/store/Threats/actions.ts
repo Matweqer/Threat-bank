@@ -1,12 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import { api } from 'api'
-import { IParams, MyKnownError, IThreat, IThreatResponse } from 'shared/types'
+import { ICatalogParams, MyKnownError, IThreat, IThreatResponse } from 'shared/types'
 
 
 export const axiosGetThreats = createAsyncThunk<
 IThreatResponse,
-IParams | null,
+ICatalogParams | null,
 { rejectValue: MyKnownError }
 >(
   'Threats/axiosGetThreats',

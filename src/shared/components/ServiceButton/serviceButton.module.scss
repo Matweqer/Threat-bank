@@ -11,6 +11,18 @@
   cursor: pointer;
 }
 
+.disabled {
+  border: 1.5px solid #656565;
+  color: #656565;
+  background-color: rgba(170, 170, 170, 0.3);
+}
+
+
 .button:hover {
   background: #C0E8C5;
+}
+
+.disabled:hover {
+  cursor: not-allowed;
+  background-color: #AAAAAA;
 }

@@ -7,7 +7,7 @@ export const breadcrumbs: IBreadcrumb[] = [
   },
   {
     name: 'Сервис формирования перечня уязвимостей',
-    link: '/threats-data-base/SFC'
+    link: '/threats-data-base/vulnerabilities-list'
   },
   {
     name: 'Выбор СФХ',

@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { IInitialState, IRisk } from 'shared/types'
+import { IInitialCatalogState, IRisk } from 'shared/types'
 import { axiosGetRisks, axiosGetRisk } from './actions'
 import { replaceFields } from 'shared/utils'
 import { riskReplacement } from 'shared/constants'
 
 
-const initialState: IInitialState<IRisk> = {
+const initialState: IInitialCatalogState<IRisk> = {
   count: 0,
   next: null,
   previous: null,

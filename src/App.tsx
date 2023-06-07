@@ -14,7 +14,7 @@ import {
   ThreatsList, ThreatItem,
   NotFound, Auth, AboutUs, Statistics,
   IncidentItem, IncidentsList,
-  SfcAnalyse, VulnerabilityFormation, SelectSfCForVuln
+  SfcAnalyse, VulnerabilityFormation, SelectSfCForVuln, SfcAnalyseResult
 } from 'modules'
 
 import { DefaultLayout, RequiredAuth } from 'shared/layout'
@@ -39,6 +39,9 @@ const App: FC = () => {
 
             <Route element={<RequiredAuth/>}>
               <Route path={ROUTES.serviceSfc} element={<SfcAnalyse/>} />
+              <Route path={ROUTES.serviceSfcResult} element={<SfcAnalyseResult/>} />
+
+
               <Route path={ROUTES.serviceVuln} element={<VulnerabilityFormation/>} />
               <Route path={ROUTES.serviceVulnSelect} element={<SelectSfCForVuln/>} />
 

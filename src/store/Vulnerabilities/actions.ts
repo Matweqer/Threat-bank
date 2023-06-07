@@ -1,12 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import { api } from 'api'
-import { IParams, IVulnerabilityResponse, MyKnownError, IVulnerability } from 'shared/types'
+import { ICatalogParams, IVulnerabilityResponse, MyKnownError, IVulnerability } from 'shared/types'
 
 
 export const axiosGetVulnerabilities = createAsyncThunk<
 IVulnerabilityResponse,
-IParams | null,
+ICatalogParams | null,
 { rejectValue: MyKnownError }
 >(
   'Vulnerabilities/axiosGetVulnerabilities',

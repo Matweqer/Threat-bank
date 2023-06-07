@@ -1,12 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import { api } from 'api'
-import { IParams, ISfcResponse, MyKnownError, ISfc } from 'shared/types'
+import { ICatalogParams, ISfcResponse, MyKnownError, ISfc } from 'shared/types'
 
 
 export const axiosGetSfc = createAsyncThunk<
 ISfcResponse,
-IParams | null,
+ICatalogParams | null,
 { rejectValue: MyKnownError }
 >(
   'sfc/axiosGetSfc',
@@ -16,7 +16,8 @@ IParams | null,
         params: {
           limit: params.limit,
           ordering: params.ordering,
-          search: params.search
+          search: params.search,
+          ...(params.my ? { related_to_user: true } : {})
         }
       })
     })
@@ -31,7 +32,7 @@ IParams | null,
 
 export const axiosAddSfc = createAsyncThunk<
 ISfcResponse,
-IParams,
+ICatalogParams,
 { rejectValue: MyKnownError }
 >(
   'sfc/axiosAddSfc',
