@@ -1,12 +1,15 @@
-import React, { FC, useEffect } from 'react'
+import React, { FC, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import { Button, ListItem } from 'shared/components'
 import { useAfterFirstRender, useQuerySettings } from 'shared/hooks'
-import { SfcSortTypes } from 'shared/constants'
-import { useAppDispatch, useAppSelector } from 'store'
-import { axiosAddSfc, axiosGetSfc } from 'store/SFC/actions'
+import { ROUTES, SfcSortTypes } from 'shared/constants'
 import { setLimitParam, setSearchParam } from 'shared/utils'
 import { ListLayout } from 'shared/layout'
+
+import { useAppDispatch, useAppSelector } from 'store'
+import { axiosAddSfc, axiosGetSfc } from 'store/SFC/actions'
+import { axiosGetResultVulnService } from 'store/Services/vulnService/actions'
 
 import { breadcrumbs } from './constatns'
 import s from './selectSFCForVuln.module.scss'
@@ -25,6 +28,8 @@ const SelectSfCForVuln: FC = () => {
   } = querySettings
 
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
+  const [selectedItems, setSelectedItems] = useState<number[]>([])
 
   useEffect(() => {
     (async () => {
@@ -37,7 +42,6 @@ const SelectSfCForVuln: FC = () => {
     setLimitParam(limit)
     setSearchParam(search)
   }, [dispatch, limit, search, sortType.value])
-
 
   const {
     results: sfc,
@@ -59,15 +63,21 @@ const SelectSfCForVuln: FC = () => {
 
   const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault()
+    // console.log(selectedItems)
+    dispatch(axiosGetResultVulnService(selectedItems))
+      .then(() => {
+        navigate(ROUTES.serviceVulnResult)
+      })
+      .catch((e) => console.error(e))
+  }
 
-    const selectedSfc: number[] = []
-    const inputs = document.querySelectorAll('form > div > input')
-    inputs.forEach((input) => {
-      if ('checked' in input && 'value' in input && input.checked && input.value) {
-        selectedSfc.push(Number(input.value))
-      }
-    })
-    console.log(selectedSfc)
+  const handleChange = (event: React.ChangeEvent) => {
+    const target = event.target as HTMLInputElement
+    if (!target.checked && selectedItems.includes(Number(target.value))) {
+      selectedItems.splice(selectedItems.indexOf(Number(target.value)), 1)
+      return
+    }
+    if (target.checked) selectedItems.push(Number(target.value))
   }
 
   return (
@@ -94,6 +104,7 @@ const SelectSfCForVuln: FC = () => {
                     id={`checkbox${item.id}`}
                     type='checkbox'
                     value={item.id}
+                    onChange={(event) => handleChange(event)}
                   />
 
                   <label
