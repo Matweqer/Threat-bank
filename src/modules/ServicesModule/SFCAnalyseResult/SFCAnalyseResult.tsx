@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from 'store'
 import { Breadcrumbs, ResultTable, ServiceButton } from 'shared/components'
-import { breadcrumbs, headers } from './contants'
+import { breadcrumbs, headers } from './constants'
 import { axiosGetSfc } from 'store/SFC/actions'
 
 import s from './SFCAnalyseResult.module.scss'

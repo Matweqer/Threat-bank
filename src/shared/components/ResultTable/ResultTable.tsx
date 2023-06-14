@@ -11,28 +11,33 @@ const ResultTable: FC<IResultTableProps> = ({
 }) => {
   return (
     <div className={s.container}>
+      <table className={s.table}>
 
-      <div className={s.headers}>
-        {headers.map((header, index) => (
-            <div key={index} className={s.header}>
-              {header}
-            </div>
-        )
-        )}
-      </div>
+        <thead className={s.headers}>
+        <tr>
+          {headers.map((header, index) => (
+              <th key={index} className={s.header}>
+                 <p>{header}</p>
+              </th>
+          )
+          )}
+        </tr>
+        </thead>
 
-      <div className={s.items}>
+        <tbody className={s.items}>
         {items.map((item, index) => (
-          <div key={index} className={s.item}>
+          <tr key={index} className={s.item}>
             {item.map((value, cellIndex) => (
-              <div key={cellIndex} className={s.cell}>
+              <th key={cellIndex} className={s.cell}>
                 { value }
-              </div>
+              </th>
             ))}
-          </div>
+          </tr>
         ))}
-      </div>
+        </tbody>
+      </table>
     </div>
+
   )
 }
 
