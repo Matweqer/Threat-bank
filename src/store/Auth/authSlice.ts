@@ -4,8 +4,6 @@ import { axiosAuthLogin, axiosAuthRefresh } from './actions'
 import { AuthState } from './types'
 
 
-
-
 const initialState: AuthState = {
   status: null,
   error: null

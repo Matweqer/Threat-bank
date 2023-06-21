@@ -130,7 +130,9 @@ const SfcAnalyse: FC = () => {
                       id={'sfc__input__file'}
                       className={s.input}
                       name={'file'}
-                      onChange={onChangeFile} />
+                      onChange={onChangeFile}
+                      accept={'application/json'}
+                    />
                     <label htmlFor={'sfc__input__file'} className={s.inputButton}>
                       <span><img src={file} alt='file' /></span>
                       <span>Добавить файл</span>

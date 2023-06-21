@@ -63,7 +63,6 @@ const SelectSfCForVuln: FC = () => {
 
   const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault()
-    // console.log(selectedItems)
     dispatch(axiosGetResultVulnService(selectedItems))
       .then(() => {
         navigate(ROUTES.serviceVulnResult)
