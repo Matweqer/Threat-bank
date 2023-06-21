@@ -22,3 +22,11 @@
 .button {
   margin-top: 80px;
 }
+
+
+.nosfc {
+  margin-top: 80px;
+  @include main-font(24px, 600);
+  color: $color-main;
+}
+

@@ -17,7 +17,10 @@ const SfcAnalyseResult: FC = () => {
     })().catch(e => console.log(e))
   }, [dispatch])
 
-  const { sfcService, sfc } = useAppSelector(state => state)
+  const {
+    sfcService,
+    sfc
+  } = useAppSelector(state => state)
   const { result: resultFile } = sfcService
   const { results } = sfc
 
@@ -46,16 +49,21 @@ const SfcAnalyseResult: FC = () => {
 
   return (
     <>
-      <Breadcrumbs breadcrumbs={breadcrumbs}/>
-      <h2 className={s.title} > Сервис анализа СФХ - результат</h2>
-      <div className={s.tableContainer}>
-        {items && <ResultTable headers={ headers } items={items}/> }
-        <ServiceButton
-          buttonTitle={'Сохранить на устройстве'}
-          buttonOnClick={onDownloadHandler}
-          className={s.button}
-        />
-      </div>
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <h2 className={s.title}> Сервис анализа СФХ - результат</h2>
+      {items?.length
+        ? <div className={s.tableContainer}>
+          <ResultTable headers={headers} items={items} />
+
+          <ServiceButton
+            buttonTitle={'Сохранить на устройстве'}
+            buttonOnClick={onDownloadHandler}
+            className={s.button}
+          />
+        </div>
+        : <div className={s.nosfc}>На вашем устройстве не было найдено СФХ</div>
+
+      }
     </>
   )
 }
