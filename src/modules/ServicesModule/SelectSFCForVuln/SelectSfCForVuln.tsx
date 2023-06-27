@@ -115,6 +115,8 @@ const SelectSfCForVuln: FC = () => {
                     name={item.name}
                     type={'SFC'}
                     level={item.criticality_level}
+                    linkTo={`/threats-data-base/SFC/${item.id}`}
+                    openNewTab={true}
                   />
                 </div>
               ))

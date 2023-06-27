@@ -11,13 +11,15 @@ const ListItem: FC<ListItemProps> = ({
   id,
   name,
   type,
-  level
+  level,
+  linkTo,
+  openNewTab
 }) => {
   const getValue = (value: string) => {
     return value.length > 75 ? value.slice(0, 75) + '...' : value
   }
   return (
-      <Link className={s.link} to={id.toString()}>
+      <Link target={openNewTab ? '_blank' : '_self'} className={s.link} to={linkTo ?? id.toString()}>
         <div className={s.color} style={{ background: getColorByLevel(level) }}/>
 
         <div className={s.id}>
