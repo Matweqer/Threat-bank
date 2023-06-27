@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 
 import { headerMenuList } from './constants'
 
@@ -9,6 +9,7 @@ import MenuIcon from 'assets/images/Header/MenuIcon.png'
 import MenuActiveIcon from 'assets/images/Header/MenuActiveItem.png'
 
 import s from './Header.module.scss'
+import { ROUTES } from '../../constants'
 
 
 const Header: FC = () => {
@@ -25,18 +26,18 @@ const Header: FC = () => {
             return (
               <div className={s.menuItem} key={item.id}>
                 <NavLink
-                className={({ isActive }) => (isActive ? s.menuItemActive : '')}
+                  className={({ isActive }) => (isActive ? s.menuItemActive : '')}
                   to={item.link}>
-                    {item.name}
+                  {item.name}
                 </NavLink>
                 {
-                pathname === item.link && (
-                  <div>
-                    <img className={s.menuItemActiveIcon} src={MenuActiveIcon} />
-                  </div>
-                )
-              }
-             </div>
+                  pathname === item.link && (
+                    <div>
+                      <img className={s.menuItemActiveIcon} src={MenuActiveIcon} />
+                    </div>
+                  )
+                }
+              </div>
             )
           })
         }
@@ -47,7 +48,9 @@ const Header: FC = () => {
           <img className={s.iconsHeaderItem} src={LoginIcon}></img>
         </div>
         <div>
-          <img className={s.iconsHeaderItem} src={MenuIcon}></img>
+          <Link to={ROUTES.profile}>
+            <img className={s.iconsHeaderItem} src={MenuIcon}></img>
+          </Link>
         </div>
       </div>
     </header>
