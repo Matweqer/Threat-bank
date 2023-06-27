@@ -17,7 +17,8 @@ ICatalogParams | null,
           limit: params.limit,
           ordering: params.ordering,
           offset: params.offset,
-          search: params.search
+          search: params.search,
+          ...(params.my ? { related_to_user: true } : {})
         }
       })
     })

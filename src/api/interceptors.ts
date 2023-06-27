@@ -9,7 +9,7 @@ import { axiosAuthRefresh } from 'store/Auth/actions'
 const onRequest = async (config: AxiosRequestConfig): Promise<AxiosRequestConfig> => {
   const token = Cookies.get('access')
 
-  if (token && !(config.url?.includes('auth'))) {
+  if (token) {
     const decodedToken: { exp: number } = jwt_decode(token)
     const currentDate = new Date()
 

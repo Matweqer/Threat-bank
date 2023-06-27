@@ -25,6 +25,13 @@ export interface IRefreshResponse {
   refresh: string
 }
 
+export interface IGetUserResponse {
+  pk: number
+  email: string
+  first_name: string
+  last_name: string
+}
+
 export interface MyKnownError {
   errorMessage: string
 }
@@ -32,4 +39,5 @@ export interface MyKnownError {
 export interface AuthState {
   status: string | null
   error: string | null
+  user: IGetUserResponse | null
 }

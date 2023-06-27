@@ -5,6 +5,7 @@ import { breadcrumbs, headers } from './constants'
 import { axiosGetSfc } from 'store/SFC/actions'
 
 import s from './SFCAnalyseResult.module.scss'
+import { getParsedSfc } from '../../../shared/utils/parsers'
 
 const SfcAnalyseResult: FC = () => {
   const dispatch = useAppDispatch()
@@ -25,12 +26,7 @@ const SfcAnalyseResult: FC = () => {
   const { results } = sfc
 
   useEffect(() => {
-    const parsedItems: string[][] = []
-    results.forEach((value, index) => {
-      const cells = [value.name, value.version, value.sfc_type.name]
-      parsedItems.push(cells)
-    })
-    setItems(parsedItems)
+    setItems(getParsedSfc(results))
   }, [results])
 
   const onDownloadHandler = () => {

@@ -1,6 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { api } from 'api'
-import { ILoginRequest, ILoginResponse, IRefreshRequest, IRefreshResponse, MyKnownError } from './types'
+import {
+  IGetUserResponse,
+  ILoginRequest,
+  ILoginResponse,
+  IRefreshRequest,
+  IRefreshResponse,
+  MyKnownError
+} from './types'
 
 
 export const axiosAuthLogin = createAsyncThunk<
@@ -34,3 +41,20 @@ IRefreshRequest,
     return response.data as IRefreshResponse
   }
 )
+
+export const axiosAuthGetUser = createAsyncThunk<
+IGetUserResponse,
+null,
+{ rejectValue: MyKnownError }
+>(
+  'auth/getUser',
+  async (_, thunkApi) => {
+    const response = await api.get('/auth/user')
+    if (response.status >= 400) {
+      return thunkApi.rejectWithValue((response.data) as MyKnownError)
+    }
+
+    return response.data as IGetUserResponse
+  }
+)
+
