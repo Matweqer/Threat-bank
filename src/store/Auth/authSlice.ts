@@ -1,12 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 import Cookies from 'js-cookie'
-import { axiosAuthLogin, axiosAuthRefresh } from './actions'
+import { axiosAuthGetUser, axiosAuthLogin, axiosAuthRefresh } from './actions'
 import { AuthState } from './types'
 
 
 const initialState: AuthState = {
   status: null,
-  error: null
+  error: null,
+  user: null
 }
 
 export const sfcSlice = createSlice({
@@ -53,6 +54,22 @@ export const sfcSlice = createSlice({
       .addCase(axiosAuthRefresh.rejected, (state, action) => {
         Cookies.set('access', '')
         Cookies.set('isAuth', 'false')
+        if (action.payload?.errorMessage) {
+          state.error = action.payload?.errorMessage
+        }
+        state.status = 'rejected'
+      })
+
+    builder
+      .addCase(axiosAuthGetUser.pending, state => {
+        state.error = null
+        state.status = 'loading'
+      })
+      .addCase(axiosAuthGetUser.fulfilled, (state, action) => {
+        state.user = action.payload
+        state.status = 'resolved'
+      })
+      .addCase(axiosAuthGetUser.rejected, (state, action) => {
         if (action.payload?.errorMessage) {
           state.error = action.payload?.errorMessage
         }

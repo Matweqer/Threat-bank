@@ -5,4 +5,6 @@ export interface ListItemProps {
   name: string
   type: ListTypes
   level: string
+  linkTo?: string
+  openNewTab?: boolean
 }

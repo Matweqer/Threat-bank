@@ -20,3 +20,4 @@ export const headers: string[] = [
   'Версия',
   'Тип'
 ]
+

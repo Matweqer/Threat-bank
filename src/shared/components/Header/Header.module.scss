@@ -8,6 +8,10 @@
   height: 70px;
 }
 
+.logo {
+  visibility: hidden;
+}
+
 .menu {
   @include flex-wrap-center;
   margin: 10px 0 0 0;
