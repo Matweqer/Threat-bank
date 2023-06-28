@@ -73,7 +73,9 @@ const Profile: FC = () => {
   }, [dispatch, activeChapterIndex])
 
   useEffect(() => {
-    setCurrentParsedItems(getParsedSfc(sfcItems))
+    if (!sfcItems) return
+    const parsedSfcItems = getParsedSfc(sfcItems)
+    setCurrentParsedItems(parsedSfcItems)
   }, [sfcItems])
 
   return (

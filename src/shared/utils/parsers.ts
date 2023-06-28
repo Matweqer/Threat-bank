@@ -3,12 +3,15 @@ import { ISfc } from '../types'
 export const getParsedSfc = (sfcs: ISfc[]): string[][] => {
   const parsedItems: string[][] = []
   sfcs.forEach((value, index) => {
-    const cells = [value.name, value.version, value.sfc_type.name]
+    const cells = [
+      value.name || '',
+      value.version || '',
+      value.sfc_type.name || '']
     parsedItems.push(cells)
   })
   return parsedItems
 }
-//
+
 // export const getParsedVulns = (vulns: IVulnerability[]): string[][] => {
 //   const parsedItems: string[][] = []
 //
