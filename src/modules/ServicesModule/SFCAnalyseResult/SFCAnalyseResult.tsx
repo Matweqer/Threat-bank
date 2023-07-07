@@ -6,6 +6,7 @@ import { axiosGetSfc } from 'store/SFC/actions'
 
 import s from './SFCAnalyseResult.module.scss'
 import { getParsedSfc } from '../../../shared/utils/parsers'
+import { downloadXlsxData } from '../../../shared/utils'
 
 const SfcAnalyseResult: FC = () => {
   const dispatch = useAppDispatch()
@@ -31,16 +32,7 @@ const SfcAnalyseResult: FC = () => {
 
   const onDownloadHandler = () => {
     if (!resultFile) return
-    const resultFileBlob = new Blob([resultFile], {
-      type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-    })
-    const link = document.createElement('a')
-    link.href = URL.createObjectURL(resultFileBlob)
-    link.style.display = 'none'
-    link.download = 'result'
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
+    downloadXlsxData(resultFile)
   }
 
   return (

@@ -65,7 +65,8 @@ const SelectOwnSfcForVuln: FC = () => {
           )}
         </div>
         <div className={s.items}>
-          {results?.map((item, index) => (
+          {results.length !== 0
+            ? results.map((item, index) => (
             <div key={index} className={s.item}>
               <input
                 name={'checkbox'}
@@ -84,7 +85,8 @@ const SelectOwnSfcForVuln: FC = () => {
               <div className={s.cell}>{item.version}</div>
               <div className={s.cell}>{item.sfc_type.name}</div>
             </div>
-          ))}
+            ))
+            : <div> В вашем профиле не найдено СФХ</div>}
         </div>
         <Button
           type={'submit'}
