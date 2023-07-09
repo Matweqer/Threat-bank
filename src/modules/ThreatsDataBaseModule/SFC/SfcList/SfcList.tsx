@@ -28,6 +28,8 @@ const SfcList: FC = () => {
 
   const { results: sfc, next } = useAppSelector(state => state.sfc)
 
+
+  // TODO добавить функционал получения next к остальным каталогам через изменение offset
   const isAfterFirstRender = useAfterFirstRender()
 
   useEffect(() => {

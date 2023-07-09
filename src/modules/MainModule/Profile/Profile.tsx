@@ -7,7 +7,7 @@ import { getParsedSfc } from 'shared/utils/parsers'
 
 import { chapters, profileSfcHeaders } from './constants'
 import s from './Profile.module.scss'
-import { axiosAuthGetUser } from '../../../store/Auth/actions'
+import { axiosAuthGetUser } from 'store/Auth/actions'
 
 // import { axiosGetVulnerabilities } from 'store/Vulnerabilities/actions'
 // import { axiosGetAttacks } from 'store/Attack/actions'
@@ -121,6 +121,8 @@ const Profile: FC = () => {
         ))}
       </div>
 
+
+      {/*  TODO заменить profileSfcHeaders на что-то универсальное, чтобы таблица поддерживала не только сфх  */}
       <div className={s.tableContainer}>
         {
           currentParsedItems
